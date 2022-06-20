@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661960C28611757008DEC29 /* OnlyFeetApp.swift */; };
-		0661960F28611757008DEC29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661960E28611757008DEC29 /* ContentView.swift */; };
 		0661961128611759008DEC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961028611759008DEC29 /* Assets.xcassets */; };
 		0661961428611759008DEC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961328611759008DEC29 /* Preview Assets.xcassets */; };
 		0661961E28611759008DEC29 /* OnlyFeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661961D28611759008DEC29 /* OnlyFeetTests.swift */; };
 		0661962828611759008DEC29 /* OnlyFeetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661962728611759008DEC29 /* OnlyFeetUITests.swift */; };
 		0661962A28611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */; };
+		0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661963D286136A7008DEC29 /* AuthenticationViewModel.swift */; };
+		06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619640286136CD008DEC29 /* HomeAuthenticationView.swift */; };
+		0661964428613727008DEC29 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964328613727008DEC29 /* View+.swift */; };
+		06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619646286138E3008DEC29 /* AuthenticationCurveShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		0661960928611757008DEC29 /* OnlyFeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlyFeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0661960C28611757008DEC29 /* OnlyFeetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetApp.swift; sourceTree = "<group>"; };
-		0661960E28611757008DEC29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0661961028611759008DEC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0661961328611759008DEC29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0661961928611759008DEC29 /* OnlyFeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlyFeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,11 @@
 		0661962328611759008DEC29 /* OnlyFeetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlyFeetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0661962728611759008DEC29 /* OnlyFeetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetUITests.swift; sourceTree = "<group>"; };
 		0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0661963628613637008DEC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0661963D286136A7008DEC29 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		06619640286136CD008DEC29 /* HomeAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAuthenticationView.swift; sourceTree = "<group>"; };
+		0661964328613727008DEC29 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		06619646286138E3008DEC29 /* AuthenticationCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCurveShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +101,12 @@
 		0661960B28611757008DEC29 /* OnlyFeet */ = {
 			isa = PBXGroup;
 			children = (
+				0661963A28613666008DEC29 /* Extensions & Extras */,
+				0661963728613651008DEC29 /* Model */,
+				066196392861365C008DEC29 /* View */,
+				0661963828613656008DEC29 /* View-Model */,
+				0661963628613637008DEC29 /* Info.plist */,
 				0661960C28611757008DEC29 /* OnlyFeetApp.swift */,
-				0661960E28611757008DEC29 /* ContentView.swift */,
 				0661961028611759008DEC29 /* Assets.xcassets */,
 				0661961228611759008DEC29 /* Preview Content */,
 			);
@@ -125,6 +136,78 @@
 				0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */,
 			);
 			path = OnlyFeetUITests;
+			sourceTree = "<group>";
+		};
+		0661963728613651008DEC29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06619645286138D0008DEC29 /* AuthenticationCurveShape */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0661963828613656008DEC29 /* View-Model */ = {
+			isa = PBXGroup;
+			children = (
+				0661963C2861369D008DEC29 /* AuthenticationViewModel */,
+			);
+			path = "View-Model";
+			sourceTree = "<group>";
+		};
+		066196392861365C008DEC29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0661963B2861368F008DEC29 /* Authentication */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0661963A28613666008DEC29 /* Extensions & Extras */ = {
+			isa = PBXGroup;
+			children = (
+				0661964228613718008DEC29 /* Extensions */,
+			);
+			path = "Extensions & Extras";
+			sourceTree = "<group>";
+		};
+		0661963B2861368F008DEC29 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				0661963F286136BE008DEC29 /* HomeAuthenticationView */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0661963C2861369D008DEC29 /* AuthenticationViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0661963D286136A7008DEC29 /* AuthenticationViewModel.swift */,
+			);
+			path = AuthenticationViewModel;
+			sourceTree = "<group>";
+		};
+		0661963F286136BE008DEC29 /* HomeAuthenticationView */ = {
+			isa = PBXGroup;
+			children = (
+				06619640286136CD008DEC29 /* HomeAuthenticationView.swift */,
+			);
+			path = HomeAuthenticationView;
+			sourceTree = "<group>";
+		};
+		0661964228613718008DEC29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0661964328613727008DEC29 /* View+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		06619645286138D0008DEC29 /* AuthenticationCurveShape */ = {
+			isa = PBXGroup;
+			children = (
+				06619646286138E3008DEC29 /* AuthenticationCurveShape.swift */,
+			);
+			path = AuthenticationCurveShape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0661960F28611757008DEC29 /* ContentView.swift in Sources */,
+				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
+				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
+				0661964428613727008DEC29 /* View+.swift in Sources */,
+				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +506,12 @@
 				DEVELOPMENT_TEAM = T4LCWHVG69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlyFeet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +521,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,11 +536,12 @@
 				DEVELOPMENT_TEAM = T4LCWHVG69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlyFeet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,7 +551,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
