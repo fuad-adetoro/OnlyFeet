@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeAuthenticationView: View {
     var body: some View {
@@ -96,7 +97,7 @@ struct AuthenticationHome: View {
 struct LoginView : View {
     @State var email = ""
     @State var password = ""
-    @Binding var index : Int
+    @Binding var index : Int 
     
     var body: some View{
         ZStack(alignment: .bottom) {

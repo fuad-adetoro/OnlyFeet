@@ -11,23 +11,24 @@
 		0661961128611759008DEC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961028611759008DEC29 /* Assets.xcassets */; };
 		0661961428611759008DEC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961328611759008DEC29 /* Preview Assets.xcassets */; };
 		0661961E28611759008DEC29 /* OnlyFeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661961D28611759008DEC29 /* OnlyFeetTests.swift */; };
-		0661962828611759008DEC29 /* OnlyFeetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661962728611759008DEC29 /* OnlyFeetUITests.swift */; };
-		0661962A28611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */; };
 		0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661963D286136A7008DEC29 /* AuthenticationViewModel.swift */; };
 		06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619640286136CD008DEC29 /* HomeAuthenticationView.swift */; };
 		0661964428613727008DEC29 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964328613727008DEC29 /* View+.swift */; };
 		06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619646286138E3008DEC29 /* AuthenticationCurveShape.swift */; };
+		0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964B2862FDDB008DEC29 /* FeetishGender.swift */; };
+		0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964E2862FE57008DEC29 /* FeetishAccount.swift */; };
+		066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196502863000A008DEC29 /* FeetishAuthentication.swift */; };
+		06619653286301EF008DEC29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06619652286301EE008DEC29 /* GoogleService-Info.plist */; };
+		066196552863021B008DEC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196542863021B008DEC29 /* AppDelegate.swift */; };
+		0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965628633834008DEC29 /* FeetishAuthError.swift */; };
+		0661965B28633B19008DEC29 /* GetCurrentTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */; };
+		0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */; };
+		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
+		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0661961A28611759008DEC29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0661960128611757008DEC29 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0661960828611757008DEC29;
-			remoteInfo = OnlyFeet;
-		};
-		0661962428611759008DEC29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0661960128611757008DEC29 /* Project object */;
 			proxyType = 1;
@@ -43,14 +44,25 @@
 		0661961328611759008DEC29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0661961928611759008DEC29 /* OnlyFeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlyFeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0661961D28611759008DEC29 /* OnlyFeetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetTests.swift; sourceTree = "<group>"; };
-		0661962328611759008DEC29 /* OnlyFeetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlyFeetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0661962728611759008DEC29 /* OnlyFeetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetUITests.swift; sourceTree = "<group>"; };
-		0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0661963628613637008DEC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0661963D286136A7008DEC29 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		06619640286136CD008DEC29 /* HomeAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAuthenticationView.swift; sourceTree = "<group>"; };
 		0661964328613727008DEC29 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		06619646286138E3008DEC29 /* AuthenticationCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCurveShape.swift; sourceTree = "<group>"; };
+		0661964B2862FDDB008DEC29 /* FeetishGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishGender.swift; sourceTree = "<group>"; };
+		0661964E2862FE57008DEC29 /* FeetishAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAccount.swift; sourceTree = "<group>"; };
+		066196502863000A008DEC29 /* FeetishAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthentication.swift; sourceTree = "<group>"; };
+		06619652286301EE008DEC29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		066196542863021B008DEC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0661965628633834008DEC29 /* FeetishAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthError.swift; sourceTree = "<group>"; };
+		0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentTimeInterval.swift; sourceTree = "<group>"; };
+		0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthPublisher.swift; sourceTree = "<group>"; };
+		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
+		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		788EB589C9EC0B5612B85928 /* Pods-OnlyFeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeet.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeet/Pods-OnlyFeet.debug.xcconfig"; sourceTree = "<group>"; };
+		DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3567D8E0C5AB03B7FD4CE1C /* Pods-OnlyFeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeet.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeet/Pods-OnlyFeet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,13 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0661962028611759008DEC29 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +90,9 @@
 			children = (
 				0661960B28611757008DEC29 /* OnlyFeet */,
 				0661961C28611759008DEC29 /* OnlyFeetTests */,
-				0661962628611759008DEC29 /* OnlyFeetUITests */,
 				0661960A28611757008DEC29 /* Products */,
+				562D2D4D733CFB42EAF1CC2F /* Pods */,
+				E3C824CC184B646BB439C44D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +101,6 @@
 			children = (
 				0661960928611757008DEC29 /* OnlyFeet.app */,
 				0661961928611759008DEC29 /* OnlyFeetTests.xctest */,
-				0661962328611759008DEC29 /* OnlyFeetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +114,9 @@
 				0661963828613656008DEC29 /* View-Model */,
 				0661963628613637008DEC29 /* Info.plist */,
 				0661960C28611757008DEC29 /* OnlyFeetApp.swift */,
+				066196542863021B008DEC29 /* AppDelegate.swift */,
 				0661961028611759008DEC29 /* Assets.xcassets */,
+				06619652286301EE008DEC29 /* GoogleService-Info.plist */,
 				0661961228611759008DEC29 /* Preview Content */,
 			);
 			path = OnlyFeet;
@@ -129,18 +138,11 @@
 			path = OnlyFeetTests;
 			sourceTree = "<group>";
 		};
-		0661962628611759008DEC29 /* OnlyFeetUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0661962728611759008DEC29 /* OnlyFeetUITests.swift */,
-				0661962928611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift */,
-			);
-			path = OnlyFeetUITests;
-			sourceTree = "<group>";
-		};
 		0661963728613651008DEC29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				066196492862FDBA008DEC29 /* FeetishAccount */,
+				066196482862FDAE008DEC29 /* FeetishAuthentication */,
 				06619645286138D0008DEC29 /* AuthenticationCurveShape */,
 			);
 			path = Model;
@@ -165,6 +167,7 @@
 		0661963A28613666008DEC29 /* Extensions & Extras */ = {
 			isa = PBXGroup;
 			children = (
+				0661965828633B03008DEC29 /* Extras */,
 				0661964228613718008DEC29 /* Extensions */,
 			);
 			path = "Extensions & Extras";
@@ -210,6 +213,85 @@
 			path = AuthenticationCurveShape;
 			sourceTree = "<group>";
 		};
+		066196482862FDAE008DEC29 /* FeetishAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				0661965D28633BFA008DEC29 /* FeetishAuthError */,
+				0661965C28633BF3008DEC29 /* FeetishAuthPublisher */,
+				066196502863000A008DEC29 /* FeetishAuthentication.swift */,
+			);
+			path = FeetishAuthentication;
+			sourceTree = "<group>";
+		};
+		066196492862FDBA008DEC29 /* FeetishAccount */ = {
+			isa = PBXGroup;
+			children = (
+				0661964E2862FE57008DEC29 /* FeetishAccount.swift */,
+				0661964A2862FDC3008DEC29 /* FeetishGender */,
+			);
+			path = FeetishAccount;
+			sourceTree = "<group>";
+		};
+		0661964A2862FDC3008DEC29 /* FeetishGender */ = {
+			isa = PBXGroup;
+			children = (
+				0661964B2862FDDB008DEC29 /* FeetishGender.swift */,
+			);
+			path = FeetishGender;
+			sourceTree = "<group>";
+		};
+		0661965828633B03008DEC29 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				0661965928633B0A008DEC29 /* GetCurrentTimeInterval */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		0661965928633B0A008DEC29 /* GetCurrentTimeInterval */ = {
+			isa = PBXGroup;
+			children = (
+				0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */,
+			);
+			path = GetCurrentTimeInterval;
+			sourceTree = "<group>";
+		};
+		0661965C28633BF3008DEC29 /* FeetishAuthPublisher */ = {
+			isa = PBXGroup;
+			children = (
+				0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */,
+			);
+			path = FeetishAuthPublisher;
+			sourceTree = "<group>";
+		};
+		0661965D28633BFA008DEC29 /* FeetishAuthError */ = {
+			isa = PBXGroup;
+			children = (
+				0661965628633834008DEC29 /* FeetishAuthError.swift */,
+			);
+			path = FeetishAuthError;
+			sourceTree = "<group>";
+		};
+		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				788EB589C9EC0B5612B85928 /* Pods-OnlyFeet.debug.xcconfig */,
+				E3567D8E0C5AB03B7FD4CE1C /* Pods-OnlyFeet.release.xcconfig */,
+				5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */,
+				2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E3C824CC184B646BB439C44D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */,
+				DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +299,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0661962D28611759008DEC29 /* Build configuration list for PBXNativeTarget "OnlyFeet" */;
 			buildPhases = (
+				5F6104507507C97EDCF1AC28 /* [CP] Check Pods Manifest.lock */,
 				0661960528611757008DEC29 /* Sources */,
 				0661960628611757008DEC29 /* Frameworks */,
 				0661960728611757008DEC29 /* Resources */,
+				D91BE51E8FDB45DB48044727 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0661963028611759008DEC29 /* Build configuration list for PBXNativeTarget "OnlyFeetTests" */;
 			buildPhases = (
+				B6FEBF99897F515A913C002D /* [CP] Check Pods Manifest.lock */,
 				0661961528611759008DEC29 /* Sources */,
 				0661961628611759008DEC29 /* Frameworks */,
 				0661961728611759008DEC29 /* Resources */,
@@ -247,24 +332,6 @@
 			productName = OnlyFeetTests;
 			productReference = 0661961928611759008DEC29 /* OnlyFeetTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0661962228611759008DEC29 /* OnlyFeetUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0661963328611759008DEC29 /* Build configuration list for PBXNativeTarget "OnlyFeetUITests" */;
-			buildPhases = (
-				0661961F28611759008DEC29 /* Sources */,
-				0661962028611759008DEC29 /* Frameworks */,
-				0661962128611759008DEC29 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0661962528611759008DEC29 /* PBXTargetDependency */,
-			);
-			name = OnlyFeetUITests;
-			productName = OnlyFeetUITests;
-			productReference = 0661962328611759008DEC29 /* OnlyFeetUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -280,10 +347,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					0661961828611759008DEC29 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 0661960828611757008DEC29;
-					};
-					0661962228611759008DEC29 = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 0661960828611757008DEC29;
 					};
@@ -304,7 +367,6 @@
 			targets = (
 				0661960828611757008DEC29 /* OnlyFeet */,
 				0661961828611759008DEC29 /* OnlyFeetTests */,
-				0661962228611759008DEC29 /* OnlyFeetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0661961428611759008DEC29 /* Preview Assets.xcassets in Resources */,
+				06619653286301EF008DEC29 /* GoogleService-Info.plist in Resources */,
 				0661961128611759008DEC29 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,25 +389,89 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0661962128611759008DEC29 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F6104507507C97EDCF1AC28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnlyFeet-checkManifestLockResult.txt",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		B6FEBF99897F515A913C002D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnlyFeetTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D91BE51E8FDB45DB48044727 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnlyFeet/Pods-OnlyFeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnlyFeet/Pods-OnlyFeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnlyFeet/Pods-OnlyFeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0661960528611757008DEC29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
+				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
+				0661965B28633B19008DEC29 /* GetCurrentTimeInterval.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
+				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
+				0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */,
+				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
+				0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,15 +483,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0661961F28611759008DEC29 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0661962A28611759008DEC29 /* OnlyFeetUITestsLaunchTests.swift in Sources */,
-				0661962828611759008DEC29 /* OnlyFeetUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -372,11 +490,6 @@
 			isa = PBXTargetDependency;
 			target = 0661960828611757008DEC29 /* OnlyFeet */;
 			targetProxy = 0661961A28611759008DEC29 /* PBXContainerItemProxy */;
-		};
-		0661962528611759008DEC29 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0661960828611757008DEC29 /* OnlyFeet */;
-			targetProxy = 0661962428611759008DEC29 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +610,7 @@
 		};
 		0661962E28611759008DEC29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 788EB589C9EC0B5612B85928 /* Pods-OnlyFeet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -527,6 +641,7 @@
 		};
 		0661962F28611759008DEC29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3567D8E0C5AB03B7FD4CE1C /* Pods-OnlyFeet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -557,6 +672,7 @@
 		};
 		0661963128611759008DEC29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -577,6 +693,7 @@
 		};
 		0661963228611759008DEC29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -592,42 +709,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnlyFeet.app/OnlyFeet";
-			};
-			name = Release;
-		};
-		0661963428611759008DEC29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T4LCWHVG69;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.feetish.OnlyFeetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OnlyFeet;
-			};
-			name = Debug;
-		};
-		0661963528611759008DEC29 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T4LCWHVG69;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.feetish.OnlyFeetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OnlyFeet;
 			};
 			name = Release;
 		};
@@ -657,15 +738,6 @@
 			buildConfigurations = (
 				0661963128611759008DEC29 /* Debug */,
 				0661963228611759008DEC29 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0661963328611759008DEC29 /* Build configuration list for PBXNativeTarget "OnlyFeetUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0661963428611759008DEC29 /* Debug */,
-				0661963528611759008DEC29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
