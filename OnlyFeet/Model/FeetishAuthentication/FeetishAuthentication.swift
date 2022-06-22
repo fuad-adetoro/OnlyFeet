@@ -88,6 +88,7 @@ extension FeetishAuthentication {
         
         Auth.auth().signIn(withEmail: email, password: password) { dataResult, error in
             guard error == nil else {
+                print("ERRO!: \(error!.localizedDescription)")
                 publisher.send(completion: .failure(.signInError(errorMessage: error!.localizedDescription)))
                 return
             }

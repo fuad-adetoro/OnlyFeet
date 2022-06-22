@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum FeetishAuthError: Error {
+public enum FeetishAuthError: Error, Equatable {
     case signInError(errorMessage: String)
     case signOutError(errorMessage: String)
     case resetPasswordError(errorMessage: String)
@@ -17,6 +17,14 @@ public enum FeetishAuthError: Error {
     case accountCreationFailureError(errorMessage: String)
     case accountCreationInitialDataUploadError(errorMessage: String)
     case unknownError
+    
+    case maxWaitTimeReachedError
+    
+    case emailInvalidError
+    case passwordDoesNotMatchError
+    case passwordToShortError
+    
+    case networkError
 }
 
 extension FeetishAuthError: LocalizedError {
@@ -32,8 +40,18 @@ extension FeetishAuthError: LocalizedError {
             return "\(errorMsg)"
         case .accountCreationFailureError(let errorMsg):
             return "\(errorMsg)"
+        case .accountCreationInitialDataUploadError(let errorMsg):
+            return "\(errorMsg)"
+        case .emailInvalidError:
+            return "Email is not valid."
+        case .passwordToShortError:
+            return "Your password is too short."
+        case .passwordDoesNotMatchError:
+            return "Your passwords do not match."
+        case .networkError:
+            return "Check your network and try again."
         default:
-            return "\(self.localizedDescription)"
+            return "Unknown Error"
         }
     }
 }

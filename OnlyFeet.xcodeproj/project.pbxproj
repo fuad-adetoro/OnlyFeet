@@ -23,6 +23,12 @@
 		0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */; };
 		0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966128633DFD008DEC29 /* getCurrentInterval.swift */; };
 		0661966528633E28008DEC29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0661966428633E28008DEC29 /* GoogleService-Info.plist */; };
+		0661966928638D31008DEC29 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966828638D31008DEC29 /* String+.swift */; };
+		0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966C28638FD1008DEC29 /* FeetishBannerData.swift */; };
+		0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966F28638FF3008DEC29 /* FeetishBannerView.swift */; };
+		0661967328639072008DEC29 /* FeetishBannerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661967228639072008DEC29 /* FeetishBannerType.swift */; };
+		06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619675286390CA008DEC29 /* FeetishBannerViewModel.swift */; };
+		066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196782863BD8C008DEC29 /* SystemReachability.swift */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +63,12 @@
 		0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthPublisher.swift; sourceTree = "<group>"; };
 		0661966128633DFD008DEC29 /* getCurrentInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = getCurrentInterval.swift; path = "OnlyFeet/Extensions & Extras/Extras/GetCurrentTimeInterval/getCurrentInterval.swift"; sourceTree = SOURCE_ROOT; };
 		0661966428633E28008DEC29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0661966828638D31008DEC29 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		0661966C28638FD1008DEC29 /* FeetishBannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerData.swift; sourceTree = "<group>"; };
+		0661966F28638FF3008DEC29 /* FeetishBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerView.swift; sourceTree = "<group>"; };
+		0661967228639072008DEC29 /* FeetishBannerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerType.swift; sourceTree = "<group>"; };
+		06619675286390CA008DEC29 /* FeetishBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerViewModel.swift; sourceTree = "<group>"; };
+		066196782863BD8C008DEC29 /* SystemReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemReachability.swift; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,9 +153,10 @@
 		0661963728613651008DEC29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				066196772863BD7B008DEC29 /* SystemReachability */,
+				0661966A28638FB7008DEC29 /* FeetishBanner */,
 				066196492862FDBA008DEC29 /* FeetishAccount */,
 				066196482862FDAE008DEC29 /* FeetishAuthentication */,
-				06619645286138D0008DEC29 /* AuthenticationCurveShape */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 		0661963828613656008DEC29 /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
+				06619674286390A1008DEC29 /* FeetishBannerViewModel */,
 				0661963C2861369D008DEC29 /* AuthenticationViewModel */,
 			);
 			path = "View-Model";
@@ -159,6 +173,7 @@
 		066196392861365C008DEC29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0661966E28638FE7008DEC29 /* FeetishBannerView */,
 				0661963B2861368F008DEC29 /* Authentication */,
 			);
 			path = View;
@@ -176,6 +191,7 @@
 		0661963B2861368F008DEC29 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				06619645286138D0008DEC29 /* AuthenticationCurveShape */,
 				0661963F286136BE008DEC29 /* HomeAuthenticationView */,
 			);
 			path = Authentication;
@@ -200,7 +216,8 @@
 		0661964228613718008DEC29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0661964328613727008DEC29 /* View+.swift */,
+				0661966728638D26008DEC29 /* String+ */,
+				0661966628638D21008DEC29 /* View+ */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,6 +287,71 @@
 				0661966128633DFD008DEC29 /* getCurrentInterval.swift */,
 			);
 			path = GetCurrentTimeInterval;
+			sourceTree = "<group>";
+		};
+		0661966628638D21008DEC29 /* View+ */ = {
+			isa = PBXGroup;
+			children = (
+				0661964328613727008DEC29 /* View+.swift */,
+			);
+			path = "View+";
+			sourceTree = "<group>";
+		};
+		0661966728638D26008DEC29 /* String+ */ = {
+			isa = PBXGroup;
+			children = (
+				0661966828638D31008DEC29 /* String+.swift */,
+			);
+			path = "String+";
+			sourceTree = "<group>";
+		};
+		0661966A28638FB7008DEC29 /* FeetishBanner */ = {
+			isa = PBXGroup;
+			children = (
+				0661967128639046008DEC29 /* FeetishBannerType */,
+				0661966B28638FC3008DEC29 /* FeetishBannerData */,
+			);
+			path = FeetishBanner;
+			sourceTree = "<group>";
+		};
+		0661966B28638FC3008DEC29 /* FeetishBannerData */ = {
+			isa = PBXGroup;
+			children = (
+				0661966C28638FD1008DEC29 /* FeetishBannerData.swift */,
+			);
+			path = FeetishBannerData;
+			sourceTree = "<group>";
+		};
+		0661966E28638FE7008DEC29 /* FeetishBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				0661966F28638FF3008DEC29 /* FeetishBannerView.swift */,
+			);
+			path = FeetishBannerView;
+			sourceTree = "<group>";
+		};
+		0661967128639046008DEC29 /* FeetishBannerType */ = {
+			isa = PBXGroup;
+			children = (
+				0661967228639072008DEC29 /* FeetishBannerType.swift */,
+			);
+			path = FeetishBannerType;
+			sourceTree = "<group>";
+		};
+		06619674286390A1008DEC29 /* FeetishBannerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06619675286390CA008DEC29 /* FeetishBannerViewModel.swift */,
+			);
+			path = FeetishBannerViewModel;
+			sourceTree = "<group>";
+		};
+		066196772863BD7B008DEC29 /* SystemReachability */ = {
+			isa = PBXGroup;
+			children = (
+				066196782863BD8C008DEC29 /* SystemReachability.swift */,
+			);
+			path = SystemReachability;
 			sourceTree = "<group>";
 		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
@@ -462,14 +544,20 @@
 			files = (
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
+				0661967328639072008DEC29 /* FeetishBannerType.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
+				0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
+				0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
+				066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
+				06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */,
 				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */,
+				0661966928638D31008DEC29 /* String+.swift in Sources */,
 				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
 				0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */,
 			);

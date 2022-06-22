@@ -11,6 +11,8 @@ import Combine
 struct HomeAuthenticationView: View {
     @ObservedObject var viewModel = AuthenticationViewModel()
     
+    @ObservedObject private var bannerViewModel = FeetishBannerViewModel.shared
+    
     var body: some View {
         ZStack {
             AuthenticationHome()
@@ -18,6 +20,14 @@ struct HomeAuthenticationView: View {
                 .environmentObject(viewModel)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
+        .onChange(of: viewModel.didErrorOccur) { hasError in
+            if hasError {
+                withAnimation {
+                    self.bannerViewModel.loadNewBanner(bannerData: .init(title: nil, message: viewModel.feetishAuthError?.errorDescription ?? FeetishAuthError.unknownError.localizedDescription, bannerError: viewModel.feetishAuthError ?? .unknownError))
+                }
+            }
+        }
     }
 }
 
@@ -102,11 +112,13 @@ struct AuthenticationHome: View {
 }
 
 struct LoginView : View {
-    @State var email = ""
-    @State var password = ""
+    @State private var email = ""
+    @State private var password = ""
     @Binding var index : Int
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    
+    @State private var isLoginButtonDisabled = true
     
     var body: some View{
         ZStack(alignment: .bottom) {
@@ -133,6 +145,7 @@ struct LoginView : View {
                         .foregroundColor(Color("LoginColor2"))
                         
                         TextField("Email Address or Username", text: self.$email)
+                            .disableAutocorrection(true)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -161,6 +174,7 @@ struct LoginView : View {
                     }) {
                         Text("Forgot Password?")
                             .foregroundColor(Color.white.opacity(0.6))
+                            .underline()
                     }
                 }
                 .padding(.horizontal)
@@ -187,12 +201,27 @@ struct LoginView : View {
                     .fontWeight(.bold)
                     .padding(.vertical)
                     .padding(.horizontal, 50)
-                    .background(Color("LoginColor2"))
+                    .background(Color("LoginColor2").opacity(isLoginButtonDisabled ? 0.5 : 1))
                     .clipShape(Capsule())
                     .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
             } 
             .offset(y: 25)
             .opacity(self.index == 0 ? 1 : 0)
+            .disabled(isLoginButtonDisabled)
+        }
+        .onChange(of: email) { newValue in
+            if !newValue.isEmpty && !self.password.isEmpty {
+                self.isLoginButtonDisabled = false
+            } else {
+                self.isLoginButtonDisabled = true
+            }
+        }
+        .onChange(of: password) { newValue in
+            if !newValue.isEmpty && !self.email.isEmpty {
+                self.isLoginButtonDisabled = false
+            } else {
+                self.isLoginButtonDisabled = true
+            }
         }
     }
 }
@@ -208,6 +237,8 @@ struct SignUpView : View {
     @FocusState private var confirmPasswordIsFocused: Bool
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    
+    @State private var isRegistrationButtonDisabled = true
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -235,6 +266,7 @@ struct SignUpView : View {
                         
                         TextField("Email Address", text: self.$email)
                             .focused($emailIsFocused)
+                            .disableAutocorrection(true)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -300,18 +332,40 @@ struct SignUpView : View {
                     .fontWeight(.bold)
                     .padding(.vertical)
                     .padding(.horizontal, 50)
-                    .background(Color("LoginColor2"))
+                    .background(Color("LoginColor2").opacity(isRegistrationButtonDisabled ? 0.5 : 1))
                     .clipShape(Capsule())
                     .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
             }
             .offset(y: 25)
             .opacity(self.index == 1 ? 1 : 0)
+            .disabled(isRegistrationButtonDisabled)
         }
         .onTapGesture {
             print("TAPPED!")
             self.emailIsFocused = false
             self.passwordIsFocused = false
             self.confirmPasswordIsFocused = false
+        }
+        .onChange(of: email) { newValue in
+            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
+                self.isRegistrationButtonDisabled = false
+            } else {
+                self.isRegistrationButtonDisabled = true
+            }
+        }
+        .onChange(of: password) { newValue in
+            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
+                self.isRegistrationButtonDisabled = false
+            } else {
+                self.isRegistrationButtonDisabled = true
+            }
+        }
+        .onChange(of: confirmPassword) { newValue in
+            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
+                self.isRegistrationButtonDisabled = false
+            } else {
+                self.isRegistrationButtonDisabled = true
+            }
         }
     }
 }
