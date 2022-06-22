@@ -18,11 +18,11 @@
 		0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964B2862FDDB008DEC29 /* FeetishGender.swift */; };
 		0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661964E2862FE57008DEC29 /* FeetishAccount.swift */; };
 		066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196502863000A008DEC29 /* FeetishAuthentication.swift */; };
-		06619653286301EF008DEC29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06619652286301EE008DEC29 /* GoogleService-Info.plist */; };
 		066196552863021B008DEC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196542863021B008DEC29 /* AppDelegate.swift */; };
 		0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965628633834008DEC29 /* FeetishAuthError.swift */; };
-		0661965B28633B19008DEC29 /* GetCurrentTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */; };
 		0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */; };
+		0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966128633DFD008DEC29 /* getCurrentInterval.swift */; };
+		0661966528633E28008DEC29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0661966428633E28008DEC29 /* GoogleService-Info.plist */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,11 +52,11 @@
 		0661964B2862FDDB008DEC29 /* FeetishGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishGender.swift; sourceTree = "<group>"; };
 		0661964E2862FE57008DEC29 /* FeetishAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAccount.swift; sourceTree = "<group>"; };
 		066196502863000A008DEC29 /* FeetishAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthentication.swift; sourceTree = "<group>"; };
-		06619652286301EE008DEC29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		066196542863021B008DEC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0661965628633834008DEC29 /* FeetishAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthError.swift; sourceTree = "<group>"; };
-		0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentTimeInterval.swift; sourceTree = "<group>"; };
 		0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthPublisher.swift; sourceTree = "<group>"; };
+		0661966128633DFD008DEC29 /* getCurrentInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = getCurrentInterval.swift; path = "OnlyFeet/Extensions & Extras/Extras/GetCurrentTimeInterval/getCurrentInterval.swift"; sourceTree = SOURCE_ROOT; };
+		0661966428633E28008DEC29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				0661960C28611757008DEC29 /* OnlyFeetApp.swift */,
 				066196542863021B008DEC29 /* AppDelegate.swift */,
 				0661961028611759008DEC29 /* Assets.xcassets */,
-				06619652286301EE008DEC29 /* GoogleService-Info.plist */,
+				0661966428633E28008DEC29 /* GoogleService-Info.plist */,
 				0661961228611759008DEC29 /* Preview Content */,
 			);
 			path = OnlyFeet;
@@ -167,7 +167,7 @@
 		0661963A28613666008DEC29 /* Extensions & Extras */ = {
 			isa = PBXGroup;
 			children = (
-				0661965828633B03008DEC29 /* Extras */,
+				0661966028633DF0008DEC29 /* Extras */,
 				0661964228613718008DEC29 /* Extensions */,
 			);
 			path = "Extensions & Extras";
@@ -240,22 +240,6 @@
 			path = FeetishGender;
 			sourceTree = "<group>";
 		};
-		0661965828633B03008DEC29 /* Extras */ = {
-			isa = PBXGroup;
-			children = (
-				0661965928633B0A008DEC29 /* GetCurrentTimeInterval */,
-			);
-			path = Extras;
-			sourceTree = "<group>";
-		};
-		0661965928633B0A008DEC29 /* GetCurrentTimeInterval */ = {
-			isa = PBXGroup;
-			children = (
-				0661965A28633B19008DEC29 /* GetCurrentTimeInterval.swift */,
-			);
-			path = GetCurrentTimeInterval;
-			sourceTree = "<group>";
-		};
 		0661965C28633BF3008DEC29 /* FeetishAuthPublisher */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +254,22 @@
 				0661965628633834008DEC29 /* FeetishAuthError.swift */,
 			);
 			path = FeetishAuthError;
+			sourceTree = "<group>";
+		};
+		0661966028633DF0008DEC29 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				0661966328633E08008DEC29 /* GetCurrentTimeInterval */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		0661966328633E08008DEC29 /* GetCurrentTimeInterval */ = {
+			isa = PBXGroup;
+			children = (
+				0661966128633DFD008DEC29 /* getCurrentInterval.swift */,
+			);
+			path = GetCurrentTimeInterval;
 			sourceTree = "<group>";
 		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
@@ -377,7 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0661961428611759008DEC29 /* Preview Assets.xcassets in Resources */,
-				06619653286301EF008DEC29 /* GoogleService-Info.plist in Resources */,
+				0661966528633E28008DEC29 /* GoogleService-Info.plist in Resources */,
 				0661961128611759008DEC29 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,10 +464,10 @@
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
-				0661965B28633B19008DEC29 /* GetCurrentTimeInterval.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
+				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */,
 				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
