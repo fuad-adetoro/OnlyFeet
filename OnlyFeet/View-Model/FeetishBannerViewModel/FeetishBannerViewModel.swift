@@ -42,7 +42,7 @@ public class FeetishBannerViewModel: ObservableObject, FeetishBannerBased {
         }
     }
     
-    private func resumeRemovalTimer() {
+    public func resumeRemovalTimer() {
         currentBannerTime = 0
         isTimeTicking = true 
         

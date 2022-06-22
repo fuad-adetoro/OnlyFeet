@@ -26,9 +26,12 @@
 		0661966928638D31008DEC29 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966828638D31008DEC29 /* String+.swift */; };
 		0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966C28638FD1008DEC29 /* FeetishBannerData.swift */; };
 		0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966F28638FF3008DEC29 /* FeetishBannerView.swift */; };
-		0661967328639072008DEC29 /* FeetishBannerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661967228639072008DEC29 /* FeetishBannerType.swift */; };
 		06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06619675286390CA008DEC29 /* FeetishBannerViewModel.swift */; };
 		066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196782863BD8C008DEC29 /* SystemReachability.swift */; };
+		0661967E2863C3DF008DEC29 /* FeetishAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661967D2863C3DF008DEC29 /* FeetishAccountTests.swift */; };
+		066196812863C613008DEC29 /* FeetishBannerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196802863C613008DEC29 /* FeetishBannerViewModelTests.swift */; };
+		066196842863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */; };
+		0661968C2863D77D008DEC29 /* AuthenticationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,9 +69,12 @@
 		0661966828638D31008DEC29 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		0661966C28638FD1008DEC29 /* FeetishBannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerData.swift; sourceTree = "<group>"; };
 		0661966F28638FF3008DEC29 /* FeetishBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerView.swift; sourceTree = "<group>"; };
-		0661967228639072008DEC29 /* FeetishBannerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerType.swift; sourceTree = "<group>"; };
 		06619675286390CA008DEC29 /* FeetishBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerViewModel.swift; sourceTree = "<group>"; };
 		066196782863BD8C008DEC29 /* SystemReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemReachability.swift; sourceTree = "<group>"; };
+		0661967D2863C3DF008DEC29 /* FeetishAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAccountTests.swift; sourceTree = "<group>"; };
+		066196802863C613008DEC29 /* FeetishBannerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerViewModelTests.swift; sourceTree = "<group>"; };
+		066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthenticationServiceTests.swift; sourceTree = "<group>"; };
+		0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelTests.swift; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +151,10 @@
 		0661961C28611759008DEC29 /* OnlyFeetTests */ = {
 			isa = PBXGroup;
 			children = (
+				0661968A2863D76C008DEC29 /* AuthenticationVIewModelTests */,
+				066196822863C6AE008DEC29 /* FeetishAuthenticationServiceTests */,
+				0661967F2863C600008DEC29 /* FeetishBannerViewModelTests */,
+				0661967A2863C3BB008DEC29 /* FeetishAccountTests */,
 				0661961D28611759008DEC29 /* OnlyFeetTests.swift */,
 			);
 			path = OnlyFeetTests;
@@ -308,7 +318,6 @@
 		0661966A28638FB7008DEC29 /* FeetishBanner */ = {
 			isa = PBXGroup;
 			children = (
-				0661967128639046008DEC29 /* FeetishBannerType */,
 				0661966B28638FC3008DEC29 /* FeetishBannerData */,
 			);
 			path = FeetishBanner;
@@ -330,14 +339,6 @@
 			path = FeetishBannerView;
 			sourceTree = "<group>";
 		};
-		0661967128639046008DEC29 /* FeetishBannerType */ = {
-			isa = PBXGroup;
-			children = (
-				0661967228639072008DEC29 /* FeetishBannerType.swift */,
-			);
-			path = FeetishBannerType;
-			sourceTree = "<group>";
-		};
 		06619674286390A1008DEC29 /* FeetishBannerViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +353,38 @@
 				066196782863BD8C008DEC29 /* SystemReachability.swift */,
 			);
 			path = SystemReachability;
+			sourceTree = "<group>";
+		};
+		0661967A2863C3BB008DEC29 /* FeetishAccountTests */ = {
+			isa = PBXGroup;
+			children = (
+				0661967D2863C3DF008DEC29 /* FeetishAccountTests.swift */,
+			);
+			path = FeetishAccountTests;
+			sourceTree = "<group>";
+		};
+		0661967F2863C600008DEC29 /* FeetishBannerViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				066196802863C613008DEC29 /* FeetishBannerViewModelTests.swift */,
+			);
+			path = FeetishBannerViewModelTests;
+			sourceTree = "<group>";
+		};
+		066196822863C6AE008DEC29 /* FeetishAuthenticationServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */,
+			);
+			path = FeetishAuthenticationServiceTests;
+			sourceTree = "<group>";
+		};
+		0661968A2863D76C008DEC29 /* AuthenticationVIewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */,
+			);
+			path = AuthenticationVIewModelTests;
 			sourceTree = "<group>";
 		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
@@ -544,7 +577,6 @@
 			files = (
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
-				0661967328639072008DEC29 /* FeetishBannerType.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
 				0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */,
@@ -567,7 +599,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0661967E2863C3DF008DEC29 /* FeetishAccountTests.swift in Sources */,
+				066196812863C613008DEC29 /* FeetishBannerViewModelTests.swift in Sources */,
 				0661961E28611759008DEC29 /* OnlyFeetTests.swift in Sources */,
+				066196842863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift in Sources */,
+				0661968C2863D77D008DEC29 /* AuthenticationViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

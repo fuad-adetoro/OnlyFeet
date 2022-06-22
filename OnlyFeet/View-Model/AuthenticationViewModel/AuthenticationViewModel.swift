@@ -40,7 +40,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
             self.throwError(error: .passwordToShortError); return
         }
         
-        if SystemReachability.isConnectedToNetwork() {
+        if !SystemReachability.isConnectedToNetwork() {
             self.throwError(error: .networkError); return
         }
         
@@ -87,7 +87,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
             self.throwError(error: .passwordToShortError); return
         }
         
-        if SystemReachability.isConnectedToNetwork() {
+        if !SystemReachability.isConnectedToNetwork() {
             self.throwError(error: .networkError); return
         }
         
