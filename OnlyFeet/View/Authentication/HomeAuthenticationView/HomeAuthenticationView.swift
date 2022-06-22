@@ -9,10 +9,13 @@ import SwiftUI
 import Combine
 
 struct HomeAuthenticationView: View {
+    @ObservedObject var viewModel = AuthenticationViewModel()
+    
     var body: some View {
         ZStack {
             AuthenticationHome()
                 .preferredColorScheme(.dark)
+                .environmentObject(viewModel)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -26,6 +29,8 @@ struct FeetishMainLoginView_Previews: PreviewProvider {
 
 struct AuthenticationHome: View {
     @State var index = 0
+    
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
     var body: some View{
         GeometryReader{ geometry in
@@ -43,8 +48,10 @@ struct AuthenticationHome: View {
                         
                         SignUpView(index: self.$index)
                             .zIndex(Double(self.index))
+                            .environmentObject(viewModel)
                         
                         LoginView(index: self.$index)
+                            .environmentObject(viewModel)
 
                     }
                     
@@ -97,7 +104,9 @@ struct AuthenticationHome: View {
 struct LoginView : View {
     @State var email = ""
     @State var password = ""
-    @Binding var index : Int 
+    @Binding var index : Int
+    
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
     var body: some View{
         ZStack(alignment: .bottom) {
@@ -170,7 +179,7 @@ struct LoginView : View {
             .padding(.horizontal,20)
             
             Button(action: {
-                print("LOGIN CLICKED!") 
+                viewModel.signUserIn(email: email, password: password)
             }) {
                 
                 Text("LOGIN")
@@ -197,6 +206,8 @@ struct SignUpView : View {
     @FocusState private var emailIsFocused: Bool
     @FocusState private var passwordIsFocused: Bool
     @FocusState private var confirmPasswordIsFocused: Bool
+    
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -282,6 +293,7 @@ struct SignUpView : View {
                 self.passwordIsFocused = false
                 self.confirmPasswordIsFocused = false
                 
+                viewModel.createAccount(email: email, password: password, confirmedPassword: confirmPassword)
             }) {
                 Text("REGISTER")
                     .foregroundColor(.white)

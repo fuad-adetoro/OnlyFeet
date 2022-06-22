@@ -19,17 +19,20 @@ struct OnlyFeetApp: App {
         WindowGroup {
             HomeAuthenticationView()
                 .onAppear {
-                    let publisher = FeetishAuthentication.shared.signUserOut()
+                    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(4)) {
+                        let publisher = FeetishAuthentication.shared.signUserOut()
+                        
+                        publisher
+                            .subscribe(on: DispatchQueue.global(qos: .background))
+                            .receive(on: DispatchQueue.main)
+                            .sink { completion in
+                                print("COMPLETED WITH: \(completion)")
+                            } receiveValue: { value in
+                                print("SIGNED OUT?: \(value)")
+                            }
+                            .store(in: &testSubscriptions)
+                    }
                     
-                    publisher
-                        .subscribe(on: DispatchQueue.global(qos: .background))
-                        .receive(on: DispatchQueue.main)
-                        .sink { completion in
-                            print("COMPLETED WITH: \(completion)")
-                        } receiveValue: { value in
-                            print("SIGNED OUT?: \(value)")
-                        }
-                        .store(in: &testSubscriptions)
 
                 }
         }

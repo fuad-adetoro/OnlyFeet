@@ -30,7 +30,7 @@ extension FeetishAuthentication {
             
             publisher.send(true)
             publisher.send(completion: .finished)
-        } catch let error {
+        } catch let error { 
             publisher.send(completion: .failure(FeetishAuthError.signOutError(errorMessage: error.localizedDescription)))
         }
         
@@ -117,8 +117,8 @@ extension FeetishAuthentication {
         return feetishAuthDataPublisher.eraseToAnyPublisher()
     }
     
-    func createNewAccount(email: String, password: String) -> AnyPublisher<Bool, FeetishAuthError> {
-        let publisher = feetishAuthPublisher.publisher
+    func createNewAccount(email: String, password: String) -> AnyPublisher<AuthDataDict, FeetishAuthError> {
+        let publisher = feetishAuthDataPublisher.publisher
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             guard error == nil else {
@@ -143,11 +143,11 @@ extension FeetishAuthentication {
                     return
                 }
                 
-                publisher.send(true)
+                publisher.send(dataDict)
                 publisher.send(completion: .finished)
             }
         }
         
-        return feetishAuthPublisher.eraseToAnyPublisher()
+        return feetishAuthDataPublisher.eraseToAnyPublisher()
     }
 }

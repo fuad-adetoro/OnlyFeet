@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct FeetishAccount: Codable {
+public struct FeetishAccount {
     var profilePictureURL: String?
     var name: String?
     var biograph: String?
@@ -15,40 +15,39 @@ public struct FeetishAccount: Codable {
     var userID: String?
     var email: String?
     var dateOfBirth: String?
+    var dateCreated: Double?
     
-    public init(from decoder: Decoder) throws {
-        let valuesInContainer = try decoder.container(keyedBy: CodingKeys.self)
-        
-        if let profilePictureURLRaw = try? valuesInContainer.decode(String.self, forKey: .profilePictureURL) {
-            profilePictureURL = profilePictureURLRaw
+    public init(dataDict: [String: Any?]) {
+        if let profilePictureURL = dataDict["profilePictureURL"] as? String {
+            self.profilePictureURL = profilePictureURL
         }
         
-        if let nameRaw = try? valuesInContainer.decode(String.self, forKey: .name) {
-            name = nameRaw
+        if let email = dataDict["email"] as? String {
+            self.email = email
         }
         
-        if let biographRaw = try? valuesInContainer.decode(String.self, forKey: .biograph) {
-            biograph = biographRaw
+        if let name = dataDict["name"] as? String {
+            self.name = name
         }
         
-        if let usernameRaw = try? valuesInContainer.decode(String.self, forKey: .username) {
-            username = usernameRaw
+        if let biograph = dataDict["biograph"] as? String {
+            self.biograph = biograph
         }
         
-        if let profilePictureURLRaw = try? valuesInContainer.decode(String.self, forKey: .profilePictureURL) {
-            profilePictureURL = profilePictureURLRaw
+        if let username = dataDict["username"] as? String {
+            self.username = username
         }
         
-        if let userIDRaw = try? valuesInContainer.decode(String.self, forKey: .userID) {
-            userID = userIDRaw
+        if let userID = dataDict["userID"] as? String {
+            self.userID = userID
         }
         
-        if let emailRaw = try? valuesInContainer.decode(String.self, forKey: .email) {
-            email = emailRaw
+        if let dateOfBirth = dataDict["dateOfBirth"] as? String {
+            self.dateOfBirth = dateOfBirth
         }
         
-        if let dateOfBirthRaw = try? valuesInContainer.decode(String.self, forKey: .dateOfBirth) {
-            dateOfBirth = dateOfBirthRaw
+        if let dateCreated = dataDict["dateCreated"] as? Double {
+            self.dateCreated = dateCreated
         }
     }
 }
