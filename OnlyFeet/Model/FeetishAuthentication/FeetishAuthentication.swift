@@ -9,9 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
-public final class FeetishAuthentication {
-    static let shared = FeetishAuthentication()
-    
+public final class FeetishAuthentication { 
     let databaseRef = Firestore.firestore()
     
     typealias AuthDataDict = [String: Any]

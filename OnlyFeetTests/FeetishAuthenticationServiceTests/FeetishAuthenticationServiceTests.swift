@@ -17,7 +17,7 @@ class FeetishAuthenticationServiceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.feetishAuthentication = FeetishAuthentication.shared
+        self.feetishAuthentication = FeetishAuthentication()
         cancellables = []
     }
     
@@ -43,8 +43,62 @@ class FeetishAuthenticationServiceTests: XCTestCase {
                     
                     XCTAssertNotNil(error)
                 }
+                
+                XCTAssertNil(error)
             } receiveValue: { account in
                 feetishAccount = account
+                
+                XCTAssertEqual(feetishAccount?.email, email)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func testResetPassword() throws {
+        let email: String? = "newaccount1@gmail.com"
+        
+        var error: FeetishAuthError?
+        
+        self.feetishAuthentication.resetUserPassword(email: email!)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break;
+                case .failure(let failureError):
+                    error = failureError
+                    
+                    XCTAssertNotNil(error)
+                }
+                
+                XCTAssertNil(error)
+            } receiveValue: { didReset in
+                XCTAssertEqual(didReset, true)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func testUserSignUpAndMap() throws {
+        let random = "".randomString(length: 12)
+        let email: String? = "\(random)@feetish.com"
+        let password = "123456"
+        
+        var error: FeetishAuthError?
+        var feetishAccount: FeetishAccount?
+        
+        self.feetishAuthentication.createNewAccount(email: email!, password: password)
+            .map { FeetishAccount(dataDict: $0) }
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break;
+                case .failure(let failureError):
+                    error = failureError
+                    
+                    XCTAssertNotNil(error)
+                }
+                
+                XCTAssertNil(error)
+            } receiveValue: { user in
+                feetishAccount = user
                 
                 XCTAssertEqual(feetishAccount?.email, email)
             }
