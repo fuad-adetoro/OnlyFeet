@@ -113,3 +113,48 @@ struct ForgotPasswordHeaderView : View {
         }
     }
 }
+
+struct PasswordResetConfirmationView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            HStack {
+                Spacer()
+                
+                ZStack {
+                    RoundedRectangle.init(cornerRadius: 10)
+                        .fill(Color.white)
+                        .frame(width: 160, height: 120)
+                    
+                    RoundedRectangle.init(cornerRadius: 10)
+                        .fill(Color.green)
+                        .frame(width: 158, height: 118)
+                    
+                    VStack {
+                        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Image.init(systemName: "mail")
+                            
+                            Spacer().frame(width: 10)
+                            
+                            Text("Check your mail.")
+                            
+                            Spacer()
+                        }
+                        
+                        Spacer()
+                    }
+                }
+                .frame(width: 160, height: 120)
+                
+                Spacer()
+            }
+            
+            Spacer()
+        }
+    }
+}

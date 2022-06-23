@@ -25,10 +25,15 @@ struct HomeAuthenticationView: View {
                 
                 if isLoading {
                     FeetishBasicLoaderView(baseColor: .constant(.black), borderColor: .constant(.white), loadingText: .constant("Loading"))
-                }
+                } 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
+            .onChange(of: viewModel.didResetPassword, perform: { newValue in
+                if newValue {
+                    self.bannerViewModel.loadNewBanner(bannerData: .init(title: "Success", message: "Please check your email.", bannerError: nil))
+                }
+            })
             .onChange(of: viewModel.isChanging, perform: { newValue in
                 withAnimation {
                     self.isLoading = newValue
@@ -136,8 +141,14 @@ struct AuthenticationHome: View {
         )
         .onChange(of: viewModel.didResetPassword) { newValue in
             if newValue {
-                withAnimation {
-                    self.isShowingForgottenPasswordView = false
+                DispatchQueue.main.async {
+                    withAnimation {
+                        self.isShowingForgottenPasswordView = false
+                    }
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+                    viewModel.didResetPassword = false
                 }
             }
         }

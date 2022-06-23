@@ -42,7 +42,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication.shared.signUserIn(email: email, password: password)
+        FeetishAuthentication().signUserIn(email: email, password: password)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
@@ -79,7 +79,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication.shared.createNewAccount(email: email, password: password)
+        FeetishAuthentication().createNewAccount(email: email, password: password)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest + 2.5), scheduler: DispatchQueue.main, options: nil, customError: {
@@ -117,12 +117,13 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication.shared.resetUserPassword(email: email)
+        FeetishAuthentication().resetUserPassword(email: email)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
                 FeetishAuthError.maxWaitTimeReachedError
             })
+            .print("Specific to password recovery")
             .sink { [unowned self] completion in
                 isChanging = false
                 

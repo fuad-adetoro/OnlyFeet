@@ -42,6 +42,7 @@ extension FeetishAuthentication {
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             guard error == nil else {
+                print("ERROR: \(error)")
                 publisher.send(completion: .failure(.resetPasswordError(errorMessage: error!.localizedDescription)))
                 return
             }
@@ -119,7 +120,9 @@ extension FeetishAuthentication {
     }
     
     func createNewAccount(email: String, password: String) -> AnyPublisher<AuthDataDict, FeetishAuthError> {
-        let publisher = feetishAuthDataPublisher.publisher
+        //let publisher = feetishAuthDataPublisher.publisher
+        let feetishAuthDataPublisherrrr = FeetishAuthPublisher<AuthDataDict>()
+        let publisher = feetishAuthDataPublisherrrr.publisher
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             guard error == nil else {

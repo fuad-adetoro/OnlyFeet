@@ -28,37 +28,35 @@ struct FeetishBannerView: ViewModifier {
                             }*/
                             
                             HStack {
-                                if let _ = self.model?.bannerError as? FeetishAuthError {
-                                    Spacer()
-                                    
-                                    VStack {
-                                        if let title = self.model?.title, let errorMessage = self.model?.message {
-                                            Text(title)
-                                                .font(.headline)
-                                            Text(errorMessage)
-                                                .font(.subheadline)
-                                                .multilineTextAlignment(.center)
-                                        } else if let title = self.model?.title {
-                                            Text(title)
-                                                .font(.headline)
-                                        } else if let errorMessage = self.model?.message {
-                                            Text(errorMessage)
-                                                .font(.headline)
-                                                .multilineTextAlignment(.center)
-                                        } else {
-                                            Text("Something went wrong!")
-                                                .font(.headline)
-                                        }
+                                Spacer()
+                                
+                                VStack {
+                                    if let title = self.model?.title, let errorMessage = self.model?.message {
+                                        Text(title)
+                                            .font(.headline)
+                                        Text(errorMessage)
+                                            .font(.subheadline)
+                                            .multilineTextAlignment(.center)
+                                    } else if let title = self.model?.title {
+                                        Text(title)
+                                            .font(.headline)
+                                    } else if let errorMessage = self.model?.message {
+                                        Text(errorMessage)
+                                            .font(.headline)
+                                            .multilineTextAlignment(.center)
+                                    } else {
+                                        Text("Something went wrong!")
+                                            .font(.headline)
                                     }
-                                    
-                                    Spacer()
                                 }
+                                
+                                Spacer()
                             }
                         }
                         .padding()
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .foregroundColor(.white)
-                        .background(Color.red)
+                        .background((self.model?.bannerError) == nil ? Color.green : Color.red)
                         .cornerRadius(10)
                         .shadow(radius: 10)
                         .offset(x: 0, y: offset.height)
