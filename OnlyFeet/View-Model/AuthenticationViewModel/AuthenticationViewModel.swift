@@ -11,6 +11,7 @@ import Combine
 public protocol AuthenticationBased {
     func signUserIn(email: String, password: String)
     func createAccount(email: String, password: String, confirmedPassword: String)
+    func sendPasswordRecovery(email: String)
 }
 
 public final class AuthenticationViewModel: ObservableObject, AuthenticationBased {
@@ -26,22 +27,17 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
     
     @Published var didErrorOccur = false
     @Published var didFetchAccount = false
+    @Published var didResetPassword = false
     
     var subscriptions = Set<AnyCancellable>()
 
     public func signUserIn(email: String, password: String) {
         if isChanging { return }
         
-        if !email.isValidEmail() {
-            self.throwError(error: .emailInvalidError); return
-        }
+        let doesThrowError = self.throwErrorIfValueInvalid(password: password, email: email)
         
-        if password.count < 6 {
-            self.throwError(error: .passwordToShortError); return
-        }
-        
-        if !SystemReachability.isConnectedToNetwork() {
-            self.throwError(error: .networkError); return
+        if doesThrowError {
+            return
         }
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
@@ -75,20 +71,10 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
     public func createAccount(email: String, password: String, confirmedPassword: String) {
         if self.isChanging { return }
         
-        if !email.isValidEmail() {
-            self.throwError(error: .emailInvalidError); return
-        }
+        let doesThrowError = self.throwErrorIfValueInvalid(password: password, confirmPassword: confirmedPassword, email: email)
         
-        if password != confirmedPassword {
-            self.throwError(error: .passwordDoesNotMatchError); return
-        }
-        
-        if password.count < 6 {
-            self.throwError(error: .passwordToShortError); return
-        }
-        
-        if !SystemReachability.isConnectedToNetwork() {
-            self.throwError(error: .networkError); return
+        if doesThrowError {
+            return
         }
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
@@ -120,7 +106,73 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
             
     }
     
+    public func sendPasswordRecovery(email: String) {
+        if self.isChanging { return }
+        
+        let doesThrowError = self.throwErrorIfValueInvalid(email: email)
+        
+        if doesThrowError {
+            return
+        }
+        
+        isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
+        
+        FeetishAuthentication.shared.resetUserPassword(email: email)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
+                FeetishAuthError.maxWaitTimeReachedError
+            })
+            .sink { [unowned self] completion in
+                isChanging = false
+                
+                switch completion {
+                case .failure(let error):
+                    self.feetishAuthError = error
+                    self.didErrorOccur = true
+                    self.didResetPassword = false
+                default:
+                    print("DO NOTHING")
+                }
+            } receiveValue: { [unowned self] _ in
+                self.didResetPassword = true
+            }
+            .store(in: &subscriptions)
+
+
+    }
+}
+
+extension AuthenticationViewModel {
     private func throwError(error: FeetishAuthError) {
         self.feetishAccount = nil; self.feetishAuthError = error; self.didErrorOccur = true;
+    }
+    
+    private func throwErrorIfValueInvalid(password: String? = nil, confirmPassword: String? = nil, email: String? = nil) -> Bool {
+        if let confirmPassword = confirmPassword, let password = password {
+            if password != confirmPassword {
+                self.throwError(error: .passwordDoesNotMatchError); return true
+            }
+            
+            if password.count < 6 {
+                self.throwError(error: .passwordToShortError); return true
+            }
+        } else if let password = password {
+            if password.count < 6 {
+                self.throwError(error: .passwordToShortError); return true
+            }
+        }
+        
+        if let email = email {
+            if !email.isValidEmail() {
+                self.throwError(error: .emailInvalidError); return true
+            }
+        }
+        
+        if !SystemReachability.isConnectedToNetwork() {
+            self.throwError(error: .networkError); return true
+        }
+        
+        return false
     }
 }

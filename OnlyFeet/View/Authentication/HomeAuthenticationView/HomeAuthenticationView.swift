@@ -13,18 +13,32 @@ struct HomeAuthenticationView: View {
     
     @ObservedObject private var bannerViewModel = FeetishBannerViewModel.shared
     
+    @State private var isLoading = false
+    
     var body: some View {
-        ZStack {
-            AuthenticationHome()
-                .preferredColorScheme(.dark)
-                .environmentObject(viewModel)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
-        .onChange(of: viewModel.didErrorOccur) { hasError in
-            if hasError {
+        GeometryReader { geometry in
+            ZStack {
+                AuthenticationHome()
+                    .preferredColorScheme(.dark)
+                    .environmentObject(viewModel)
+                    .disabled(viewModel.isChanging)
+                
+                if isLoading {
+                    FeetishBasicLoaderView(baseColor: .constant(.black), borderColor: .constant(.white), loadingText: .constant("Loading"))
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
+            .onChange(of: viewModel.isChanging, perform: { newValue in
                 withAnimation {
-                    self.bannerViewModel.loadNewBanner(bannerData: .init(title: nil, message: viewModel.feetishAuthError?.errorDescription ?? FeetishAuthError.unknownError.localizedDescription, bannerError: viewModel.feetishAuthError ?? .unknownError))
+                    self.isLoading = newValue
+                }
+            })
+            .onChange(of: viewModel.didErrorOccur) { hasError in
+                if hasError {
+                    withAnimation {
+                        self.bannerViewModel.loadNewBanner(bannerData: .init(title: nil, message: viewModel.feetishAuthError?.errorDescription ?? FeetishAuthError.unknownError.localizedDescription, bannerError: viewModel.feetishAuthError ?? .unknownError))
+                    }
                 }
             }
         }
@@ -42,7 +56,9 @@ struct AuthenticationHome: View {
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-    var body: some View{
+    @State private var isShowingForgottenPasswordView = false
+    
+    var body: some View {
         GeometryReader{ geometry in
             
             ScrollView.init {
@@ -53,46 +69,56 @@ struct AuthenticationHome: View {
                         .resizable()
                         .frame(width: 71, height: 114)
                     
+                    if isShowingForgottenPasswordView {
+                        Spacer()
+                    }
                     
                     ZStack{
-                        
-                        SignUpView(index: self.$index)
-                            .zIndex(Double(self.index))
-                            .environmentObject(viewModel)
-                        
-                        LoginView(index: self.$index)
-                            .environmentObject(viewModel)
+                        if isShowingForgottenPasswordView {
+                            ForgottenPasswordView(isShowingForgottenPasswordView: $isShowingForgottenPasswordView)
+                                .environmentObject(viewModel)
+                                .frame(width: geometry.size.width - 40, height: geometry.size.height / 1.3)
+                        } else {
+                            SignUpView(index: self.$index)
+                                .zIndex(Double(self.index))
+                                .environmentObject(viewModel)
+                            
+                            LoginView(isShowingForgottenPasswordView: $isShowingForgottenPasswordView, index: self.$index)
+                                .environmentObject(viewModel)
+                        }
 
                     }
                     
-                    HStack(spacing: 15) {
-                        Rectangle()
-                        .fill(Color("LoginColor2"))
-                        .frame(height: 1)
-                        
-                        Text("OR")
-                        
-                        Rectangle()
-                        .fill(Color("LoginColor2"))
-                        .frame(height: 1)
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.top, 50)
-                    
-                    HStack(spacing: 25) {
-                        Button(action: {
+                    if !isShowingForgottenPasswordView {
+                        HStack(spacing: 15) {
+                            Rectangle()
+                            .fill(Color("LoginColor2"))
+                            .frame(height: 1)
                             
-                        }) {
-                            Image("loginGmail")
-                        }
-                        
-                        Button(action: {
+                            Text("OR")
                             
-                        }) {
-                            Image("loginApple")
+                            Rectangle()
+                            .fill(Color("LoginColor2"))
+                            .frame(height: 1)
                         }
+                        .padding(.horizontal, 30)
+                        .padding(.top, 50)
+                        
+                        HStack(spacing: 25) {
+                            Button(action: {
+                                
+                            }) {
+                                Image("loginGmail")
+                            }
+                            
+                            Button(action: {
+                                
+                            }) {
+                                Image("loginApple")
+                            }
+                        }
+                        .padding(.top, 30)
                     }
-                    .padding(.top, 30)
                     
                     Spacer()
                 }
@@ -108,264 +134,15 @@ struct AuthenticationHome: View {
             .scaledToFill()
             .edgesIgnoringSafeArea(.all)
         )
-    }
-}
-
-struct LoginView : View {
-    @State private var email = ""
-    @State private var password = ""
-    @Binding var index : Int
-    
-    @EnvironmentObject var viewModel: AuthenticationViewModel
-    
-    @State private var isLoginButtonDisabled = true
-    
-    var body: some View{
-        ZStack(alignment: .bottom) {
-            VStack {
-                HStack {
-                    VStack(spacing: 10) {
-                        Text("LOGIN")
-                            .foregroundColor(self.index == 0 ? .white : .gray)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Capsule()
-                            .fill(self.index == 0 ? Color.blue : Color.clear)
-                            .frame(width: 100, height: 5)
-                    }
-                    
-                    Spacer(minLength: 0)
+        .onChange(of: viewModel.didResetPassword) { newValue in
+            if newValue {
+                withAnimation {
+                    self.isShowingForgottenPasswordView = false
                 }
-                .padding(.top, 30)
-                
-                VStack {
-                    HStack(spacing: 15) {
-                        Image(systemName: "envelope.fill")
-                        .foregroundColor(Color("LoginColor2"))
-                        
-                        TextField("Email Address or Username", text: self.$email)
-                            .disableAutocorrection(true)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 40)
-                
-                VStack {
-                    HStack(spacing: 15) {
-                        Image(systemName: "eye.slash.fill")
-                        .foregroundColor(Color("LoginColor2"))
-                        
-                        SecureField("Password", text: self.$password)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-                
-                HStack {
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                    }) {
-                        Text("Forgot Password?")
-                            .foregroundColor(Color.white.opacity(0.6))
-                            .underline()
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-            }
-            .padding()
-            .padding(.bottom, 65)
-            .background(Color("LoginColor3"))
-            .clipShape(AuthenticationCurveShapeOne())
-            .contentShape(AuthenticationCurveShapeOne())
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
-            .onTapGesture {
-                self.index = 0
-            }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
-            
-            Button(action: {
-                viewModel.signUserIn(email: email, password: password)
-            }) {
-                
-                Text("LOGIN")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("LoginColor2").opacity(isLoginButtonDisabled ? 0.5 : 1))
-                    .clipShape(Capsule())
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
-            } 
-            .offset(y: 25)
-            .opacity(self.index == 0 ? 1 : 0)
-            .disabled(isLoginButtonDisabled)
-        }
-        .onChange(of: email) { newValue in
-            if !newValue.isEmpty && !self.password.isEmpty {
-                self.isLoginButtonDisabled = false
-            } else {
-                self.isLoginButtonDisabled = true
-            }
-        }
-        .onChange(of: password) { newValue in
-            if !newValue.isEmpty && !self.email.isEmpty {
-                self.isLoginButtonDisabled = false
-            } else {
-                self.isLoginButtonDisabled = true
             }
         }
     }
 }
 
-struct SignUpView : View {
-    @State var email = ""
-    @State var password = ""
-    @State var confirmPassword = ""
-    @Binding var index : Int 
-    
-    @FocusState private var emailIsFocused: Bool
-    @FocusState private var passwordIsFocused: Bool
-    @FocusState private var confirmPasswordIsFocused: Bool
-    
-    @EnvironmentObject var viewModel: AuthenticationViewModel
-    
-    @State private var isRegistrationButtonDisabled = true
-    
-    var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
-                HStack {
-                    Spacer(minLength: 0)
-                    
-                    VStack(spacing: 10) {
-                        Text("REGISTER")
-                            .foregroundColor(self.index == 1 ? .white : .gray)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Capsule()
-                            .fill(self.index == 1 ? Color.blue : Color.clear)
-                            .frame(width: 100, height: 5)
-                    }
-                }
-                .padding(.top, 30)
-                
-                VStack {
-                    HStack(spacing: 15) {
-                        Image(systemName: "envelope.fill")
-                        .foregroundColor(Color("LoginColor2"))
-                        
-                        TextField("Email Address", text: self.$email)
-                            .focused($emailIsFocused)
-                            .disableAutocorrection(true)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 40)
-                
-                VStack {
-                    HStack(spacing: 15) {
-                        Image(systemName: "eye.slash.fill")
-                        .foregroundColor(Color("LoginColor2"))
-                        
-                        SecureField("Password", text: self.$password)
-                            .focused($passwordIsFocused)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-                
-                VStack {
-                    HStack(spacing: 15) {
-                        Image(systemName: "eye.slash.fill")
-                        .foregroundColor(Color("LoginColor2"))
-                        
-                        SecureField("Confirm Password", text: self.$confirmPassword)
-                            .focused($confirmPasswordIsFocused)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-            }
-            .padding()
-            .padding(.bottom, 65)
-            .background(Color("LoginColor3"))
-            .clipShape(AuthenticationCurveShapeTwo())
-            .contentShape(AuthenticationCurveShapeTwo())
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
-            .onTapGesture {
-                self.emailIsFocused = false
-                self.passwordIsFocused = false
-                self.confirmPasswordIsFocused = false
-            
-                self.index = 1
-            }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
-             
-            
-            Button(action: {
-                print("TAPPED!")
-                self.emailIsFocused = false
-                self.passwordIsFocused = false
-                self.confirmPasswordIsFocused = false
-                
-                viewModel.createAccount(email: email, password: password, confirmedPassword: confirmPassword)
-            }) {
-                Text("REGISTER")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("LoginColor2").opacity(isRegistrationButtonDisabled ? 0.5 : 1))
-                    .clipShape(Capsule())
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
-            }
-            .offset(y: 25)
-            .opacity(self.index == 1 ? 1 : 0)
-            .disabled(isRegistrationButtonDisabled)
-        }
-        .onTapGesture {
-            print("TAPPED!")
-            self.emailIsFocused = false
-            self.passwordIsFocused = false
-            self.confirmPasswordIsFocused = false
-        }
-        .onChange(of: email) { newValue in
-            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
-                self.isRegistrationButtonDisabled = false
-            } else {
-                self.isRegistrationButtonDisabled = true
-            }
-        }
-        .onChange(of: password) { newValue in
-            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
-                self.isRegistrationButtonDisabled = false
-            } else {
-                self.isRegistrationButtonDisabled = true
-            }
-        }
-        .onChange(of: confirmPassword) { newValue in
-            if !newValue.isEmpty && !self.password.isEmpty && !confirmPassword.isEmpty {
-                self.isRegistrationButtonDisabled = false
-            } else {
-                self.isRegistrationButtonDisabled = true
-            }
-        }
-    }
-}
+
+
