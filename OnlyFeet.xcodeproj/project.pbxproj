@@ -11,6 +11,7 @@
 		064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */; };
 		064B2EDB2864B403009706D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2EDA2864B403009706D1 /* LoginView.swift */; };
 		064B2EDE2864B4A9009706D1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2EDD2864B4A9009706D1 /* SignUpView.swift */; };
+		064B2EE12865AA2B009706D1 /* AuthenticationJourneyPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2EE02865AA2B009706D1 /* AuthenticationJourneyPosition.swift */; };
 		0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661960C28611757008DEC29 /* OnlyFeetApp.swift */; };
 		0661961128611759008DEC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961028611759008DEC29 /* Assets.xcassets */; };
 		0661961428611759008DEC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0661961328611759008DEC29 /* Preview Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		066196812863C613008DEC29 /* FeetishBannerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196802863C613008DEC29 /* FeetishBannerViewModelTests.swift */; };
 		066196842863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */; };
 		0661968C2863D77D008DEC29 /* AuthenticationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */; };
+		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,7 @@
 		064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgottenPasswordView.swift; sourceTree = "<group>"; };
 		064B2EDA2864B403009706D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		064B2EDD2864B4A9009706D1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		064B2EE02865AA2B009706D1 /* AuthenticationJourneyPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPosition.swift; sourceTree = "<group>"; };
 		0661960928611757008DEC29 /* OnlyFeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlyFeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0661960C28611757008DEC29 /* OnlyFeetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFeetApp.swift; sourceTree = "<group>"; };
 		0661961028611759008DEC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		066196802863C613008DEC29 /* FeetishBannerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBannerViewModelTests.swift; sourceTree = "<group>"; };
 		066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelTests.swift; sourceTree = "<group>"; };
+		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +147,14 @@
 			path = SignUpView;
 			sourceTree = "<group>";
 		};
+		064B2EDF2865AA1B009706D1 /* AuthenticationJourneyPosition */ = {
+			isa = PBXGroup;
+			children = (
+				064B2EE02865AA2B009706D1 /* AuthenticationJourneyPosition.swift */,
+			);
+			path = AuthenticationJourneyPosition;
+			sourceTree = "<group>";
+		};
 		0661960028611757008DEC29 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +203,7 @@
 		0661961C28611759008DEC29 /* OnlyFeetTests */ = {
 			isa = PBXGroup;
 			children = (
+				06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */,
 				0661968A2863D76C008DEC29 /* AuthenticationVIewModelTests */,
 				066196822863C6AE008DEC29 /* FeetishAuthenticationServiceTests */,
 				0661967F2863C600008DEC29 /* FeetishBannerViewModelTests */,
@@ -203,6 +216,7 @@
 		0661963728613651008DEC29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				064B2EDF2865AA1B009706D1 /* AuthenticationJourneyPosition */,
 				066196772863BD7B008DEC29 /* SystemReachability */,
 				0661966A28638FB7008DEC29 /* FeetishBanner */,
 				066196492862FDBA008DEC29 /* FeetishAccount */,
@@ -431,6 +445,14 @@
 			path = AuthenticationVIewModelTests;
 			sourceTree = "<group>";
 		};
+		06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */ = {
+			isa = PBXGroup;
+			children = (
+				06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */,
+			);
+			path = AuthenticationJourneyPositionTests;
+			sourceTree = "<group>";
+		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +650,7 @@
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
 				0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
+				064B2EE12865AA2B009706D1 /* AuthenticationJourneyPosition.swift in Sources */,
 				066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */,
 				064B2EDE2864B4A9009706D1 /* SignUpView.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
@@ -652,6 +675,7 @@
 				0661961E28611759008DEC29 /* OnlyFeetTests.swift in Sources */,
 				066196842863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift in Sources */,
 				0661968C2863D77D008DEC29 /* AuthenticationViewModelTests.swift in Sources */,
+				06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

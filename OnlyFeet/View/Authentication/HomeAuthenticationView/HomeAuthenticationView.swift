@@ -29,7 +29,7 @@ struct HomeAuthenticationView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
-            .onChange(of: viewModel.didResetPassword, perform: { newValue in
+             .onChange(of: viewModel.didResetPassword, perform: { newValue in
                 if newValue {
                     self.bannerViewModel.loadNewBanner(bannerData: .init(title: "Success", message: "Please check your email.", bannerError: nil))
                 }
