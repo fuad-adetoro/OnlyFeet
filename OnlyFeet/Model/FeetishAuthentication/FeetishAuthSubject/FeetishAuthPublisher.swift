@@ -7,7 +7,7 @@
  
 import Combine
 
-struct FeetishAuthPublisher<Element>: Publisher {
+struct FeetishAuthSubject<Element>: Publisher {
     typealias Output = Element
     typealias Failure = FeetishAuthError
     

@@ -38,6 +38,8 @@
 		066196842863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */; };
 		0661968C2863D77D008DEC29 /* AuthenticationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */; };
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
+		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
+		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,8 @@
 		066196832863C6C8008DEC29 /* FeetishAuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		0661968B2863D77D008DEC29 /* AuthenticationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelTests.swift; sourceTree = "<group>"; };
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
+		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
+		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 		0661963828613656008DEC29 /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
+				06C7C45928661C6800625ED6 /* AuthenticationJourneyViewModel */,
 				06619674286390A1008DEC29 /* FeetishBannerViewModel */,
 				0661963C2861369D008DEC29 /* AuthenticationViewModel */,
 			);
@@ -256,6 +261,7 @@
 		0661963B2861368F008DEC29 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				06C7C45C2868544600625ED6 /* AuthenticationJourneyView */,
 				064B2EDC2864B4A0009706D1 /* SignUpView */,
 				064B2ED52864B3A1009706D1 /* ForgottenPasswordView */,
 				064B2ED32864B395009706D1 /* LoginView */,
@@ -302,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				0661965D28633BFA008DEC29 /* FeetishAuthError */,
-				0661965C28633BF3008DEC29 /* FeetishAuthPublisher */,
+				0661965C28633BF3008DEC29 /* FeetishAuthSubject */,
 				066196502863000A008DEC29 /* FeetishAuthentication.swift */,
 			);
 			path = FeetishAuthentication;
@@ -325,12 +331,12 @@
 			path = FeetishGender;
 			sourceTree = "<group>";
 		};
-		0661965C28633BF3008DEC29 /* FeetishAuthPublisher */ = {
+		0661965C28633BF3008DEC29 /* FeetishAuthSubject */ = {
 			isa = PBXGroup;
 			children = (
 				0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */,
 			);
-			path = FeetishAuthPublisher;
+			path = FeetishAuthSubject;
 			sourceTree = "<group>";
 		};
 		0661965D28633BFA008DEC29 /* FeetishAuthError */ = {
@@ -451,6 +457,22 @@
 				06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */,
 			);
 			path = AuthenticationJourneyPositionTests;
+			sourceTree = "<group>";
+		};
+		06C7C45928661C6800625ED6 /* AuthenticationJourneyViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */,
+			);
+			path = AuthenticationJourneyViewModel;
+			sourceTree = "<group>";
+		};
+		06C7C45C2868544600625ED6 /* AuthenticationJourneyView */ = {
+			isa = PBXGroup;
+			children = (
+				06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */,
+			);
+			path = AuthenticationJourneyView;
 			sourceTree = "<group>";
 		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
@@ -642,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
+				06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
 				064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
@@ -660,6 +683,7 @@
 				064B2EDB2864B403009706D1 /* LoginView.swift in Sources */,
 				0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */,
 				0661966928638D31008DEC29 /* String+.swift in Sources */,
+				06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */,
 				064B2ED228646362009706D1 /* FeetishBasicLoaderView.swift in Sources */,
 				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
 				0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */,

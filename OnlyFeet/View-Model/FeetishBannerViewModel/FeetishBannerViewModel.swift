@@ -13,7 +13,7 @@ public protocol FeetishBannerBased {
     func removeCurrentBanner()
 }
 
-public class FeetishBannerViewModel: ObservableObject, FeetishBannerBased {
+public final class FeetishBannerViewModel: ObservableObject, FeetishBannerBased {
     static let shared = FeetishBannerViewModel.init()
     
     @Published var model: FeetishBannerData? = nil

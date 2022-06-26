@@ -20,8 +20,8 @@ public enum AuthenticationJourneyPosition: Int, CaseIterable {
 }
 
 extension AuthenticationJourneyPosition {
-    init?() {
-        self.init(rawValue: 1)
+    init() {
+        self.init(rawValue: 1)!
         // begin Journey!
     }
     

@@ -17,7 +17,7 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
     }
     
     func testPositionChanges() {
-        let authenticationJourneyPosition = AuthenticationJourneyPosition.init()!
+        let authenticationJourneyPosition = AuthenticationJourneyPosition.init()
         
         XCTAssertEqual(authenticationJourneyPosition.rawValue, 1)
         
@@ -53,7 +53,7 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
     }
     
     func testPreviousPosition() {
-        let authenticationJourneyPosition = AuthenticationJourneyPosition.init()!
+        let authenticationJourneyPosition = AuthenticationJourneyPosition.init()
         
         XCTAssertEqual(authenticationJourneyPosition.rawValue, 1)
         

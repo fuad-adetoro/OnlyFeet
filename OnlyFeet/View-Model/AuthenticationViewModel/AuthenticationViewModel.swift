@@ -16,6 +16,7 @@ public protocol AuthenticationBased {
 
 public final class AuthenticationViewModel: ObservableObject, AuthenticationBased {
     static let shared = AuthenticationViewModel.init()
+    let feetishAuthentication = FeetishAuthentication.shared
     
     private let maxWaitTimeForRequest = 12.5
     
@@ -42,7 +43,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication().signUserIn(email: email, password: password)
+        feetishAuthentication.signUserIn(email: email, password: password)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
@@ -58,7 +59,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
                     self.didErrorOccur = true
                     self.didFetchAccount = false
                 default:
-                    print("DO NOTHING")
+                    break
                 }
             } receiveValue: { [unowned self] feetishAccount in
                 self.feetishAccount = feetishAccount
@@ -79,7 +80,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication().createNewAccount(email: email, password: password)
+        feetishAuthentication.createNewAccount(email: email, password: password)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest + 2.5), scheduler: DispatchQueue.main, options: nil, customError: {
@@ -95,7 +96,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
                     self.didErrorOccur = true
                     self.didFetchAccount = false 
                 default:
-                    print("DO NOTHING")
+                    break
                 }
             } receiveValue: { [unowned self] feetishAccount in 
                 self.feetishAccount = feetishAccount
@@ -117,13 +118,12 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
         
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
-        FeetishAuthentication().resetUserPassword(email: email)
+        feetishAuthentication.resetUserPassword(email: email)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
                 FeetishAuthError.maxWaitTimeReachedError
-            })
-            .print("Specific to password recovery")
+            }) 
             .sink { [unowned self] completion in
                 isChanging = false
                 
@@ -133,7 +133,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
                     self.didErrorOccur = true
                     self.didResetPassword = false
                 default:
-                    print("DO NOTHING")
+                    break
                 }
             } receiveValue: { [unowned self] _ in
                 self.didResetPassword = true

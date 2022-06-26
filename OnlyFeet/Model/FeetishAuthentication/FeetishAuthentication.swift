@@ -8,20 +8,28 @@
 import Foundation
 import Firebase
 import Combine
+  
+protocol FeetishAuthProvider {
+    typealias FeetishAuthDataDict = [String: Any]
+    
+    func signUserOut() -> AnyPublisher<Bool, FeetishAuthError>
+    func resetUserPassword(email: String) -> AnyPublisher<Bool, FeetishAuthError>
+    func checkIfFeetishAuthValueExists(value: String, fieldName: String) -> AnyPublisher<Bool, FeetishAuthError>
+    func signUserIn(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError>
+    func createNewAccount(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError>
+}
 
 public final class FeetishAuthentication { 
     let databaseRef = Firestore.firestore()
     
-    typealias AuthDataDict = [String: Any]
-    
-    let feetishAuthPublisher = FeetishAuthPublisher<Bool>()
-    let feetishAuthDataPublisher = FeetishAuthPublisher<AuthDataDict>()
+    static let shared = FeetishAuthentication.init()
 }
 
-extension FeetishAuthentication {
+extension FeetishAuthentication: FeetishAuthProvider {
     func signUserOut() -> AnyPublisher<Bool, FeetishAuthError> {
         let firebaseAuth = Auth.auth()
-        let publisher = feetishAuthPublisher.publisher
+        let feetishAuthSubject = FeetishAuthSubject<Bool>()
+        let publisher = feetishAuthSubject.publisher
          
         do {
             try firebaseAuth.signOut()
@@ -32,15 +40,15 @@ extension FeetishAuthentication {
             publisher.send(completion: .failure(FeetishAuthError.signOutError(errorMessage: error.localizedDescription)))
         }
         
-        return feetishAuthPublisher.eraseToAnyPublisher()
+        return feetishAuthSubject.eraseToAnyPublisher()
     }
     
     func resetUserPassword(email: String) -> AnyPublisher<Bool, FeetishAuthError> {
-        let publisher = feetishAuthPublisher.publisher
+        let feetishAuthSubject = FeetishAuthSubject<Bool>()
+        let publisher = feetishAuthSubject.publisher
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             guard error == nil else {
-                print("ERROR: \(error)")
                 publisher.send(completion: .failure(.resetPasswordError(errorMessage: error!.localizedDescription)))
                 return
             }
@@ -49,14 +57,15 @@ extension FeetishAuthentication {
             publisher.send(completion: .finished)
         }
         
-        return feetishAuthPublisher.eraseToAnyPublisher()
+        return feetishAuthSubject.eraseToAnyPublisher()
     }
     
     // Can check for username or email, etc.
     func checkIfFeetishAuthValueExists(value: String, fieldName: String) -> AnyPublisher<Bool, FeetishAuthError> {
         let collection = self.databaseRef.collection("users").whereField(fieldName, isEqualTo: value)
         
-        let publisher = feetishAuthPublisher.publisher
+        let feetishAuthSubject = FeetishAuthSubject<Bool>()
+        let publisher = feetishAuthSubject.publisher
         
         collection.getDocuments { snapshot, error in
             guard error == nil else {
@@ -79,15 +88,15 @@ extension FeetishAuthentication {
             publisher.send(completion: .finished)
         }
         
-        return feetishAuthPublisher.eraseToAnyPublisher()
+        return feetishAuthSubject.eraseToAnyPublisher()
     }
     
-    func signUserIn(email: String, password: String) -> AnyPublisher<AuthDataDict, FeetishAuthError> {
-        let publisher = feetishAuthDataPublisher.publisher
+    func signUserIn(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
+        let feetishAuthSubject = FeetishAuthSubject<FeetishAuthDataDict>()
+        let publisher = feetishAuthSubject.publisher
         
         Auth.auth().signIn(withEmail: email, password: password) { dataResult, error in
-            guard error == nil else {
-                print("ERRO!: \(error!.localizedDescription)")
+            guard error == nil else { 
                 publisher.send(completion: .failure(.signInError(errorMessage: error!.localizedDescription)))
                 return
             }
@@ -111,16 +120,16 @@ extension FeetishAuthentication {
                 }
                 
                 publisher.send(data)
+                publisher.send(completion: .finished)
             }
         }
         
-        return feetishAuthDataPublisher.eraseToAnyPublisher()
+        return feetishAuthSubject.eraseToAnyPublisher()
     }
     
-    func createNewAccount(email: String, password: String) -> AnyPublisher<AuthDataDict, FeetishAuthError> {
-        //let publisher = feetishAuthDataPublisher.publisher
-        let feetishAuthDataPublisherrrr = FeetishAuthPublisher<AuthDataDict>()
-        let publisher = feetishAuthDataPublisherrrr.publisher
+    func createNewAccount(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
+        let feetishAuthSubject = FeetishAuthSubject<FeetishAuthDataDict>()
+        let publisher = feetishAuthSubject.publisher
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             guard error == nil else {
@@ -150,6 +159,6 @@ extension FeetishAuthentication {
             }
         }
         
-        return feetishAuthDataPublisher.eraseToAnyPublisher()
+        return feetishAuthSubject.eraseToAnyPublisher()
     }
 }
