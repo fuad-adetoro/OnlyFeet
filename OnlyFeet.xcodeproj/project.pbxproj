@@ -25,7 +25,7 @@
 		066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196502863000A008DEC29 /* FeetishAuthentication.swift */; };
 		066196552863021B008DEC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066196542863021B008DEC29 /* AppDelegate.swift */; };
 		0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965628633834008DEC29 /* FeetishAuthError.swift */; };
-		0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */; };
+		0661965F28633C15008DEC29 /* FeetishAuthSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661965E28633C15008DEC29 /* FeetishAuthSubject.swift */; };
 		0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966128633DFD008DEC29 /* getCurrentInterval.swift */; };
 		0661966528633E28008DEC29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0661966428633E28008DEC29 /* GoogleService-Info.plist */; };
 		0661966928638D31008DEC29 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661966828638D31008DEC29 /* String+.swift */; };
@@ -76,7 +76,7 @@
 		066196502863000A008DEC29 /* FeetishAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthentication.swift; sourceTree = "<group>"; };
 		066196542863021B008DEC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0661965628633834008DEC29 /* FeetishAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthError.swift; sourceTree = "<group>"; };
-		0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthPublisher.swift; sourceTree = "<group>"; };
+		0661965E28633C15008DEC29 /* FeetishAuthSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishAuthSubject.swift; sourceTree = "<group>"; };
 		0661966128633DFD008DEC29 /* getCurrentInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = getCurrentInterval.swift; path = "OnlyFeet/Extensions & Extras/Extras/GetCurrentTimeInterval/getCurrentInterval.swift"; sourceTree = SOURCE_ROOT; };
 		0661966428633E28008DEC29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0661966828638D31008DEC29 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		0661965C28633BF3008DEC29 /* FeetishAuthSubject */ = {
 			isa = PBXGroup;
 			children = (
-				0661965E28633C15008DEC29 /* FeetishAuthPublisher.swift */,
+				0661965E28633C15008DEC29 /* FeetishAuthSubject.swift */,
 			);
 			path = FeetishAuthSubject;
 			sourceTree = "<group>";
@@ -681,7 +681,7 @@
 				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				064B2EDB2864B403009706D1 /* LoginView.swift in Sources */,
-				0661965F28633C15008DEC29 /* FeetishAuthPublisher.swift in Sources */,
+				0661965F28633C15008DEC29 /* FeetishAuthSubject.swift in Sources */,
 				0661966928638D31008DEC29 /* String+.swift in Sources */,
 				06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */,
 				064B2ED228646362009706D1 /* FeetishBasicLoaderView.swift in Sources */,
