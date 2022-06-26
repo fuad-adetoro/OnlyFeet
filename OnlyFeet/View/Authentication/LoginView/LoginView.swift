@@ -14,7 +14,7 @@ struct LoginView : View {
     @State private var password = ""
     @Binding var index : Int
     
-    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel<FeetishAuthentication>
     
     @State private var isLoginButtonDisabled = true
     

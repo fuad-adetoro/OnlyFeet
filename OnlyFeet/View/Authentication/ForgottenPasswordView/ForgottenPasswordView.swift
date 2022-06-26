@@ -11,7 +11,7 @@ struct ForgottenPasswordView : View {
     @State private var email = ""
     @State private var isSendResetButtonDisabled = true
     
-    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel<FeetishAuthentication>
     
     @Binding var isShowingForgottenPasswordView: Bool
     

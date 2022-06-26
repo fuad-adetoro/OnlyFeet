@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct HomeAuthenticationView: View {
-    @ObservedObject var viewModel = AuthenticationViewModel()
+    @ObservedObject var viewModel = AuthenticationViewModel.init(feetishAuthentication: FeetishAuthentication.shared)
     
     @ObservedObject private var bannerViewModel = FeetishBannerViewModel.shared
     
@@ -59,7 +59,7 @@ struct FeetishMainLoginView_Previews: PreviewProvider {
 struct AuthenticationHome: View {
     @State var index = 0
     
-    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel<FeetishAuthentication>
     
     @State private var isShowingForgottenPasswordView = false
     
@@ -91,6 +91,7 @@ struct AuthenticationHome: View {
                             LoginView(isShowingForgottenPasswordView: $isShowingForgottenPasswordView, index: self.$index)
                                 .environmentObject(viewModel)
                         }
+                        
 
                     }
                     

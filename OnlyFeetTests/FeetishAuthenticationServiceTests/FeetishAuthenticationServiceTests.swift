@@ -10,14 +10,14 @@ import XCTest
 import Combine
 
 class FeetishAuthenticationServiceTests: XCTestCase {
-    private var feetishAuthentication: MockAuthenticationService!
+    private var feetishAuthentication: MockAuthentication!
     
     private var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
         
-        self.feetishAuthentication = MockAuthenticationService.shared
+        self.feetishAuthentication = MockAuthentication.shared
         cancellables = []
     }
     
@@ -105,70 +105,4 @@ class FeetishAuthenticationServiceTests: XCTestCase {
             .store(in: &cancellables)
     }
 
-}
-
-extension FeetishAuthenticationServiceTests {
-    final private class MockAuthenticationService: FeetishAuthProvider {
-        static let shared = MockAuthenticationService.init()
-        
-        func signUserIn(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
-            let authSubject = FeetishAuthSubject<FeetishAuthDataDict>()
-            let publisher = authSubject.publisher
-            
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
-                publisher.send(["email": email])
-                publisher.send(completion: .finished)
-            }
-            
-            return publisher.eraseToAnyPublisher()
-        }
-        
-        func signUserOut() -> AnyPublisher<Bool, FeetishAuthError> {
-            let authSubject = FeetishAuthSubject<Bool>()
-            let publisher = authSubject.publisher
-            
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
-                publisher.send(true)
-                publisher.send(completion: .finished)
-            }
-            
-            return authSubject.eraseToAnyPublisher()
-        }
-        
-        func resetUserPassword(email: String) -> AnyPublisher<Bool, FeetishAuthError> {
-            let authSubject = FeetishAuthSubject<Bool>()
-            let publisher = authSubject.publisher
-            
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
-                publisher.send(true)
-                publisher.send(completion: .finished)
-            }
-            
-            return authSubject.eraseToAnyPublisher()
-        }
-        
-        func checkIfFeetishAuthValueExists(value: String, fieldName: String) -> AnyPublisher<Bool, FeetishAuthError> {
-            let authSubject = FeetishAuthSubject<Bool>()
-            let publisher = authSubject.publisher
-            
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
-                publisher.send(true)
-                publisher.send(completion: .finished)
-            }
-            
-            return authSubject.eraseToAnyPublisher()
-        }
-        
-        func createNewAccount(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
-            let authSubject = FeetishAuthSubject<FeetishAuthDataDict>()
-            let publisher = authSubject.publisher
-            
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
-                publisher.send(["email": email])
-                publisher.send(completion: .finished)
-            }
-            
-            return publisher.eraseToAnyPublisher()
-        }
-    }
 }

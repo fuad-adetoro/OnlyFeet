@@ -17,7 +17,7 @@ struct SignUpView : View {
     @FocusState private var passwordIsFocused: Bool
     @FocusState private var confirmPasswordIsFocused: Bool
     
-    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel<FeetishAuthentication>
     
     @State private var isRegistrationButtonDisabled = true
     

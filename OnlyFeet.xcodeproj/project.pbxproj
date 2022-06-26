@@ -40,6 +40,7 @@
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
 		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
+		06C7C4632868A0CF00625ED6 /* MockAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C4622868A0CF00625ED6 /* MockAuthentication.swift */; };
 		A2A40983BE9FF61246E68297 /* Pods_OnlyFeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */; };
 		D2A13390F9B48DFB25BDFD4F /* Pods_OnlyFeetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA299C8839DA13DDBB049464 /* Pods_OnlyFeetTests.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
 		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
+		06C7C4622868A0CF00625ED6 /* MockAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthentication.swift; sourceTree = "<group>"; };
 		2676C487FB591CF174628DEE /* Pods-OnlyFeetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.release.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.release.xcconfig"; sourceTree = "<group>"; };
 		452C26A6EBA71D1780E59D62 /* Pods_OnlyFeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlyFeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D04ECA6910F9FF4955CF351 /* Pods-OnlyFeetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlyFeetTests.debug.xcconfig"; path = "Target Support Files/Pods-OnlyFeetTests/Pods-OnlyFeetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		066196482862FDAE008DEC29 /* FeetishAuthentication */ = {
 			isa = PBXGroup;
 			children = (
+				06C7C4612868A0BF00625ED6 /* MockAuthentication */,
 				0661965D28633BFA008DEC29 /* FeetishAuthError */,
 				0661965C28633BF3008DEC29 /* FeetishAuthSubject */,
 				066196502863000A008DEC29 /* FeetishAuthentication.swift */,
@@ -473,6 +476,14 @@
 				06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */,
 			);
 			path = AuthenticationJourneyView;
+			sourceTree = "<group>";
+		};
+		06C7C4612868A0BF00625ED6 /* MockAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				06C7C4622868A0CF00625ED6 /* MockAuthentication.swift */,
+			);
+			path = MockAuthentication;
 			sourceTree = "<group>";
 		};
 		562D2D4D733CFB42EAF1CC2F /* Pods */ = {
@@ -678,6 +689,7 @@
 				064B2EDE2864B4A9009706D1 /* SignUpView.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
 				06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */,
+				06C7C4632868A0CF00625ED6 /* MockAuthentication.swift in Sources */,
 				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				064B2EDB2864B403009706D1 /* LoginView.swift in Sources */,

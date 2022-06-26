@@ -14,9 +14,9 @@ public protocol AuthenticationBased {
     func sendPasswordRecovery(email: String)
 }
 
-public final class AuthenticationViewModel: ObservableObject, AuthenticationBased {
-    static let shared = AuthenticationViewModel.init()
-    let feetishAuthentication = FeetishAuthentication.shared
+public class AuthenticationViewModel<T>: ObservableObject, AuthenticationBased {
+    //static let shared = AuthenticationViewModel.init()
+    var feetishAuthentication: T// = FeetishAuthentication.shared
     
     private let maxWaitTimeForRequest = 12.5
     
@@ -31,7 +31,25 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
     @Published var didResetPassword = false
     
     var subscriptions = Set<AnyCancellable>()
+    
+    init(feetishAuthentication: T) {
+        self.feetishAuthentication = feetishAuthentication
+    }
+    
+    public func signUserIn(email: String, password: String) {
+        // do nothing
+    }
+    
+    public func createAccount(email: String, password: String, confirmedPassword: String) {
+        // do nothing
+    }
+    
+    public func sendPasswordRecovery(email: String) {
+        // do nothing
+    }
+} 
 
+extension AuthenticationViewModel where T: FeetishAuthentication {
     public func signUserIn(email: String, password: String) {
         if isChanging { return }
         
@@ -123,7 +141,7 @@ public final class AuthenticationViewModel: ObservableObject, AuthenticationBase
             .receive(on: DispatchQueue.main)
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
                 FeetishAuthError.maxWaitTimeReachedError
-            }) 
+            })
             .sink { [unowned self] completion in
                 isChanging = false
                 

@@ -14,9 +14,26 @@ struct AuthenticationJourneyView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("Authentication Journey View")
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    Text("Authentication Journey View")
+                    Spacer()
+                }
+                .onAppear {
+                    
+                }
+                
+                Spacer()
             }
         }
+        .background(Image("AuthBG")
+            .resizable()
+            .scaledToFill()
+            .edgesIgnoringSafeArea(.all)
+        )
+        .preferredColorScheme(.dark)
     }
 }
 
