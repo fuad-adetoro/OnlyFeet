@@ -42,6 +42,8 @@
 		0662445A28693273003B50F3 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445928693273003B50F3 /* Date+.swift */; };
 		0662445D286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445C286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift */; };
 		0662446028693796003B50F3 /* AuthenticationJourneyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445F28693796003B50F3 /* AuthenticationJourneyViewModelTests.swift */; };
+		0662446428693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446328693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift */; };
+		0662446828693CAD003B50F3 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446728693CAD003B50F3 /* ImagePickerView.swift */; };
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
 		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
@@ -102,6 +104,8 @@
 		0662445928693273003B50F3 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0662445C286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyGenderSelectionView.swift; sourceTree = "<group>"; };
 		0662445F28693796003B50F3 /* AuthenticationJourneyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModelTests.swift; sourceTree = "<group>"; };
+		0662446328693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyProfilePhotoView.swift; sourceTree = "<group>"; };
+		0662446728693CAD003B50F3 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
 		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 		066196392861365C008DEC29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0662446528693C98003B50F3 /* View Representables */,
 				064B2ED028646347009706D1 /* FeetishBasicLoaderView */,
 				0661966E28638FE7008DEC29 /* FeetishBannerView */,
 				0661963B2861368F008DEC29 /* Authentication */,
@@ -513,6 +518,30 @@
 			path = AuthenticationJourneyViewModelTests;
 			sourceTree = "<group>";
 		};
+		0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				0662446328693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift */,
+			);
+			path = AuthenticationJourneyProfilePhotoView;
+			sourceTree = "<group>";
+		};
+		0662446528693C98003B50F3 /* View Representables */ = {
+			isa = PBXGroup;
+			children = (
+				0662446628693CA3003B50F3 /* ImagePickerView */,
+			);
+			path = "View Representables";
+			sourceTree = "<group>";
+		};
+		0662446628693CA3003B50F3 /* ImagePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				0662446728693CAD003B50F3 /* ImagePickerView.swift */,
+			);
+			path = ImagePickerView;
+			sourceTree = "<group>";
+		};
 		06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +561,7 @@
 		06C7C45C2868544600625ED6 /* AuthenticationJourneyView */ = {
 			isa = PBXGroup;
 			children = (
+				0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */,
 				06C7C46A2869218F00625ED6 /* AuthenticationJourneyHelperViews */,
 				0662445B286934C8003B50F3 /* AuthenticationJourneyGenderSelectionView */,
 				0662445528692D0A003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView */,
@@ -762,6 +792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0662446428693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift in Sources */,
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
 				06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */,
 				06C7C4662868B6BA00625ED6 /* ViewBuilder+.swift in Sources */,
@@ -777,6 +808,7 @@
 				0662445728692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
 				064B2EE12865AA2B009706D1 /* AuthenticationJourneyPosition.swift in Sources */,
+				0662446828693CAD003B50F3 /* ImagePickerView.swift in Sources */,
 				066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */,
 				064B2EDE2864B4A9009706D1 /* SignUpView.swift in Sources */,
 				06C7C46C286921A300625ED6 /* AuthenticationJourneyHelperViews.swift in Sources */,
