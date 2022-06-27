@@ -14,9 +14,9 @@ public protocol AuthenticationBased {
     func sendPasswordRecovery(email: String)
 }
 
-public class AuthenticationViewModel<T>: ObservableObject, AuthenticationBased {
+public class AuthenticationViewModel<FA>: ObservableObject, AuthenticationBased {
     //static let shared = AuthenticationViewModel.init()
-    var feetishAuthentication: T// = FeetishAuthentication.shared
+    var feetishAuthentication: FA// = FeetishAuthentication.shared
     
     private let maxWaitTimeForRequest = 12.5
     
@@ -32,7 +32,7 @@ public class AuthenticationViewModel<T>: ObservableObject, AuthenticationBased {
     
     var subscriptions = Set<AnyCancellable>()
     
-    init(feetishAuthentication: T) {
+    init(feetishAuthentication: FA) {
         self.feetishAuthentication = feetishAuthentication
     }
     
@@ -49,7 +49,7 @@ public class AuthenticationViewModel<T>: ObservableObject, AuthenticationBased {
     }
 } 
 
-extension AuthenticationViewModel where T: FeetishAuthentication {
+extension AuthenticationViewModel where FA: FeetishAuthentication {
     public func signUserIn(email: String, password: String) {
         if isChanging { return }
         
