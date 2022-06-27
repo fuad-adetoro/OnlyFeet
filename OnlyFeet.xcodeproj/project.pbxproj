@@ -41,6 +41,7 @@
 		0662445728692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445628692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift */; };
 		0662445A28693273003B50F3 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445928693273003B50F3 /* Date+.swift */; };
 		0662445D286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445C286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift */; };
+		0662446028693796003B50F3 /* AuthenticationJourneyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662445F28693796003B50F3 /* AuthenticationJourneyViewModelTests.swift */; };
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
 		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
@@ -100,6 +101,7 @@
 		0662445628692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyDateOfBirthSelectionView.swift; sourceTree = "<group>"; };
 		0662445928693273003B50F3 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0662445C286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyGenderSelectionView.swift; sourceTree = "<group>"; };
+		0662445F28693796003B50F3 /* AuthenticationJourneyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModelTests.swift; sourceTree = "<group>"; };
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
 		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		0661961C28611759008DEC29 /* OnlyFeetTests */ = {
 			isa = PBXGroup;
 			children = (
+				0662445E28693785003B50F3 /* AuthenticationJourneyViewModelTests */,
 				06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */,
 				0661968A2863D76C008DEC29 /* AuthenticationVIewModelTests */,
 				066196822863C6AE008DEC29 /* FeetishAuthenticationServiceTests */,
@@ -500,6 +503,14 @@
 				0662445C286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift */,
 			);
 			path = AuthenticationJourneyGenderSelectionView;
+			sourceTree = "<group>";
+		};
+		0662445E28693785003B50F3 /* AuthenticationJourneyViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				0662445F28693796003B50F3 /* AuthenticationJourneyViewModelTests.swift */,
+			);
+			path = AuthenticationJourneyViewModelTests;
 			sourceTree = "<group>";
 		};
 		06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */ = {
@@ -790,6 +801,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0662446028693796003B50F3 /* AuthenticationJourneyViewModelTests.swift in Sources */,
 				0661967E2863C3DF008DEC29 /* FeetishAccountTests.swift in Sources */,
 				066196812863C613008DEC29 /* FeetishBannerViewModelTests.swift in Sources */,
 				0661961E28611759008DEC29 /* OnlyFeetTests.swift in Sources */,
