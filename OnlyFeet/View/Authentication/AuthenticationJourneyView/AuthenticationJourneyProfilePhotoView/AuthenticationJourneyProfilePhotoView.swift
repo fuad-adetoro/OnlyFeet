@@ -13,6 +13,9 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
     @Binding var isImagePickerDisplayed: Bool
     @Binding var profileImage: UIImage?
     
+    @State private var croppedImage: UIImage? = nil
+    @State private var imageCroppingViewShown = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -23,6 +26,13 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                         Text("Please provide a profile picture")
                             .foregroundColor(.white)
                             .font(.largeTitle)
+                            .onChange(of: profileImage) { newValue in
+                                if let _ = newValue {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(280)) {
+                                        self.imageCroppingViewShown = true
+                                    }
+                                }
+                            }
                         
                         Spacer()
                     }
@@ -42,7 +52,8 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                                               initialSize: .constant(.init(width: 146, height: 146)),
                                               secondarySize: .constant(.init(width: 150, height: 150)),
                                               borderColor: .constant(.black),
-                                              borderWidth: .constant(4.0), profileImage: $profileImage
+                                              secondaryBorderColor: .constant(Color("LoginColor2")),
+                                              borderWidth: .constant(4.0), profileImage: $croppedImage
                                         )
                                 }
                                 .frame(width: 150, height: 150)
@@ -72,8 +83,11 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                     
                     Spacer()
                 }
+                .sheet(isPresented: $imageCroppingViewShown) {
+                    FeetishImageCroppingView(shown: $imageCroppingViewShown, image: profileImage!, croppedImage: $croppedImage)
+                }
                 
-                AuthenticationContinueButtonWithBackground.init(isInActive: .constant(profileImage == nil))
+                AuthenticationContinueButtonWithBackground.init(isInActive: .constant(croppedImage == nil))
                 .environmentObject(viewModel)
                 .frame(height: geometry.size.height)
             }
@@ -88,6 +102,7 @@ struct AuthenticationJourneyProfilePhotoCircleView: View {
     @Binding var secondarySize: CGSize
     
     @Binding var borderColor: Color
+    @Binding var secondaryBorderColor: Color
     @Binding var borderWidth: CGFloat
     
     @Binding var profileImage: UIImage?
@@ -117,7 +132,7 @@ struct AuthenticationJourneyProfilePhotoCircleView: View {
                 Spacer()
                 
                 Circle.init()
-                    .strokeBorder($borderColor.wrappedValue, lineWidth: $borderWidth.wrappedValue)
+                    .strokeBorder($profileImage.wrappedValue == nil ? $borderColor.wrappedValue : $secondaryBorderColor.wrappedValue, lineWidth: $borderWidth.wrappedValue)
                     .frame(width: $secondarySize.wrappedValue.width, height: $secondarySize.wrappedValue.height)
                 
                 Spacer()
