@@ -12,7 +12,7 @@ import SwiftUI
 protocol AuthenticationJourneyBased {
     func nextJourney()
     func previousJourney()
-    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>) -> AnyView
+    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>) -> AnyView
     func getCurrentDateClosedRange() -> ClosedRange<Date>
 }
 
@@ -46,7 +46,7 @@ extension AuthenticationJourneyViewModel: AuthenticationJourneyBased {
 }
 
 extension AuthenticationJourneyViewModel {
-    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>) -> AnyView {
+    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>) -> AnyView {
         switch authenticationJourney {
         case .rules:
             return AnyView(AuthenticationJourneyRulesView.init())
@@ -57,7 +57,7 @@ extension AuthenticationJourneyViewModel {
         case .gender:
             return AnyView(AuthenticationJourneyGenderSelectionView.init(gender: gender))
         case .profilePhoto:
-            return AnyView(AuthenticationJourneyProfilePhotoUploaderView.init(isImagePickerDisplayed: isImagePickerDisplayed, profileImage: profileImage))
+            return AnyView(AuthenticationJourneyProfilePhotoUploaderView.init(isImagePickerDisplayed: isImagePickerDisplayed, profileImage: profileImage, croppedImage: croppedImage))
         case .accountCreation:
             return AnyView(HomeAuthenticationView.init())
         case .notification:

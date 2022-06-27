@@ -15,10 +15,11 @@ struct AuthenticationJourneyView: View {
     @State private var displayName = ""
     @State private var birthDate: Date = .init()
     @State private var gender: FeetishGender = .none
-    @State private var profileImage: UIImage?
+    @State private var croppedImage: UIImage? // the actual profile image!
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var isImagePickerDisplayed = false
+    @State private var profileImage: UIImage?
     
     var body: some View {
         GeometryReader { geometry in
@@ -28,7 +29,7 @@ struct AuthenticationJourneyView: View {
                         .environmentObject(viewModel)
                         .frame(width: geometry.size.width, height: 50)
                     
-                    viewModel.makeView(displayName: $displayName, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage)
+                    viewModel.makeView(displayName: $displayName, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage)
                         .environmentObject(viewModel)
                 }
                 

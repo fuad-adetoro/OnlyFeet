@@ -13,7 +13,7 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
     @Binding var isImagePickerDisplayed: Bool
     @Binding var profileImage: UIImage?
     
-    @State private var croppedImage: UIImage? = nil
+    @Binding var croppedImage: UIImage?
     @State private var imageCroppingViewShown = false
     
     var body: some View {
