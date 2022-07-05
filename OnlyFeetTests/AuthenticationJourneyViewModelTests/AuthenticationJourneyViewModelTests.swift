@@ -13,7 +13,7 @@ class AuthenticationJourneyViewModelTests: XCTestCase {
     private var viewModel: AuthenticationJourneyViewModel!
     
     override func setUp() {
-        self.viewModel = AuthenticationJourneyViewModel.shared
+        self.viewModel = AuthenticationJourneyViewModel()
     }
     
     override func tearDown() {

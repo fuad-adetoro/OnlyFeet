@@ -11,7 +11,7 @@ import Combine
 struct HomeAuthenticationView: View {
     @ObservedObject var viewModel = AuthenticationViewModel.init(feetishAuthentication: FeetishAuthentication.shared)
     
-    @ObservedObject private var bannerViewModel = FeetishBannerViewModel.shared
+    @ObservedObject private var bannerViewModel = FeetishBannerViewModel()
     
     @State private var isLoading = false
     

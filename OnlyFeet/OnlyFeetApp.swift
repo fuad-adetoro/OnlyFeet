@@ -15,6 +15,7 @@ struct OnlyFeetApp: App {
     var body: some Scene {
         WindowGroup {
             AuthenticationJourneyView()
+            //HomeAuthenticationView()
         }
     }
 }

@@ -14,8 +14,6 @@ public protocol FeetishBannerBased {
 }
 
 public final class FeetishBannerViewModel: ObservableObject, FeetishBannerBased {
-    static let shared = FeetishBannerViewModel.init()
-    
     @Published var model: FeetishBannerData? = nil
     @Published var isTimeTicking = false
     @Published var isBeingDragged = false
@@ -46,25 +44,29 @@ public final class FeetishBannerViewModel: ObservableObject, FeetishBannerBased 
         currentBannerTime = 0
         isTimeTicking = true 
         
-        timerForNotification = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [unowned self] timer in
-            guard let _ = self.model else {
+        timerForNotification = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard let _ = strongSelf.model else {
                 // make sure we at least have a model :)
                 return
             }
             
-            if self.isBeingDragged {
+            if strongSelf.isBeingDragged {
                 return
             }
             
-            self.currentBannerTime = self.currentBannerTime + 1
+            strongSelf.currentBannerTime = strongSelf.currentBannerTime + 1
             
-            if self.currentBannerTime == 4 {
-                self.timerForNotification?.invalidate()
-                self.timerForNotification = nil
+            if strongSelf.currentBannerTime == 4 {
+                strongSelf.timerForNotification?.invalidate()
+                strongSelf.timerForNotification = nil
                 
                 print("REMOVE ALL")
                 
-                self.removeCurrentBanner()
+                strongSelf.removeCurrentBanner()
                 
                 return
             }

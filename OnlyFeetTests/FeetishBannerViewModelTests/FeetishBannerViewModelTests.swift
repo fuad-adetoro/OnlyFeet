@@ -12,7 +12,7 @@ class FeetishBannerViewModelTests: XCTestCase {
     private var viewModel: FeetishBannerViewModel!
     
     override func setUp() {
-        self.viewModel = FeetishBannerViewModel.shared
+        self.viewModel = FeetishBannerViewModel()
     }
     
     override func tearDown() {

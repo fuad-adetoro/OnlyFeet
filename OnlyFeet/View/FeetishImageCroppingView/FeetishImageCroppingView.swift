@@ -114,13 +114,13 @@ struct ViewFinderView:View{
             Rectangle()
 //                .foregroundColor(Color.red.opacity(0.3))
                 .foregroundColor(surroundingColor)
-                .frame(width: abs(((imageWidth-getDimension(w: imageWidth, h: imageHeight))/2) + activeOffset.width + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2)), height: imageHeight)
+                .frame(width: ((imageWidth-getDimension(w: imageWidth, h: imageHeight))/2) + activeOffset.width + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2), height: imageHeight)
                 .offset(x: getSurroundingViewOffsets(horizontal: true, left_or_up: true), y: 0)
             Rectangle()
 //                .foregroundColor(Color.blue.opacity(0.3))
                 .foregroundColor(surroundingColor)
                 
-                .frame(width: abs(((imageWidth-getDimension(w: imageWidth, h: imageHeight))/2) - activeOffset.width + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2)), height: imageHeight)
+                .frame(width: ((imageWidth-getDimension(w: imageWidth, h: imageHeight))/2) - activeOffset.width + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2), height: imageHeight)
                 .offset(x: getSurroundingViewOffsets(horizontal: true, left_or_up: false), y: 0)
             Rectangle()
 //                .foregroundColor(Color.yellow.opacity(0.3))
@@ -130,10 +130,7 @@ struct ViewFinderView:View{
             Rectangle()
 //                .foregroundColor(Color.green.opacity(0.3))
                 .foregroundColor(surroundingColor)
-                .frame(width: abs(getDimension(w: imageWidth, h: imageHeight) * activeMagnification), height: ((imageHeight-getDimension(w: imageWidth, h: imageHeight))/2) - activeOffset.height + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2))
-                .onChange(of: activeMagnification, perform: { newValue in
-                    print("MAGNIFICATION: \(newValue) ... \(imageWidth) ... \(imageHeight)")
-                })
+                .frame(width: getDimension(w: imageWidth, h: imageHeight) * activeMagnification, height: ((imageHeight-getDimension(w: imageWidth, h: imageHeight))/2) - activeOffset.height + (getDimension(w: imageWidth, h: imageHeight) * (1 - activeMagnification) / 2))
                 .offset(x: activeOffset.width, y: getSurroundingViewOffsets(horizontal: false, left_or_up: false))
         }
             //This view creates a very translucent rectangle that overlies the picture we'll be uploading

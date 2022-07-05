@@ -22,8 +22,6 @@ public final class AuthenticationJourneyViewModel: ObservableObject {
         var message: String?
     }
     
-    static let shared = AuthenticationJourneyViewModel.init()
-    
     @Published var authenticationJourney: AuthenticationJourneyPosition = .init()
     var previousAuthenticationJourney: AuthenticationJourneyPosition?
     

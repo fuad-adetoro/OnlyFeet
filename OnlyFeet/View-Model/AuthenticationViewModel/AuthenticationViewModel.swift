@@ -68,21 +68,29 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
                 FeetishAuthError.maxWaitTimeReachedError
             })
             .map { FeetishAccount(dataDict: $0) }
-            .sink { [unowned self] completion in
-                isChanging = false 
+            .sink { [weak self] completion in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.isChanging = false
                 
                 switch completion {
                 case .failure(let error):
-                    self.feetishAuthError = error
-                    self.didErrorOccur = true
-                    self.didFetchAccount = false
+                    strongSelf.feetishAuthError = error
+                    strongSelf.didErrorOccur = true
+                    strongSelf.didFetchAccount = false
                 default:
                     break
                 }
-            } receiveValue: { [unowned self] feetishAccount in
-                self.feetishAccount = feetishAccount
-                self.didFetchAccount = true
-                self.didErrorOccur = false
+            } receiveValue: { [weak self] feetishAccount in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.feetishAccount = feetishAccount
+                strongSelf.didFetchAccount = true
+                strongSelf.didErrorOccur = false
             }
             .store(in: &subscriptions)
     }

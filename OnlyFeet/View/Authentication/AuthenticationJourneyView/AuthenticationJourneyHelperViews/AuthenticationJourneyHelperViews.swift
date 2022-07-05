@@ -30,7 +30,7 @@ struct AuthenticationContinueButtonWithBackground: View {
                         
                         Spacer().frame(width: 20)
                     }
-                    //.padding(.top, FeetishBiometrics.shared.isIphoneWithFaceDetection() ? 10 : 0)
+                    .padding(.top, FeetishBiometrics.shared.isIphoneWithFaceDetection() ? 10 : 0)
                     
                     Spacer()
                 }

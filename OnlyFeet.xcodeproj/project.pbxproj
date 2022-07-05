@@ -46,6 +46,7 @@
 		0662446828693CAD003B50F3 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446728693CAD003B50F3 /* ImagePickerView.swift */; };
 		0662446B28693F86003B50F3 /* FeetishImageCroppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446A28693F86003B50F3 /* FeetishImageCroppingView.swift */; };
 		0662446E28694219003B50F3 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446D28694219003B50F3 /* UIApplication+.swift */; };
+		066244712869B2B6003B50F3 /* BiometricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066244702869B2B6003B50F3 /* BiometricType.swift */; };
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
 		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
@@ -110,6 +111,7 @@
 		0662446728693CAD003B50F3 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		0662446A28693F86003B50F3 /* FeetishImageCroppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishImageCroppingView.swift; sourceTree = "<group>"; };
 		0662446D28694219003B50F3 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		066244702869B2B6003B50F3 /* BiometricType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricType.swift; sourceTree = "<group>"; };
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
 		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		0661966028633DF0008DEC29 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				0662446F2869B2A6003B50F3 /* BiometricType */,
 				0661966328633E08008DEC29 /* GetCurrentTimeInterval */,
 			);
 			path = Extras;
@@ -564,6 +567,14 @@
 			path = "UIApplication+";
 			sourceTree = "<group>";
 		};
+		0662446F2869B2A6003B50F3 /* BiometricType */ = {
+			isa = PBXGroup;
+			children = (
+				066244702869B2B6003B50F3 /* BiometricType.swift */,
+			);
+			path = BiometricType;
+			sourceTree = "<group>";
+		};
 		06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,8 +594,8 @@
 		06C7C45C2868544600625ED6 /* AuthenticationJourneyView */ = {
 			isa = PBXGroup;
 			children = (
-				0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */,
 				06C7C46A2869218F00625ED6 /* AuthenticationJourneyHelperViews */,
+				0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */,
 				0662445B286934C8003B50F3 /* AuthenticationJourneyGenderSelectionView */,
 				0662445528692D0A003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView */,
 				0662445228692A13003B50F3 /* AuthenticationJourneyNameView */,
@@ -817,6 +828,7 @@
 				0662446428693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift in Sources */,
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
 				06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */,
+				066244712869B2B6003B50F3 /* BiometricType.swift in Sources */,
 				06C7C4662868B6BA00625ED6 /* ViewBuilder+.swift in Sources */,
 				06C7C46928691C9A00625ED6 /* AuthenticationJourneyRulesView.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,

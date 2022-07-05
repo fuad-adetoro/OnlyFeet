@@ -58,7 +58,7 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                                 }
                                 .frame(width: 150, height: 150)
                                 
-                                if $profileImage.wrappedValue == nil {
+                                if $croppedImage.wrappedValue == nil {
                                     VStack {
                                         Spacer()
                                         

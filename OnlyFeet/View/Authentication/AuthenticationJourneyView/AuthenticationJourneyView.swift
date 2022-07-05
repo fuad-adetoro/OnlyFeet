@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AuthenticationJourneyView: View {
-    @ObservedObject var viewModel = AuthenticationJourneyViewModel.shared
-    @ObservedObject var bannerViewModel = FeetishBannerViewModel.shared 
+    @ObservedObject var viewModel = AuthenticationJourneyViewModel()
+    @ObservedObject var bannerViewModel = FeetishBannerViewModel()
     
     // user properties
     @State private var displayName = ""
