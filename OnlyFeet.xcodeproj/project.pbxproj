@@ -47,6 +47,21 @@
 		0662446B28693F86003B50F3 /* FeetishImageCroppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446A28693F86003B50F3 /* FeetishImageCroppingView.swift */; };
 		0662446E28694219003B50F3 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662446D28694219003B50F3 /* UIApplication+.swift */; };
 		066244712869B2B6003B50F3 /* BiometricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066244702869B2B6003B50F3 /* BiometricType.swift */; };
+		0666F2CE2877338F0034D537 /* OFCameraErrorr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2CD2877338F0034D537 /* OFCameraErrorr.swift */; };
+		0666F2D1287733F30034D537 /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2D0287733F30034D537 /* CGImage+.swift */; };
+		0666F2DC287736FE0034D537 /* CameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2DB287736FE0034D537 /* CameraFrameView.swift */; };
+		0666F2DF2877391E0034D537 /* OFCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2DE2877391E0034D537 /* OFCameraManager.swift */; };
+		0666F2E2287742A10034D537 /* OFCameraFrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2E1287742A10034D537 /* OFCameraFrameManager.swift */; };
+		0666F2E52877445A0034D537 /* OFCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2E42877445A0034D537 /* OFCameraViewModel.swift */; };
+		0666F2E8287782DD0034D537 /* OFCameraViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2E7287782DD0034D537 /* OFCameraViewerView.swift */; };
+		0666F2EB287783EE0034D537 /* OFCameraErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2EA287783EE0034D537 /* OFCameraErrorView.swift */; };
+		0666F2EE287789AD0034D537 /* OFCameraClickableBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2ED287789AD0034D537 /* OFCameraClickableBackground.swift */; };
+		0666F2F128783B0D0034D537 /* OFCameraPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F028783B0C0034D537 /* OFCameraPhotoButton.swift */; };
+		0666F2F428783B2D0034D537 /* OFCameraPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */; };
+		0666F2F728783B5B0034D537 /* OFCameraFocusPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F628783B5B0034D537 /* OFCameraFocusPointView.swift */; };
+		0666F2FA28783BDB0034D537 /* OFCameraTouchableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F928783BDB0034D537 /* OFCameraTouchableView.swift */; };
+		0666F2FE287841EC0034D537 /* OFCameraPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2FD287841EC0034D537 /* OFCameraPosition.swift */; };
+		0666F300287841FD0034D537 /* OFCameraPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2FF287841FD0034D537 /* OFCameraPurpose.swift */; };
 		06C7C45828661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */; };
 		06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */; };
 		06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */; };
@@ -112,6 +127,21 @@
 		0662446A28693F86003B50F3 /* FeetishImageCroppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishImageCroppingView.swift; sourceTree = "<group>"; };
 		0662446D28694219003B50F3 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		066244702869B2B6003B50F3 /* BiometricType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricType.swift; sourceTree = "<group>"; };
+		0666F2CD2877338F0034D537 /* OFCameraErrorr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraErrorr.swift; sourceTree = "<group>"; };
+		0666F2D0287733F30034D537 /* CGImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
+		0666F2DB287736FE0034D537 /* CameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameView.swift; sourceTree = "<group>"; };
+		0666F2DE2877391E0034D537 /* OFCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraManager.swift; sourceTree = "<group>"; };
+		0666F2E1287742A10034D537 /* OFCameraFrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraFrameManager.swift; sourceTree = "<group>"; };
+		0666F2E42877445A0034D537 /* OFCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraViewModel.swift; sourceTree = "<group>"; };
+		0666F2E7287782DD0034D537 /* OFCameraViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraViewerView.swift; sourceTree = "<group>"; };
+		0666F2EA287783EE0034D537 /* OFCameraErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraErrorView.swift; sourceTree = "<group>"; };
+		0666F2ED287789AD0034D537 /* OFCameraClickableBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraClickableBackground.swift; sourceTree = "<group>"; };
+		0666F2F028783B0C0034D537 /* OFCameraPhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPhotoButton.swift; sourceTree = "<group>"; };
+		0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPurpose.swift; sourceTree = "<group>"; };
+		0666F2F628783B5B0034D537 /* OFCameraFocusPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraFocusPointView.swift; sourceTree = "<group>"; };
+		0666F2F928783BDB0034D537 /* OFCameraTouchableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraTouchableView.swift; sourceTree = "<group>"; };
+		0666F2FD287841EC0034D537 /* OFCameraPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPosition.swift; sourceTree = "<group>"; };
+		0666F2FF287841FD0034D537 /* OFCameraPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPurpose.swift; sourceTree = "<group>"; };
 		06C7C45728661B6A00625ED6 /* AuthenticationJourneyPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyPositionTests.swift; sourceTree = "<group>"; };
 		06C7C45A28661C7700625ED6 /* AuthenticationJourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyViewModel.swift; sourceTree = "<group>"; };
 		06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyView.swift; sourceTree = "<group>"; };
@@ -249,6 +279,7 @@
 		0661963728613651008DEC29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0666F2CB287733710034D537 /* OFCamera */,
 				064B2EDF2865AA1B009706D1 /* AuthenticationJourneyPosition */,
 				066196772863BD7B008DEC29 /* SystemReachability */,
 				0661966A28638FB7008DEC29 /* FeetishBanner */,
@@ -261,6 +292,7 @@
 		0661963828613656008DEC29 /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
+				0666F2E32877444B0034D537 /* OFCameraViewModel */,
 				06C7C45928661C6800625ED6 /* AuthenticationJourneyViewModel */,
 				06619674286390A1008DEC29 /* FeetishBannerViewModel */,
 				0661963C2861369D008DEC29 /* AuthenticationViewModel */,
@@ -271,6 +303,7 @@
 		066196392861365C008DEC29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0666F2D9287736BE0034D537 /* CameraViews */,
 				0662446928693F6E003B50F3 /* FeetishImageCroppingView */,
 				0662446528693C98003B50F3 /* View Representables */,
 				064B2ED028646347009706D1 /* FeetishBasicLoaderView */,
@@ -321,6 +354,7 @@
 		0661964228613718008DEC29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0666F2CF287733E60034D537 /* CGImage+ */,
 				0662446C2869420D003B50F3 /* UIApplication+ */,
 				066244582869326B003B50F3 /* Date+ */,
 				06C7C4642868B6A200625ED6 /* ViewBuilder+ */,
@@ -575,6 +609,153 @@
 			path = BiometricType;
 			sourceTree = "<group>";
 		};
+		0666F2CB287733710034D537 /* OFCamera */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2FC287841DB0034D537 /* OFCameraPurpose */,
+				0666F2FB287841D50034D537 /* OFCameraPosition */,
+				0666F2E02877428C0034D537 /* OFCameraFrameManager */,
+				0666F2DD2877390E0034D537 /* OFCameraManager */,
+				0666F2CC287733810034D537 /* OFCameraError */,
+			);
+			path = OFCamera;
+			sourceTree = "<group>";
+		};
+		0666F2CC287733810034D537 /* OFCameraError */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2CD2877338F0034D537 /* OFCameraErrorr.swift */,
+			);
+			path = OFCameraError;
+			sourceTree = "<group>";
+		};
+		0666F2CF287733E60034D537 /* CGImage+ */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2D0287733F30034D537 /* CGImage+.swift */,
+			);
+			path = "CGImage+";
+			sourceTree = "<group>";
+		};
+		0666F2D9287736BE0034D537 /* CameraViews */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2F828783BC20034D537 /* OFCameraTouchableView */,
+				0666F2F528783B470034D537 /* OFCameraFocusPointView */,
+				0666F2F228783B1F0034D537 /* OFCameraPurpose */,
+				0666F2EF28783AF40034D537 /* OFCameraPhotoButton */,
+				0666F2EC287789910034D537 /* OFCameraClickableBackground */,
+				0666F2E9287783DA0034D537 /* OFCameraErrorView */,
+				0666F2E6287782CD0034D537 /* OFCameraViewerView */,
+				0666F2DA287736CD0034D537 /* CameraFrameView */,
+			);
+			path = CameraViews;
+			sourceTree = "<group>";
+		};
+		0666F2DA287736CD0034D537 /* CameraFrameView */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2DB287736FE0034D537 /* CameraFrameView.swift */,
+			);
+			path = CameraFrameView;
+			sourceTree = "<group>";
+		};
+		0666F2DD2877390E0034D537 /* OFCameraManager */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2DE2877391E0034D537 /* OFCameraManager.swift */,
+			);
+			path = OFCameraManager;
+			sourceTree = "<group>";
+		};
+		0666F2E02877428C0034D537 /* OFCameraFrameManager */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2E1287742A10034D537 /* OFCameraFrameManager.swift */,
+			);
+			path = OFCameraFrameManager;
+			sourceTree = "<group>";
+		};
+		0666F2E32877444B0034D537 /* OFCameraViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2E42877445A0034D537 /* OFCameraViewModel.swift */,
+			);
+			path = OFCameraViewModel;
+			sourceTree = "<group>";
+		};
+		0666F2E6287782CD0034D537 /* OFCameraViewerView */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2E7287782DD0034D537 /* OFCameraViewerView.swift */,
+			);
+			path = OFCameraViewerView;
+			sourceTree = "<group>";
+		};
+		0666F2E9287783DA0034D537 /* OFCameraErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2EA287783EE0034D537 /* OFCameraErrorView.swift */,
+			);
+			path = OFCameraErrorView;
+			sourceTree = "<group>";
+		};
+		0666F2EC287789910034D537 /* OFCameraClickableBackground */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2ED287789AD0034D537 /* OFCameraClickableBackground.swift */,
+			);
+			path = OFCameraClickableBackground;
+			sourceTree = "<group>";
+		};
+		0666F2EF28783AF40034D537 /* OFCameraPhotoButton */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2F028783B0C0034D537 /* OFCameraPhotoButton.swift */,
+			);
+			path = OFCameraPhotoButton;
+			sourceTree = "<group>";
+		};
+		0666F2F228783B1F0034D537 /* OFCameraPurpose */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */,
+			);
+			path = OFCameraPurpose;
+			sourceTree = "<group>";
+		};
+		0666F2F528783B470034D537 /* OFCameraFocusPointView */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2F628783B5B0034D537 /* OFCameraFocusPointView.swift */,
+			);
+			path = OFCameraFocusPointView;
+			sourceTree = "<group>";
+		};
+		0666F2F828783BC20034D537 /* OFCameraTouchableView */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2F928783BDB0034D537 /* OFCameraTouchableView.swift */,
+			);
+			path = OFCameraTouchableView;
+			sourceTree = "<group>";
+		};
+		0666F2FB287841D50034D537 /* OFCameraPosition */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2FD287841EC0034D537 /* OFCameraPosition.swift */,
+			);
+			path = OFCameraPosition;
+			sourceTree = "<group>";
+		};
+		0666F2FC287841DB0034D537 /* OFCameraPurpose */ = {
+			isa = PBXGroup;
+			children = (
+				0666F2FF287841FD0034D537 /* OFCameraPurpose.swift */,
+			);
+			path = OFCameraPurpose;
+			sourceTree = "<group>";
+		};
 		06C7C45628661B5200625ED6 /* AuthenticationJourneyPositionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,20 +1008,30 @@
 			files = (
 				0662446428693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift in Sources */,
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
+				0666F2E52877445A0034D537 /* OFCameraViewModel.swift in Sources */,
 				06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */,
 				066244712869B2B6003B50F3 /* BiometricType.swift in Sources */,
+				0666F2EB287783EE0034D537 /* OFCameraErrorView.swift in Sources */,
+				0666F2E8287782DD0034D537 /* OFCameraViewerView.swift in Sources */,
 				06C7C4662868B6BA00625ED6 /* ViewBuilder+.swift in Sources */,
+				0666F300287841FD0034D537 /* OFCameraPurpose.swift in Sources */,
 				06C7C46928691C9A00625ED6 /* AuthenticationJourneyRulesView.swift in Sources */,
+				0666F2E2287742A10034D537 /* OFCameraFrameManager.swift in Sources */,
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
 				0662445A28693273003B50F3 /* Date+.swift in Sources */,
 				064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
 				0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */,
+				0666F2DF2877391E0034D537 /* OFCameraManager.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
+				0666F2D1287733F30034D537 /* CGImage+.swift in Sources */,
+				0666F2F728783B5B0034D537 /* OFCameraFocusPointView.swift in Sources */,
 				0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */,
 				0662445728692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift in Sources */,
+				0666F2FA28783BDB0034D537 /* OFCameraTouchableView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
+				0666F2EE287789AD0034D537 /* OFCameraClickableBackground.swift in Sources */,
 				064B2EE12865AA2B009706D1 /* AuthenticationJourneyPosition.swift in Sources */,
 				0662446828693CAD003B50F3 /* ImagePickerView.swift in Sources */,
 				066196792863BD8C008DEC29 /* SystemReachability.swift in Sources */,
@@ -850,6 +1041,7 @@
 				06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */,
 				06C7C4632868A0CF00625ED6 /* MockAuthentication.swift in Sources */,
 				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
+				0666F2FE287841EC0034D537 /* OFCameraPosition.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				0662446B28693F86003B50F3 /* FeetishImageCroppingView.swift in Sources */,
 				064B2EDB2864B403009706D1 /* LoginView.swift in Sources */,
@@ -858,7 +1050,11 @@
 				06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */,
 				064B2ED228646362009706D1 /* FeetishBasicLoaderView.swift in Sources */,
 				0662445D286934D9003B50F3 /* AuthenticationJourneyGenderSelectionView.swift in Sources */,
+				0666F2CE2877338F0034D537 /* OFCameraErrorr.swift in Sources */,
+				0666F2F128783B0D0034D537 /* OFCameraPhotoButton.swift in Sources */,
 				0662446E28694219003B50F3 /* UIApplication+.swift in Sources */,
+				0666F2DC287736FE0034D537 /* CameraFrameView.swift in Sources */,
+				0666F2F428783B2D0034D537 /* OFCameraPurpose.swift in Sources */,
 				0662445428692A2D003B50F3 /* AuthenticationJourneyNameView.swift in Sources */,
 				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
 				0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */,
@@ -1013,10 +1209,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnlyFeet/Preview Content\"";
-				DEVELOPMENT_TEAM = T4LCWHVG69;
+				DEVELOPMENT_TEAM = Z4TQ3QN936;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnlyFeet/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Feetish needs access to your photo gallery so you can share content";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Feetish needs access to your camera so you can share content";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Feetish needs access to your microphone for adding a voice to videos etc";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1044,10 +1243,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnlyFeet/Preview Content\"";
-				DEVELOPMENT_TEAM = T4LCWHVG69;
+				DEVELOPMENT_TEAM = Z4TQ3QN936;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OnlyFeet/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Feetish needs access to your photo gallery so you can share content";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Feetish needs access to your camera so you can share content";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Feetish needs access to your microphone for adding a voice to videos etc";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

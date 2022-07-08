@@ -5,7 +5,7 @@
 //  Created by Fuad on 26/06/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 extension View {
     @ViewBuilder func currentJourneyView<Content: View>(_ journey: AuthenticationJourneyPosition, content: (Self) -> Content) -> some View {
@@ -14,4 +14,4 @@ extension View {
             HomeAuthenticationView()
         } 
     }
-}
+}*/

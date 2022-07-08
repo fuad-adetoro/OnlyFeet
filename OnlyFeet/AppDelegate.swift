@@ -16,4 +16,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("Terminating")
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        print("Resigning")
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("In the Background")
+    }
 }

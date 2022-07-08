@@ -5,7 +5,7 @@
 //  Created by Fuad on 27/06/2022.
 //
 
-import UIKit
+import UIKit.UIApplication
 
 extension UIApplication {
     
