@@ -45,9 +45,19 @@ struct SignUpView : View {
                         Image(systemName: "envelope.fill")
                         .foregroundColor(Color("LoginColor2"))
                         
-                        TextField("Email Address", text: self.$email)
+                        TextField("", text: self.$email)
                             .focused($emailIsFocused)
                             .disableAutocorrection(true)
+                            .placeholder(when: self.$email.wrappedValue.isEmpty, placeholder: {
+                                Text("Email Address")
+                                    .foregroundColor(.gray)
+                            })
+                            .foregroundColor(.white)
+                            .textContentType(.emailAddress)
+                            .onSubmit {
+                                passwordIsFocused = true
+                            }
+                            .submitLabel(.next)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -60,8 +70,18 @@ struct SignUpView : View {
                         Image(systemName: "eye.slash.fill")
                         .foregroundColor(Color("LoginColor2"))
                         
-                        SecureField("Password", text: self.$password)
+                        SecureField("", text: self.$password)
                             .focused($passwordIsFocused)
+                            .placeholder(when: self.$password.wrappedValue.isEmpty, placeholder: {
+                                Text("Password")
+                                    .foregroundColor(.gray)
+                            })
+                            .foregroundColor(.white)
+                            .textContentType(.newPassword)
+                            .onSubmit {
+                                self.confirmPasswordIsFocused = true
+                            }
+                            .submitLabel(.next)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -74,8 +94,22 @@ struct SignUpView : View {
                         Image(systemName: "eye.slash.fill")
                         .foregroundColor(Color("LoginColor2"))
                         
-                        SecureField("Confirm Password", text: self.$confirmPassword)
+                        SecureField("", text: self.$confirmPassword)
                             .focused($confirmPasswordIsFocused)
+                            .placeholder(when: self.$confirmPassword.wrappedValue.isEmpty, placeholder: {
+                                Text("Confirm Password")
+                                    .foregroundColor(.gray)
+                            })
+                            .foregroundColor(.white)
+                            .textContentType(.newPassword)
+                            .onSubmit {
+                                self.emailIsFocused = false
+                                self.passwordIsFocused = false
+                                self.confirmPasswordIsFocused = false
+                                
+                                viewModel.createAccount(email: email, password: password, confirmedPassword: confirmPassword)
+                            }
+                            .submitLabel(.done)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))

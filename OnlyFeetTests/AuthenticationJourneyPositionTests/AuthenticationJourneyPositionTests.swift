@@ -44,12 +44,7 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         let accountCreationPosition = profilePhotoPosition.nextPosition()
         
         XCTAssertEqual(accountCreationPosition, AuthenticationJourneyPosition.accountCreation)
-        XCTAssertEqual(accountCreationPosition.rawValue, 6)
-        
-        let notificationPosition = accountCreationPosition.nextPosition()
-        
-        XCTAssertEqual(notificationPosition, AuthenticationJourneyPosition.notification)
-        XCTAssertEqual(notificationPosition.rawValue, 7)
+        XCTAssertEqual(accountCreationPosition.rawValue, 6) 
     }
     
     func testPreviousPosition() {
@@ -63,20 +58,12 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         let genderPosition = birthdayPosition.nextPosition()
         let profilePhotoPosition = genderPosition.nextPosition()
         let accountCreationPosition = profilePhotoPosition.nextPosition()
-        let notificationPosition = accountCreationPosition.nextPosition()
-        let getStartedPosition = notificationPosition.nextPosition()
-        let completePosition = getStartedPosition.nextPosition()
         
         let rulesPositionPrevious = namePosition.previousPosition()
         let namePositionPrevious = birthdayPosition.previousPosition()
         let birthdayPositionPrevious = genderPosition.previousPosition()
         let genderPositionPrevious = profilePhotoPosition.previousPosition()
         let profilePhotoPreviousPrevious = accountCreationPosition.previousPosition()
-        let accountCreationPreviousPosition = notificationPosition.previousPosition()
-        let notificationPositionPrevious = getStartedPosition.previousPosition()
-        let getStartedPositionPrevious = completePosition.previousPosition()
-        let completePositionPrevious = completePosition.previousPosition()
-        let nilPosition = authenticationJourneyPosition.previousPosition()
         
         XCTAssertEqual(namePosition, AuthenticationJourneyPosition.name)
         XCTAssertEqual(namePosition.rawValue, 2)
@@ -90,17 +77,7 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         
         XCTAssertEqual(genderPositionPrevious, AuthenticationJourneyPosition.gender)
         
-        XCTAssertEqual(profilePhotoPreviousPrevious, AuthenticationJourneyPosition.profilePhoto)
-        
-        XCTAssertEqual(accountCreationPreviousPosition, AuthenticationJourneyPosition.accountCreation)
-        
-        XCTAssertEqual(notificationPositionPrevious, AuthenticationJourneyPosition.notification)
-        
-        XCTAssertEqual(getStartedPositionPrevious, AuthenticationJourneyPosition.getStarted)
-        
-        XCTAssertNotEqual(completePositionPrevious, AuthenticationJourneyPosition.complete)
-        
-        XCTAssertNil(nilPosition)
+        XCTAssertEqual(profilePhotoPreviousPrevious, AuthenticationJourneyPosition.profilePhoto) 
     }
 
 }

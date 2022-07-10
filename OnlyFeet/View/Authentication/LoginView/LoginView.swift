@@ -18,6 +18,9 @@ struct LoginView : View {
     
     @State private var isLoginButtonDisabled = true
     
+    @FocusState private var emailIsFocused: Bool
+    @FocusState private var passwordIsFocused: Bool 
+    
     var body: some View{
         ZStack(alignment: .bottom) {
             VStack {
@@ -42,8 +45,18 @@ struct LoginView : View {
                         Image(systemName: "envelope.fill")
                         .foregroundColor(Color("LoginColor2"))
                         
-                        TextField("Email Address or Username", text: self.$email)
+                        TextField("", text: self.$email)
+                            .focused($emailIsFocused)
                             .disableAutocorrection(true)
+                            .placeholder(when: self.$email.wrappedValue.isEmpty, placeholder: {
+                                Text("Email Address or Username")
+                                    .foregroundColor(.gray)
+                            })
+                            .foregroundColor(.white)
+                            .onSubmit {
+                                self.passwordIsFocused = true
+                            }
+                            .submitLabel(.next)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -56,7 +69,20 @@ struct LoginView : View {
                         Image(systemName: "eye.slash.fill")
                         .foregroundColor(Color("LoginColor2"))
                         
-                        SecureField("Password", text: self.$password)
+                        SecureField("", text: self.$password)
+                            .focused($passwordIsFocused)
+                            .placeholder(when: self.$password.wrappedValue.isEmpty, placeholder: {
+                                Text("Password")
+                                    .foregroundColor(.gray)
+                            })
+                            .foregroundColor(.white)
+                            .onSubmit {
+                                self.passwordIsFocused = false
+                                self.emailIsFocused = false
+                                
+                                viewModel.signUserIn(email: email, password: password)
+                            }
+                            .submitLabel(.continue)
                     }
                     
                     Divider().background(Color.white.opacity(0.5))
@@ -93,6 +119,9 @@ struct LoginView : View {
             .padding(.horizontal,20)
             
             Button(action: {
+                self.emailIsFocused = false
+                self.passwordIsFocused = false
+                
                 viewModel.signUserIn(email: email, password: password)
             }) {
                 

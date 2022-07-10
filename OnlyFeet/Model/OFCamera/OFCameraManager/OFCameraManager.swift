@@ -93,7 +93,8 @@ class OFCameraManager: ObservableObject {
         }
         
         if newVideoInput == nil || err != nil {
-            print("Error creating capture device input: \(err?.localizedDescription)")
+            error = .createCaptureInput(err!)
+            status = .unconfigured
         } else {
             session.addInput(newVideoInput)
         }
@@ -172,7 +173,7 @@ class OFCameraManager: ObservableObject {
             status = .failed
             
             return
-        }
+        } 
         
         do {
             let cameraInput = try AVCaptureDeviceInput(device: camera)

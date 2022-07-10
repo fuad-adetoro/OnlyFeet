@@ -14,9 +14,7 @@ public enum AuthenticationJourneyPosition: Int, CaseIterable {
     case gender = 4
     case profilePhoto = 5
     case accountCreation = 6
-    case notification = 7
-    case getStarted = 8
-    case complete = 9
+    case complete = 7
 }
 
 extension AuthenticationJourneyPosition {
@@ -36,10 +34,6 @@ extension AuthenticationJourneyPosition {
             return .profilePhoto
         } else if case .profilePhoto = self {
             return .accountCreation
-        } else if case .accountCreation = self {
-            return .notification
-        } else if case .notification = self {
-            return .getStarted
         } else {
             return .complete
         }
@@ -58,12 +52,6 @@ extension AuthenticationJourneyPosition {
             return .gender
         } else if case .accountCreation = self {
             return .profilePhoto
-        } else if case .notification = self {
-            return .accountCreation
-        } else if case .getStarted = self {
-            return .notification
-        } else if case .complete = self {
-            return .getStarted
         }
         
         return nil

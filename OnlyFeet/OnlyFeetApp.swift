@@ -14,11 +14,7 @@ struct OnlyFeetApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //AuthenticationJourneyView()
-            
-            //HomeAuthenticationView()
-            
-            OFCameraViewerView(cameraPurpose: .constant(.profilePhotoFromAuth))
+            FeetishLaunchScreenView() 
         }
     }
 }

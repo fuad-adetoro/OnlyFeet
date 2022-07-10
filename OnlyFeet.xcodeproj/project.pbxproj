@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062BAE4E2878775D00B55282 /* OFCameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE4D2878775C00B55282 /* OFCameraResultView.swift */; };
+		062BAE512878CDD400B55282 /* OFCameraResultBackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE502878CDD400B55282 /* OFCameraResultBackButtonView.swift */; };
+		062BAE542878D6CC00B55282 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE532878D6CC00B55282 /* UIViewController+.swift */; };
+		062BAE572878E45500B55282 /* AuthenticationJourneyAccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE562878E45500B55282 /* AuthenticationJourneyAccountCreationView.swift */; };
+		062BAE66287A239A00B55282 /* OFTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE65287A239A00B55282 /* OFTabView.swift */; };
+		062BAE6B287A26D800B55282 /* HasNotch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE6A287A26D800B55282 /* HasNotch.swift */; };
+		062BAE71287A4B6900B55282 /* OFHomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE70287A4B6900B55282 /* OFHomeTabView.swift */; };
+		062BAE73287A4B7800B55282 /* OFSearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE72287A4B7800B55282 /* OFSearchTabView.swift */; };
+		062BAE75287A4B8400B55282 /* OFActivityTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE74287A4B8400B55282 /* OFActivityTabView.swift */; };
+		062BAE77287A4B9100B55282 /* OFProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE76287A4B9100B55282 /* OFProfileTabView.swift */; };
+		062BAE7A287A4BDA00B55282 /* OFTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE79287A4BDA00B55282 /* OFTabViewModel.swift */; };
+		062BAE7E287A52F200B55282 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE7D287A52F200B55282 /* ProfileViewModel.swift */; };
+		062BAE81287A532E00B55282 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE80287A532E00B55282 /* ProfileService.swift */; };
+		062BAE84287A53B200B55282 /* ProfileServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE83287A53B200B55282 /* ProfileServiceError.swift */; };
+		062BAE87287A565B00B55282 /* FeetishSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE86287A565B00B55282 /* FeetishSubject.swift */; };
+		062BAE8A287A575E00B55282 /* FeetishUserJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE89287A575E00B55282 /* FeetishUserJourney.swift */; };
+		062BAE8D287A61ED00B55282 /* FeetishLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */; };
 		064B2ED228646362009706D1 /* FeetishBasicLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2ED128646362009706D1 /* FeetishBasicLoaderView.swift */; };
 		064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */; };
 		064B2EDB2864B403009706D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2EDA2864B403009706D1 /* LoginView.swift */; };
@@ -57,7 +74,7 @@
 		0666F2EB287783EE0034D537 /* OFCameraErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2EA287783EE0034D537 /* OFCameraErrorView.swift */; };
 		0666F2EE287789AD0034D537 /* OFCameraClickableBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2ED287789AD0034D537 /* OFCameraClickableBackground.swift */; };
 		0666F2F128783B0D0034D537 /* OFCameraPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F028783B0C0034D537 /* OFCameraPhotoButton.swift */; };
-		0666F2F428783B2D0034D537 /* OFCameraPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */; };
+		0666F2F428783B2D0034D537 /* OFCameraPurposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F328783B2D0034D537 /* OFCameraPurposeView.swift */; };
 		0666F2F728783B5B0034D537 /* OFCameraFocusPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F628783B5B0034D537 /* OFCameraFocusPointView.swift */; };
 		0666F2FA28783BDB0034D537 /* OFCameraTouchableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2F928783BDB0034D537 /* OFCameraTouchableView.swift */; };
 		0666F2FE287841EC0034D537 /* OFCameraPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0666F2FD287841EC0034D537 /* OFCameraPosition.swift */; };
@@ -84,6 +101,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062BAE4D2878775C00B55282 /* OFCameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraResultView.swift; sourceTree = "<group>"; };
+		062BAE502878CDD400B55282 /* OFCameraResultBackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraResultBackButtonView.swift; sourceTree = "<group>"; };
+		062BAE532878D6CC00B55282 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		062BAE562878E45500B55282 /* AuthenticationJourneyAccountCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyAccountCreationView.swift; sourceTree = "<group>"; };
+		062BAE65287A239A00B55282 /* OFTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFTabView.swift; sourceTree = "<group>"; };
+		062BAE6A287A26D800B55282 /* HasNotch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNotch.swift; sourceTree = "<group>"; };
+		062BAE70287A4B6900B55282 /* OFHomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFHomeTabView.swift; sourceTree = "<group>"; };
+		062BAE72287A4B7800B55282 /* OFSearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFSearchTabView.swift; sourceTree = "<group>"; };
+		062BAE74287A4B8400B55282 /* OFActivityTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFActivityTabView.swift; sourceTree = "<group>"; };
+		062BAE76287A4B9100B55282 /* OFProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFProfileTabView.swift; sourceTree = "<group>"; };
+		062BAE79287A4BDA00B55282 /* OFTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFTabViewModel.swift; sourceTree = "<group>"; };
+		062BAE7D287A52F200B55282 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		062BAE80287A532E00B55282 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		062BAE83287A53B200B55282 /* ProfileServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceError.swift; sourceTree = "<group>"; };
+		062BAE86287A565B00B55282 /* FeetishSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishSubject.swift; sourceTree = "<group>"; };
+		062BAE89287A575E00B55282 /* FeetishUserJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishUserJourney.swift; sourceTree = "<group>"; };
+		062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishLaunchScreenView.swift; sourceTree = "<group>"; };
 		064B2ED128646362009706D1 /* FeetishBasicLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBasicLoaderView.swift; sourceTree = "<group>"; };
 		064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgottenPasswordView.swift; sourceTree = "<group>"; };
 		064B2EDA2864B403009706D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -137,7 +171,7 @@
 		0666F2EA287783EE0034D537 /* OFCameraErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraErrorView.swift; sourceTree = "<group>"; };
 		0666F2ED287789AD0034D537 /* OFCameraClickableBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraClickableBackground.swift; sourceTree = "<group>"; };
 		0666F2F028783B0C0034D537 /* OFCameraPhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPhotoButton.swift; sourceTree = "<group>"; };
-		0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPurpose.swift; sourceTree = "<group>"; };
+		0666F2F328783B2D0034D537 /* OFCameraPurposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPurposeView.swift; sourceTree = "<group>"; };
 		0666F2F628783B5B0034D537 /* OFCameraFocusPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraFocusPointView.swift; sourceTree = "<group>"; };
 		0666F2F928783BDB0034D537 /* OFCameraTouchableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraTouchableView.swift; sourceTree = "<group>"; };
 		0666F2FD287841EC0034D537 /* OFCameraPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFCameraPosition.swift; sourceTree = "<group>"; };
@@ -177,6 +211,155 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062BAE4C2878774900B55282 /* OFCameraResultView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE4D2878775C00B55282 /* OFCameraResultView.swift */,
+			);
+			path = OFCameraResultView;
+			sourceTree = "<group>";
+		};
+		062BAE4F28789AFB00B55282 /* OFCameraResultBackButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE502878CDD400B55282 /* OFCameraResultBackButtonView.swift */,
+			);
+			path = OFCameraResultBackButtonView;
+			sourceTree = "<group>";
+		};
+		062BAE522878D6BA00B55282 /* UIViewController+ */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE532878D6CC00B55282 /* UIViewController+.swift */,
+			);
+			path = "UIViewController+";
+			sourceTree = "<group>";
+		};
+		062BAE552878E43300B55282 /* AuthenticationJourneyAccountCreationView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE562878E45500B55282 /* AuthenticationJourneyAccountCreationView.swift */,
+			);
+			path = AuthenticationJourneyAccountCreationView;
+			sourceTree = "<group>";
+		};
+		062BAE5F287A232C00B55282 /* OFTabViews */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE64287A238B00B55282 /* OFTabView */,
+				062BAE60287A233D00B55282 /* OFHomeTabView */,
+				062BAE61287A234600B55282 /* OFSearchTabView */,
+				062BAE63287A236400B55282 /* OFActivityTabView */,
+				062BAE62287A235800B55282 /* OFProfileTabView */,
+			);
+			path = OFTabViews;
+			sourceTree = "<group>";
+		};
+		062BAE60287A233D00B55282 /* OFHomeTabView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE70287A4B6900B55282 /* OFHomeTabView.swift */,
+			);
+			path = OFHomeTabView;
+			sourceTree = "<group>";
+		};
+		062BAE61287A234600B55282 /* OFSearchTabView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE72287A4B7800B55282 /* OFSearchTabView.swift */,
+			);
+			path = OFSearchTabView;
+			sourceTree = "<group>";
+		};
+		062BAE62287A235800B55282 /* OFProfileTabView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE76287A4B9100B55282 /* OFProfileTabView.swift */,
+			);
+			path = OFProfileTabView;
+			sourceTree = "<group>";
+		};
+		062BAE63287A236400B55282 /* OFActivityTabView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE74287A4B8400B55282 /* OFActivityTabView.swift */,
+			);
+			path = OFActivityTabView;
+			sourceTree = "<group>";
+		};
+		062BAE64287A238B00B55282 /* OFTabView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE65287A239A00B55282 /* OFTabView.swift */,
+			);
+			path = OFTabView;
+			sourceTree = "<group>";
+		};
+		062BAE69287A26C900B55282 /* HasNotch */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE6A287A26D800B55282 /* HasNotch.swift */,
+			);
+			path = HasNotch;
+			sourceTree = "<group>";
+		};
+		062BAE7B287A4BE800B55282 /* OFTabViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE79287A4BDA00B55282 /* OFTabViewModel.swift */,
+			);
+			path = OFTabViewModel;
+			sourceTree = "<group>";
+		};
+		062BAE7C287A52E800B55282 /* ProfileViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE7D287A52F200B55282 /* ProfileViewModel.swift */,
+			);
+			path = ProfileViewModel;
+			sourceTree = "<group>";
+		};
+		062BAE7F287A532200B55282 /* ProfileService */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE82287A53A700B55282 /* ProfileServiceError */,
+				062BAE80287A532E00B55282 /* ProfileService.swift */,
+			);
+			path = ProfileService;
+			sourceTree = "<group>";
+		};
+		062BAE82287A53A700B55282 /* ProfileServiceError */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE83287A53B200B55282 /* ProfileServiceError.swift */,
+			);
+			path = ProfileServiceError;
+			sourceTree = "<group>";
+		};
+		062BAE85287A564F00B55282 /* FeetishSubject */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE86287A565B00B55282 /* FeetishSubject.swift */,
+			);
+			path = FeetishSubject;
+			sourceTree = "<group>";
+		};
+		062BAE88287A573500B55282 /* FeetishUserJourney */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE89287A575E00B55282 /* FeetishUserJourney.swift */,
+			);
+			path = FeetishUserJourney;
+			sourceTree = "<group>";
+		};
+		062BAE8B287A61D900B55282 /* FeetishLaunchScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */,
+			);
+			path = FeetishLaunchScreenView;
+			sourceTree = "<group>";
+		};
 		064B2ED028646347009706D1 /* FeetishBasicLoaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +462,9 @@
 		0661963728613651008DEC29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				062BAE88287A573500B55282 /* FeetishUserJourney */,
+				062BAE85287A564F00B55282 /* FeetishSubject */,
+				062BAE7F287A532200B55282 /* ProfileService */,
 				0666F2CB287733710034D537 /* OFCamera */,
 				064B2EDF2865AA1B009706D1 /* AuthenticationJourneyPosition */,
 				066196772863BD7B008DEC29 /* SystemReachability */,
@@ -292,6 +478,8 @@
 		0661963828613656008DEC29 /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
+				062BAE7C287A52E800B55282 /* ProfileViewModel */,
+				062BAE7B287A4BE800B55282 /* OFTabViewModel */,
 				0666F2E32877444B0034D537 /* OFCameraViewModel */,
 				06C7C45928661C6800625ED6 /* AuthenticationJourneyViewModel */,
 				06619674286390A1008DEC29 /* FeetishBannerViewModel */,
@@ -303,7 +491,9 @@
 		066196392861365C008DEC29 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0666F2D9287736BE0034D537 /* CameraViews */,
+				062BAE8B287A61D900B55282 /* FeetishLaunchScreenView */,
+				062BAE5F287A232C00B55282 /* OFTabViews */,
+				0666F2D9287736BE0034D537 /* OFCameraView */,
 				0662446928693F6E003B50F3 /* FeetishImageCroppingView */,
 				0662446528693C98003B50F3 /* View Representables */,
 				064B2ED028646347009706D1 /* FeetishBasicLoaderView */,
@@ -354,6 +544,7 @@
 		0661964228613718008DEC29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				062BAE522878D6BA00B55282 /* UIViewController+ */,
 				0666F2CF287733E60034D537 /* CGImage+ */,
 				0662446C2869420D003B50F3 /* UIApplication+ */,
 				066244582869326B003B50F3 /* Date+ */,
@@ -419,6 +610,7 @@
 		0661966028633DF0008DEC29 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				062BAE69287A26C900B55282 /* HasNotch */,
 				0662446F2869B2A6003B50F3 /* BiometricType */,
 				0661966328633E08008DEC29 /* GetCurrentTimeInterval */,
 			);
@@ -637,27 +829,29 @@
 			path = "CGImage+";
 			sourceTree = "<group>";
 		};
-		0666F2D9287736BE0034D537 /* CameraViews */ = {
+		0666F2D9287736BE0034D537 /* OFCameraView */ = {
 			isa = PBXGroup;
 			children = (
+				062BAE4F28789AFB00B55282 /* OFCameraResultBackButtonView */,
+				062BAE4C2878774900B55282 /* OFCameraResultView */,
 				0666F2F828783BC20034D537 /* OFCameraTouchableView */,
 				0666F2F528783B470034D537 /* OFCameraFocusPointView */,
-				0666F2F228783B1F0034D537 /* OFCameraPurpose */,
+				0666F2F228783B1F0034D537 /* OFCameraPurposeView */,
 				0666F2EF28783AF40034D537 /* OFCameraPhotoButton */,
 				0666F2EC287789910034D537 /* OFCameraClickableBackground */,
 				0666F2E9287783DA0034D537 /* OFCameraErrorView */,
 				0666F2E6287782CD0034D537 /* OFCameraViewerView */,
-				0666F2DA287736CD0034D537 /* CameraFrameView */,
+				0666F2DA287736CD0034D537 /* OFCameraFrameView */,
 			);
-			path = CameraViews;
+			path = OFCameraView;
 			sourceTree = "<group>";
 		};
-		0666F2DA287736CD0034D537 /* CameraFrameView */ = {
+		0666F2DA287736CD0034D537 /* OFCameraFrameView */ = {
 			isa = PBXGroup;
 			children = (
 				0666F2DB287736FE0034D537 /* CameraFrameView.swift */,
 			);
-			path = CameraFrameView;
+			path = OFCameraFrameView;
 			sourceTree = "<group>";
 		};
 		0666F2DD2877390E0034D537 /* OFCameraManager */ = {
@@ -716,12 +910,12 @@
 			path = OFCameraPhotoButton;
 			sourceTree = "<group>";
 		};
-		0666F2F228783B1F0034D537 /* OFCameraPurpose */ = {
+		0666F2F228783B1F0034D537 /* OFCameraPurposeView */ = {
 			isa = PBXGroup;
 			children = (
-				0666F2F328783B2D0034D537 /* OFCameraPurpose.swift */,
+				0666F2F328783B2D0034D537 /* OFCameraPurposeView.swift */,
 			);
-			path = OFCameraPurpose;
+			path = OFCameraPurposeView;
 			sourceTree = "<group>";
 		};
 		0666F2F528783B470034D537 /* OFCameraFocusPointView */ = {
@@ -776,6 +970,7 @@
 			isa = PBXGroup;
 			children = (
 				06C7C46A2869218F00625ED6 /* AuthenticationJourneyHelperViews */,
+				062BAE552878E43300B55282 /* AuthenticationJourneyAccountCreationView */,
 				0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */,
 				0662445B286934C8003B50F3 /* AuthenticationJourneyGenderSelectionView */,
 				0662445528692D0A003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView */,
@@ -1008,6 +1203,7 @@
 			files = (
 				0662446428693BA6003B50F3 /* AuthenticationJourneyProfilePhotoView.swift in Sources */,
 				0661964F2862FE57008DEC29 /* FeetishAccount.swift in Sources */,
+				062BAE8D287A61ED00B55282 /* FeetishLaunchScreenView.swift in Sources */,
 				0666F2E52877445A0034D537 /* OFCameraViewModel.swift in Sources */,
 				06C7C4602868548200625ED6 /* AuthenticationJourneyView.swift in Sources */,
 				066244712869B2B6003B50F3 /* BiometricType.swift in Sources */,
@@ -1020,15 +1216,19 @@
 				0661963E286136A7008DEC29 /* AuthenticationViewModel.swift in Sources */,
 				0662445A28693273003B50F3 /* Date+.swift in Sources */,
 				064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */,
+				062BAE8A287A575E00B55282 /* FeetishUserJourney.swift in Sources */,
+				062BAE7E287A52F200B55282 /* ProfileViewModel.swift in Sources */,
 				06619647286138E3008DEC29 /* AuthenticationCurveShape.swift in Sources */,
 				066196552863021B008DEC29 /* AppDelegate.swift in Sources */,
 				0661966D28638FD1008DEC29 /* FeetishBannerData.swift in Sources */,
 				0666F2DF2877391E0034D537 /* OFCameraManager.swift in Sources */,
 				0661960D28611757008DEC29 /* OnlyFeetApp.swift in Sources */,
+				062BAE71287A4B6900B55282 /* OFHomeTabView.swift in Sources */,
 				0666F2D1287733F30034D537 /* CGImage+.swift in Sources */,
 				0666F2F728783B5B0034D537 /* OFCameraFocusPointView.swift in Sources */,
 				0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */,
 				0662445728692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift in Sources */,
+				062BAE75287A4B8400B55282 /* OFActivityTabView.swift in Sources */,
 				0666F2FA28783BDB0034D537 /* OFCameraTouchableView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,
 				0666F2EE287789AD0034D537 /* OFCameraClickableBackground.swift in Sources */,
@@ -1039,12 +1239,19 @@
 				06C7C46C286921A300625ED6 /* AuthenticationJourneyHelperViews.swift in Sources */,
 				0661964428613727008DEC29 /* View+.swift in Sources */,
 				06619676286390CA008DEC29 /* FeetishBannerViewModel.swift in Sources */,
+				062BAE87287A565B00B55282 /* FeetishSubject.swift in Sources */,
 				06C7C4632868A0CF00625ED6 /* MockAuthentication.swift in Sources */,
+				062BAE572878E45500B55282 /* AuthenticationJourneyAccountCreationView.swift in Sources */,
+				062BAE84287A53B200B55282 /* ProfileServiceError.swift in Sources */,
 				0661966228633DFD008DEC29 /* getCurrentInterval.swift in Sources */,
+				062BAE73287A4B7800B55282 /* OFSearchTabView.swift in Sources */,
 				0666F2FE287841EC0034D537 /* OFCameraPosition.swift in Sources */,
+				062BAE4E2878775D00B55282 /* OFCameraResultView.swift in Sources */,
 				06619641286136CD008DEC29 /* HomeAuthenticationView.swift in Sources */,
 				0662446B28693F86003B50F3 /* FeetishImageCroppingView.swift in Sources */,
+				062BAE81287A532E00B55282 /* ProfileService.swift in Sources */,
 				064B2EDB2864B403009706D1 /* LoginView.swift in Sources */,
+				062BAE7A287A4BDA00B55282 /* OFTabViewModel.swift in Sources */,
 				0661965F28633C15008DEC29 /* FeetishAuthSubject.swift in Sources */,
 				0661966928638D31008DEC29 /* String+.swift in Sources */,
 				06C7C45B28661C7700625ED6 /* AuthenticationJourneyViewModel.swift in Sources */,
@@ -1054,9 +1261,14 @@
 				0666F2F128783B0D0034D537 /* OFCameraPhotoButton.swift in Sources */,
 				0662446E28694219003B50F3 /* UIApplication+.swift in Sources */,
 				0666F2DC287736FE0034D537 /* CameraFrameView.swift in Sources */,
-				0666F2F428783B2D0034D537 /* OFCameraPurpose.swift in Sources */,
+				0666F2F428783B2D0034D537 /* OFCameraPurposeView.swift in Sources */,
 				0662445428692A2D003B50F3 /* AuthenticationJourneyNameView.swift in Sources */,
+				062BAE77287A4B9100B55282 /* OFProfileTabView.swift in Sources */,
 				066196512863000A008DEC29 /* FeetishAuthentication.swift in Sources */,
+				062BAE542878D6CC00B55282 /* UIViewController+.swift in Sources */,
+				062BAE66287A239A00B55282 /* OFTabView.swift in Sources */,
+				062BAE6B287A26D800B55282 /* HasNotch.swift in Sources */,
+				062BAE512878CDD400B55282 /* OFCameraResultBackButtonView.swift in Sources */,
 				0661964C2862FDDB008DEC29 /* FeetishGender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

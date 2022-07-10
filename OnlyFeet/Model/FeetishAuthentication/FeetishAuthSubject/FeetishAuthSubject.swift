@@ -16,4 +16,4 @@ struct FeetishAuthSubject<Element>: Publisher {
     func receive<S>(subscriber: S) where S : Subscriber, FeetishAuthError == S.Failure, Element == S.Input {
         publisher.receive(subscriber: subscriber)
     }
-}
+} 

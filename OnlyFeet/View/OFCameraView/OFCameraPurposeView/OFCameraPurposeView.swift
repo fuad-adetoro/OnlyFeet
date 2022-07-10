@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct OFCameraPurposeView: View {
-    @Binding var cameraPurpose: OFCameraPurpose
+    @EnvironmentObject var viewModel: OFCameraViewModel
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack {
@@ -16,20 +18,20 @@ struct OFCameraPurposeView: View {
                 Spacer().frame(height: 15)
                 
                 ZStack {
-                    Text(cameraPurpose.purposeTitle())
+                    Text(viewModel.cameraPurpose.purposeTitle())
                         .foregroundColor(.white)
                         .font(.title3)
                         .fontWeight(.bold)
                         .shadow(color: .black, radius: 1, x: 1, y: 1)
                     
-                    if cameraPurpose != .none {
+                    if viewModel.cameraPurpose != .none {
                         HStack {
                             Spacer().frame(width: 15)
                             
                             Button {
-                                print("Back")
+                                presentationMode.wrappedValue.dismiss()
                             } label: {
-                                Image(systemName: "chevron.backward")
+                                Image(systemName: "xmark")
                                     .imageScale(.large)
                                     .foregroundColor(.white)
                                     .font(Font.title3.weight(.bold))

@@ -17,6 +17,8 @@ protocol FeetishAuthProvider {
     func checkIfFeetishAuthValueExists(value: String, fieldName: String) -> AnyPublisher<Bool, FeetishAuthError>
     func signUserIn(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError>
     func createNewAccount(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError>
+    func uploadAuthData(data: [String: Any]) -> AnyPublisher<Bool, FeetishAuthError>
+    func uploadProfilePhoto(image: UIImage) -> AnyPublisher<Bool, FeetishAuthError>
 }
 
 public final class FeetishAuthentication { 
@@ -119,6 +121,8 @@ extension FeetishAuthentication: FeetishAuthProvider {
                     return
                 }
                 
+                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil)
+                
                 publisher.send(data)
                 publisher.send(completion: .finished)
             }
@@ -154,8 +158,87 @@ extension FeetishAuthentication: FeetishAuthProvider {
                     return
                 }
                 
+                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: true)
+                
                 publisher.send(dataDict)
                 publisher.send(completion: .finished)
+            }
+        }
+        
+        return feetishAuthSubject.eraseToAnyPublisher()
+    }
+    
+    func uploadAuthData(data: [String : Any]) -> AnyPublisher<Bool, FeetishAuthError> {
+        let feetishAuthSubject = FeetishAuthSubject<Bool>()
+        let publisher = feetishAuthSubject.publisher
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            publisher.send(completion: .failure(.unknownError))
+            
+            return feetishAuthSubject.eraseToAnyPublisher()
+        }
+        
+        let docRef = databaseRef.collection("users").document(uid)
+        
+        docRef.updateData(data) { error in
+            guard error == nil else {
+                publisher.send(completion: .failure(.dataUploadError))
+                
+                return
+            }
+            
+            publisher.send(true)
+            publisher.send(completion: .finished)
+        }
+        
+        return feetishAuthSubject.eraseToAnyPublisher()
+    }
+    
+    func uploadProfilePhoto(image: UIImage) -> AnyPublisher<Bool, FeetishAuthError> {
+        let feetishAuthSubject = FeetishAuthSubject<Bool>()
+        let publisher = feetishAuthSubject.publisher
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            publisher.send(completion: .failure(.unknownError))
+            
+            return feetishAuthSubject.eraseToAnyPublisher()
+        }
+        
+        let storageRef = Storage.storage().reference().child("users").child(uid)
+        let docRef = databaseRef.collection("users").document(uid)
+        
+        guard let jpegData = image.jpegData(compressionQuality: 0.5) else {
+            publisher.send(completion: .failure(.unknownError))
+            
+            return feetishAuthSubject.eraseToAnyPublisher()
+        }
+        
+        storageRef.putData(jpegData) { _, error in
+            guard error == nil else {
+                publisher.send(completion: .failure(.unknownError))
+                return
+            }
+            
+            storageRef.downloadURL { url, downloadError in
+                guard let url = url, downloadError == nil else {
+                    publisher.send(completion: .failure(.unknownError))
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                 
+                let dataDict: [String: Any] = ["profilePhotoLocation": urlString]
+                
+                docRef.updateData(dataDict) { error in
+                    guard error == nil else {
+                        publisher.send(completion: .failure(.dataUploadError))
+                        
+                        return
+                    }
+                    
+                    publisher.send(true)
+                    publisher.send(completion: .finished)
+                }
             }
         }
         

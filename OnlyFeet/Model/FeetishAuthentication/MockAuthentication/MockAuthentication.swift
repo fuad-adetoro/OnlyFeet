@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit.UIImage
 
 final class MockAuthentication: FeetishAuthProvider {
     static let shared = MockAuthentication.init()
@@ -65,6 +66,30 @@ final class MockAuthentication: FeetishAuthProvider {
         
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
             publisher.send(["email": email])
+            publisher.send(completion: .finished)
+        }
+        
+        return publisher.eraseToAnyPublisher()
+    }
+    
+    func uploadAuthData(data: [String : Any]) -> AnyPublisher<Bool, FeetishAuthError> {
+        let authSubject = FeetishAuthSubject<Bool>()
+        let publisher = authSubject.publisher
+        
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
+            publisher.send(true)
+            publisher.send(completion: .finished)
+        }
+        
+        return publisher.eraseToAnyPublisher()
+    }
+    
+    func uploadProfilePhoto(image: UIImage) -> AnyPublisher<Bool, FeetishAuthError> {
+        let authSubject = FeetishAuthSubject<Bool>()
+        let publisher = authSubject.publisher
+        
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(2)) {
+            publisher.send(true)
             publisher.send(completion: .finished)
         }
         

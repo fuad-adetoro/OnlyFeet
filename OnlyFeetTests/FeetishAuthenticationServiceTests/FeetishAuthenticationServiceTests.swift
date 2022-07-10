@@ -104,5 +104,31 @@ class FeetishAuthenticationServiceTests: XCTestCase {
             }
             .store(in: &cancellables)
     }
+    
+    func testAuthDataUpload() {
+        let authData = ["displayName": "Fuad Adetoro"]
+        
+        var error: FeetishAuthError?
+        
+        self.feetishAuthentication.uploadAuthData(data: authData)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break;
+                case .failure(let failureError):
+                    error = failureError
+                    
+                    XCTAssertNotNil(error)
+                }
+                
+                XCTAssertNil(error)
+            } receiveValue: { didUpload in
+                XCTAssertEqual(didUpload, true)
+            }
+            .store(in: &cancellables)
+
+    }
+    
+    
 
 }

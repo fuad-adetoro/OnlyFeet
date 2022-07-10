@@ -24,8 +24,16 @@ struct ForgottenPasswordView : View {
                     Image(systemName: "envelope.fill")
                     .foregroundColor(Color("LoginColor2"))
                     
-                    TextField("Email Address", text: self.$email)
+                    TextField("", text: self.$email)
                         .disableAutocorrection(true)
+                        .placeholder(when: self.$email.wrappedValue.isEmpty, placeholder: {
+                            Text("Email Address")
+                                .foregroundColor(.gray)
+                        })
+                        .foregroundColor(.white)
+                        .onSubmit {
+                            viewModel.sendPasswordRecovery(email: email)
+                        }
                 }.padding([.leading, .trailing])
                 
                 Divider().background(Color.white.opacity(0.5))
@@ -88,6 +96,7 @@ struct ForgotPasswordHeaderView : View {
                     Spacer()
                     
                     Text("Forgotten Your Password?")
+                        .foregroundColor(.white)
                         .bold()
                     
                     Spacer()
@@ -105,6 +114,7 @@ struct ForgotPasswordHeaderView : View {
                 Text("Enter your **email**:")
                     .multilineTextAlignment(.leading)
                     .font(.body)
+                    .foregroundColor(.white)
                 
                 Spacer()
             }

@@ -1,5 +1,5 @@
 //
-//  CameraFrameView.swift
+//  OFCameraFrameView.swift
 //  OnlyFeet
 //
 //  Created by Fuad on 07/07/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CameraFrameView: View {
+struct OFCameraFrameView: View {
     var image: CGImage?
     private let label = Text("Camera Feed")
     @Binding var cameraPosition: OFCameraPosition
@@ -21,10 +21,6 @@ struct CameraFrameView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .clipped()
                     .scaleEffect(cameraPosition == .back ? CGSize(width: -1.0, height: 1.0) : CGSize(width: 1.0, height: 1.0))
-                
-                    .onChange(of: cameraPosition) { newValue in
-                        print("NEW POSITION : \(cameraPosition)")
-                    }
             }
         } else {
             Color.black

@@ -25,6 +25,8 @@ public enum FeetishAuthError: Error, Equatable {
     case passwordToShortError
     
     case networkError
+    
+    case dataUploadError
 }
 
 extension FeetishAuthError: LocalizedError {
@@ -50,6 +52,8 @@ extension FeetishAuthError: LocalizedError {
             return "Your passwords do not match."
         case .networkError:
             return "Check your network and try again."
+        case .dataUploadError:
+            return "Couldn't create your account. Please try again."
         default:
             return "Unknown Error"
         }

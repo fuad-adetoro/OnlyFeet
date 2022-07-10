@@ -9,31 +9,52 @@ import SwiftUI
 import Combine
 
 struct HomeAuthenticationView: View {
-    @ObservedObject var viewModel = AuthenticationViewModel.init(feetishAuthentication: FeetishAuthentication.shared)
+    @StateObject var viewModel = AuthenticationViewModel.init(feetishAuthentication: FeetishAuthentication.shared)
     
-    @ObservedObject private var bannerViewModel = FeetishBannerViewModel()
+    @StateObject private var bannerViewModel = FeetishBannerViewModel()
     
     @State private var isLoading = false
     
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    
     var body: some View {
-        GeometryReader { geometry in
             ZStack {
                 AuthenticationHome()
-                    .preferredColorScheme(.dark)
                     .environmentObject(viewModel)
                     .disabled(viewModel.isChanging)
+                    .preferredColorScheme(.dark)
                 
                 if isLoading {
                     FeetishBasicLoaderView(baseColor: .constant(.black), borderColor: .constant(.white), loadingText: .constant("Loading"))
                 } 
             }
+            .preferredColorScheme(.dark)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .modifier(FeetishBannerView(model: $bannerViewModel.model, isBeingDragged: $bannerViewModel.isBeingDragged))
              .onChange(of: viewModel.didResetPassword, perform: { newValue in
                 if newValue {
                     self.bannerViewModel.loadNewBanner(bannerData: .init(title: "Success", message: "Please check your email.", bannerError: nil))
                 }
-            })
+            }) 
+             .onChange(of: viewModel.didFetchAccount, perform: { didFetchAccount in
+                 if didFetchAccount {
+                     let doesAccountNeedJourney = FeetishUserJourney.shared.checkIfAccountJourneyIsNeeded()
+                     
+                     let isLoggedIn = FeetishUserJourney.shared.checkIfUserIsSignedIn()
+                     
+                     if isLoggedIn {
+                         if doesAccountNeedJourney {
+                             self.viewControllerHolder?.present(style: .fullScreen) {
+                                 AuthenticationJourneyView()
+                             }
+                         } else {
+                             self.viewControllerHolder?.present(style: .fullScreen) {
+                                 OFTabView(doesHaveTopNotch: .constant(hasTopNotch))
+                             }
+                         }
+                     }
+                 }
+             })
             .onChange(of: viewModel.isChanging, perform: { newValue in
                 withAnimation {
                     self.isLoading = newValue
@@ -46,7 +67,6 @@ struct HomeAuthenticationView: View {
                     }
                 }
             }
-        }
     }
 }
 
@@ -87,9 +107,11 @@ struct AuthenticationHome: View {
                             SignUpView(index: self.$index)
                                 .zIndex(Double(self.index))
                                 .environmentObject(viewModel)
+                                .preferredColorScheme(.dark)
                             
                             LoginView(isShowingForgottenPasswordView: $isShowingForgottenPasswordView, index: self.$index)
                                 .environmentObject(viewModel)
+                                .preferredColorScheme(.dark)
                         }
                         
 
@@ -102,6 +124,7 @@ struct AuthenticationHome: View {
                             .frame(height: 1)
                             
                             Text("OR")
+                                .foregroundColor(.white)
                             
                             Rectangle()
                             .fill(Color("LoginColor2"))
@@ -140,6 +163,9 @@ struct AuthenticationHome: View {
             .scaledToFill()
             .edgesIgnoringSafeArea(.all)
         )
+        .onChange(of: index, perform: { _ in
+            UIApplication.shared.keyWindow?.endEditing(true)
+        })
         .onChange(of: viewModel.didResetPassword) { newValue in
             if newValue {
                 DispatchQueue.main.async {

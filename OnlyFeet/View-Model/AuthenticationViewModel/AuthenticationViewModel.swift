@@ -7,28 +7,39 @@
 
 import Foundation
 import Combine
+import UIKit
+
+let maxWaitTimeForRequest = 12.5
 
 public protocol AuthenticationBased {
     func signUserIn(email: String, password: String)
     func createAccount(email: String, password: String, confirmedPassword: String)
     func sendPasswordRecovery(email: String)
+    func uploadAuthData(_ dataDict: [String: Any])
+    func uploadProfilePhoto(_ profileImage: UIImage)
 }
 
 public class AuthenticationViewModel<FA>: ObservableObject, AuthenticationBased {
     //static let shared = AuthenticationViewModel.init()
     var feetishAuthentication: FA// = FeetishAuthentication.shared
     
-    private let maxWaitTimeForRequest = 12.5
-    
     @Published var isChanging = false
     
     @Published var feetishAccount: FeetishAccount? = nil
     
     @Published var feetishAuthError: FeetishAuthError? = nil
+    @Published var feetishPhotoUploadError: FeetishAuthError? = nil
     
     @Published var didErrorOccur = false
+    @Published var didPhotoUploadErrorOccur = false
     @Published var didFetchAccount = false
     @Published var didResetPassword = false
+    @Published var isUploadAuthData = false
+    @Published var didCompleteUploadingAuthData = false
+    @Published var isUploadingProfilePhoto = false
+    @Published var didUploadProfilePhoto = false
+    
+    @Published var isAuthDataUploadComplete = false
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -45,6 +56,14 @@ public class AuthenticationViewModel<FA>: ObservableObject, AuthenticationBased 
     }
     
     public func sendPasswordRecovery(email: String) {
+        // do nothing
+    }
+    
+    public func uploadAuthData(_ dataDict: [String: Any]) {
+        // do nothing
+    }
+    
+    public func uploadProfilePhoto(_ profileImage: UIImage) {
         // do nothing
     }
 } 
@@ -113,21 +132,21 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
                 FeetishAuthError.maxWaitTimeReachedError
             })
             .map { FeetishAccount(dataDict: $0) }
-            .sink { [unowned self] completion in
-                isChanging = false
+            .sink { [weak self] completion in
+                self?.isChanging = false
                 
                 switch completion {
                 case .failure(let error):
-                    self.feetishAuthError = error
-                    self.didErrorOccur = true
-                    self.didFetchAccount = false 
+                    self?.feetishAuthError = error
+                    self?.didErrorOccur = true
+                    self?.didFetchAccount = false
                 default:
                     break
                 }
-            } receiveValue: { [unowned self] feetishAccount in 
-                self.feetishAccount = feetishAccount
-                self.didFetchAccount = true
-                self.didErrorOccur = false
+            } receiveValue: { [weak self] feetishAccount in
+                self?.feetishAccount = feetishAccount
+                self?.didFetchAccount = true
+                self?.didErrorOccur = false
             }
             .store(in: &subscriptions)
             
@@ -150,22 +169,91 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
             .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
                 FeetishAuthError.maxWaitTimeReachedError
             })
-            .sink { [unowned self] completion in
-                isChanging = false
+            .sink { [weak self] completion in
+                self?.isChanging = false
                 
                 switch completion {
                 case .failure(let error):
-                    self.feetishAuthError = error
-                    self.didErrorOccur = true
-                    self.didResetPassword = false
+                    self?.feetishAuthError = error
+                    self?.didErrorOccur = true
+                    self?.didResetPassword = false
                 default:
                     break
                 }
-            } receiveValue: { [unowned self] _ in
-                self.didResetPassword = true
+            } receiveValue: { [weak self] _ in
+                self?.didResetPassword = true
             }
             .store(in: &subscriptions)
 
+
+    }
+    
+    public func uploadAuthData(_ dataDict: [String: Any]) {
+        if self.isChanging { return }
+        
+        isChanging = true; self.feetishAuthError = nil; self.didErrorOccur = false; self.didCompleteUploadingAuthData = false; self.isUploadAuthData = true; self.isAuthDataUploadComplete = false
+        
+        feetishAuthentication.uploadAuthData(data: dataDict)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
+                FeetishAuthError.maxWaitTimeReachedError
+            })
+            .sink { [weak self] completion in 
+                self?.isChanging = false
+                self?.isUploadAuthData = false
+                
+                if let strongSelf = self, strongSelf.isUploadingProfilePhoto {
+                    strongSelf.isAuthDataUploadComplete = true
+                    
+                    FeetishUserJourney.shared.accountJourneyComplete()
+                }
+                
+                switch completion {
+                case .failure(let error):
+                    self?.feetishAuthError = error
+                    self?.didErrorOccur = true
+                    self?.didCompleteUploadingAuthData = false
+                default:
+                    break
+                }
+            } receiveValue: { [weak self] _ in
+                self?.didCompleteUploadingAuthData = true
+            }
+            .store(in: &subscriptions)
+    }
+    
+    public func uploadProfilePhoto(_ profileImage: UIImage) {
+        if self.isUploadingProfilePhoto { return }
+        
+        isUploadingProfilePhoto = true; self.feetishPhotoUploadError = nil; self.didPhotoUploadErrorOccur = false; self.didUploadProfilePhoto = false; self.isAuthDataUploadComplete = false
+        
+        feetishAuthentication.uploadProfilePhoto(image: profileImage)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .timeout(.seconds(maxWaitTimeForRequest * 2.4), scheduler: DispatchQueue.main, options: nil, customError: {
+                FeetishAuthError.maxWaitTimeReachedError
+            })
+            .sink { [weak self] completion in
+                self?.isUploadingProfilePhoto = false
+                
+                if let strongSelf = self, strongSelf.isChanging {
+                    strongSelf.isAuthDataUploadComplete = true
+                    
+                    FeetishUserJourney.shared.accountJourneyComplete()
+                }
+                
+                switch completion {
+                case .failure(let error):
+                    self?.didPhotoUploadErrorOccur = true
+                    self?.feetishPhotoUploadError = error
+                default:
+                    break;
+                }
+            } receiveValue: { [weak self] _ in
+                self?.didUploadProfilePhoto = true
+            }
+            .store(in: &subscriptions)
 
     }
 }

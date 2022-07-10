@@ -56,6 +56,11 @@ class AuthenticationViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.didResetPassword, true)
     }
 
+    func testAuthDataUpload() {
+        viewModel.uploadAuthData(["displayName": "Fuad Adetoro"])
+        
+        XCTAssertTrue(viewModel.didCompleteUploadingAuthData)
+    }
 }
 
 private final class AuthenticationTestViewModel: AuthenticationViewModel<MockAuthentication> {
@@ -112,5 +117,22 @@ private final class AuthenticationTestViewModel: AuthenticationViewModel<MockAut
             .store(in: &subscriptions)
 
 
+    }
+    
+    override func uploadAuthData(_ dataDict: [String : Any]) {
+        super.uploadAuthData(dataDict)
+        
+        if self.isChanging { return }
+        
+        isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
+         
+        Just(true)
+            .eraseToAnyPublisher()
+            .sink { _ in
+                // do nothing
+            } receiveValue: { _ in
+                self.didCompleteUploadingAuthData = true
+            }
+            .store(in: &subscriptions)
     }
 }

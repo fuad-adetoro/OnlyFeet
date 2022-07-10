@@ -16,6 +16,10 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
     @Binding var croppedImage: UIImage?
     @State private var imageCroppingViewShown = false
     
+    @State private var shouldShowMediaOptions = false
+    
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -33,6 +37,17 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                                     }
                                 }
                             }
+                            .confirmationDialog("Are you sure?", isPresented: $shouldShowMediaOptions) {
+                                Button("Photo Gallery") {
+                                    self.isImagePickerDisplayed = true
+                                }
+                                
+                                Button("Take a Photo") {
+                                    self.viewControllerHolder?.present(style: .fullScreen) {
+                                        OFCameraViewerView(cameraPurpose: .constant(.profilePhotoFromAuth), profileImage: $profileImage)
+                                    }
+                                }
+                            }
                         
                         Spacer()
                     }
@@ -43,7 +58,7 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                         Spacer()
                         
                         Button {
-                            self.isImagePickerDisplayed = true
+                            self.shouldShowMediaOptions = true
                         } label: {
                             ZStack {
                                 VStack {
@@ -88,8 +103,8 @@ struct AuthenticationJourneyProfilePhotoUploaderView: View {
                 }
                 
                 AuthenticationContinueButtonWithBackground.init(isInActive: .constant(croppedImage == nil))
-                .environmentObject(viewModel)
-                .frame(height: geometry.size.height)
+                    .environmentObject(viewModel)
+                    .frame(height: geometry.size.height)
             }
         }
     }

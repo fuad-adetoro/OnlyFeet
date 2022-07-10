@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AuthenticationJourneyView: View {
-    @ObservedObject var viewModel = AuthenticationJourneyViewModel()
-    @ObservedObject var bannerViewModel = FeetishBannerViewModel()
+    @StateObject var viewModel = AuthenticationJourneyViewModel()
+    @StateObject var bannerViewModel = FeetishBannerViewModel()
     
     // user properties
     @State private var displayName = ""
@@ -21,16 +21,24 @@ struct AuthenticationJourneyView: View {
     @State private var isImagePickerDisplayed = false
     @State private var profileImage: UIImage?
     
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    AuthenticationJourneyDecisionButtonView.init()
-                        .environmentObject(viewModel)
-                        .frame(width: geometry.size.width, height: 50)
+                    if viewModel.authenticationJourney != .accountCreation {
+                        AuthenticationJourneyDecisionButtonView.init()
+                            .environmentObject(viewModel)
+                            .frame(width: geometry.size.width, height: 50)
+                    }
                     
-                    viewModel.makeView(displayName: $displayName, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage)
-                        .environmentObject(viewModel)
+                    if let view = viewModel.makeView(displayName: $displayName, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage) {
+                        view
+                            .environmentObject(viewModel)
+                    } else {
+                        FeetishLaunchScreenView() 
+                    }
                 }
                 
                 if viewModel.isDisplayingAlert {

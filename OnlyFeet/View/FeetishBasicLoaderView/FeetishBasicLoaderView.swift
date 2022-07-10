@@ -28,6 +28,9 @@ struct FeetishBasicLoaderView: View {
                         .frame(width: 88, height: 88)
                     
                     ProgressView(loadingText)
+                        .foregroundColor(.white)
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                        
                 }
                 .frame(width: 90, height: 90)
                 
