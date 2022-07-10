@@ -54,8 +54,6 @@ struct OFTabView: View {
                         .environmentObject(viewModel)
                 }
             }
-            
-            Spacer().frame(height: doesHaveTopNotch ? 40 : 10)
         }
         .ignoresSafeArea()
     }
@@ -79,44 +77,41 @@ struct OFTabStackView: View {
             VStack {
                 Spacer()
                 
-                HStack {
-                    Spacer().frame(width: 40)
+                VStack {
+                    Spacer()
                     
-                    VStack {
+                    HStack {
                         Spacer()
                         
-                        HStack {
-                            Spacer()
-                            
-                            OFTabSelectionView( selectionTab: .constant(.home))
-                                .environmentObject(viewModel)
-                            
-                            Spacer()
-                            
-                            OFTabSelectionView( selectionTab: .constant(.search))
-                                .environmentObject(viewModel)
-                            
-                            Spacer()
-                            
-                            OFTabSelectionView( selectionTab: .constant(.activity))
-                                .environmentObject(viewModel)
-                            
-                            Spacer()
-                            
-                            OFTabSelectionView( selectionTab: .constant(.profile))
-                                .environmentObject(viewModel)
-                            
-                            Spacer()
-                        }
+                        OFTabSelectionView( selectionTab: .constant(.home))
+                            .environmentObject(viewModel)
+                        
+                        Spacer()
+                        
+                        OFTabSelectionView( selectionTab: .constant(.search))
+                            .environmentObject(viewModel)
+                        
+                        Spacer()
+                        
+                        OFTabSelectionView( selectionTab: .constant(.activity))
+                            .environmentObject(viewModel)
+                        
+                        Spacer()
+                        
+                        OFTabSelectionView( selectionTab: .constant(.profile))
+                            .environmentObject(viewModel)
                         
                         Spacer()
                     }
-                    .frame(width: geometry.size.width - 80, height: 55)
-                    .background(Color("CustomOFColorSchemeBackgroundColor"))
-                    .cornerRadius(30)
                     
-                    Spacer().frame(width: 40)
+                    if hasTopNotch {
+                        Spacer().frame(height: 30)
+                    }
+                    
+                    Spacer()
                 }
+                .frame(width: geometry.size.width, height: hasTopNotch ? 85 : 55)
+                .background(Color("CustomOFColorSchemeBackgroundColor"))
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
         }

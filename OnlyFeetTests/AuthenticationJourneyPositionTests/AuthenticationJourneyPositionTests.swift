@@ -25,28 +25,6 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         
         XCTAssertEqual(namePosition, AuthenticationJourneyPosition.name)
         XCTAssertEqual(namePosition.rawValue, 2)
-        
-        let usernamePosition = namePosition.nextPosition()
-        
-        let birthdayPosition = usernamePosition.nextPosition()
-        
-        XCTAssertEqual(birthdayPosition, AuthenticationJourneyPosition.birthday)
-        XCTAssertEqual(birthdayPosition.rawValue, 4)
-        
-        let genderPosition = birthdayPosition.nextPosition()
-        
-        XCTAssertEqual(genderPosition, AuthenticationJourneyPosition.gender)
-        XCTAssertEqual(genderPosition.rawValue, 5)
-        
-        let profilePhotoPosition = genderPosition.nextPosition()
-        
-        XCTAssertEqual(profilePhotoPosition, AuthenticationJourneyPosition.profilePhoto)
-        XCTAssertEqual(profilePhotoPosition.rawValue, 6)
-        
-        let accountCreationPosition = profilePhotoPosition.nextPosition()
-        
-        XCTAssertEqual(accountCreationPosition, AuthenticationJourneyPosition.accountCreation)
-        XCTAssertEqual(accountCreationPosition.rawValue, 7)
     }
     
     func testPreviousPosition() {
@@ -66,8 +44,7 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         let namePositionPrevious = usernamePosition.previousPosition()
         let usernamePreviousPosition = birthdayPosition.previousPosition()
         let birthdayPositionPrevious = genderPosition.previousPosition()
-        let genderPositionPrevious = profilePhotoPosition.previousPosition()
-        let profilePhotoPreviousPrevious = accountCreationPosition.previousPosition()
+        let genderPositionPrevious = profilePhotoPosition.previousPosition() 
         
         XCTAssertEqual(namePosition, AuthenticationJourneyPosition.name)
         XCTAssertEqual(namePosition.rawValue, 2)
@@ -77,13 +54,11 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         
         XCTAssertEqual(namePositionPrevious, AuthenticationJourneyPosition.name)
         
-        XCTAssertEqual(usernamePreviousPosition, AuthenticationJourneyPosition.username)
+        XCTAssertEqual(usernamePreviousPosition, AuthenticationJourneyPosition.birthday)
         
-        XCTAssertEqual(birthdayPositionPrevious, AuthenticationJourneyPosition.birthday)
+        XCTAssertEqual(birthdayPositionPrevious, AuthenticationJourneyPosition.gender)
         
-        XCTAssertEqual(genderPositionPrevious, AuthenticationJourneyPosition.gender)
-        
-        XCTAssertEqual(profilePhotoPreviousPrevious, AuthenticationJourneyPosition.profilePhoto) 
+        XCTAssertEqual(genderPositionPrevious, AuthenticationJourneyPosition.profilePhoto)
     }
 
 }

@@ -70,6 +70,8 @@ public class AuthenticationViewModel<FA>: ObservableObject, AuthenticationBased 
 
 extension AuthenticationViewModel where FA: FeetishAuthentication {
     public func signUserIn(email: String, password: String) {
+        print("SIGN USER IN!!!")
+        
         if isChanging { return }
         
         let doesThrowError = self.throwErrorIfValueInvalid(password: password, email: email)
@@ -111,6 +113,7 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
     }
     
     public func createAccount(email: String, password: String, confirmedPassword: String) {
+        print("CREATE ACCOUNT!: \(email)")
         if self.isChanging { return }
         
         let doesThrowError = self.throwErrorIfValueInvalid(password: password, confirmPassword: confirmedPassword, email: email)
@@ -279,8 +282,9 @@ extension AuthenticationViewModel {
         
         if let email = email {
             if email.contains("@") && !email.isValidEmail() {
+                print("INVALID EMAIL")
                 self.throwError(error: .emailInvalidError); return true
-            } else if !email.isValidUsername() {
+            } else if !email.isValidUsername() && !email.contains("@") {
                 self.throwError(error: .invalidUsername); return true
             }
         }

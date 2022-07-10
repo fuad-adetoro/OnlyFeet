@@ -35,12 +35,12 @@ class AuthenticationJourneyViewModelTests: XCTestCase {
     }
        
     func testNextJourney() {
-        viewModel.authenticationJourney = .name
+        viewModel.authenticationJourney = .profilePhoto
         
         viewModel.nextJourney()
         
-        XCTAssertEqual(viewModel.authenticationJourney, AuthenticationJourneyPosition.username)
-        XCTAssertEqual(viewModel.previousAuthenticationJourney, AuthenticationJourneyPosition.name)
+        XCTAssertEqual(viewModel.authenticationJourney, AuthenticationJourneyPosition.accountCreation)
+        XCTAssertEqual(viewModel.previousAuthenticationJourney, AuthenticationJourneyPosition.profilePhoto)
     }
     
     func testPreviousJourney() {
