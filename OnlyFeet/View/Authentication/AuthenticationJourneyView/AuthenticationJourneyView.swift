@@ -13,6 +13,7 @@ struct AuthenticationJourneyView: View {
     
     // user properties
     @State private var displayName = ""
+    @State private var username = ""
     @State private var birthDate: Date = .init()
     @State private var gender: FeetishGender = .none
     @State private var croppedImage: UIImage? // the actual profile image!
@@ -21,6 +22,8 @@ struct AuthenticationJourneyView: View {
     @State private var isImagePickerDisplayed = false
     @State private var profileImage: UIImage?
     
+    @State private var didSkipProfileImage = false
+    
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     
     var body: some View {
@@ -28,16 +31,17 @@ struct AuthenticationJourneyView: View {
             ZStack {
                 VStack {
                     if viewModel.authenticationJourney != .accountCreation {
-                        AuthenticationJourneyDecisionButtonView.init()
+                        AuthenticationJourneyDecisionButtonView(didSkipProfilePhoto: $didSkipProfileImage)
                             .environmentObject(viewModel)
                             .frame(width: geometry.size.width, height: 50)
+                            .padding(.top, 15)
                     }
                     
-                    if let view = viewModel.makeView(displayName: $displayName, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage) {
+                    if let view = viewModel.makeView(displayName: $displayName, username: $username, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage, didSkipProfileImage: $didSkipProfileImage) {
                         view
                             .environmentObject(viewModel)
                     } else {
-                        FeetishLaunchScreenView() 
+                        FeetishLaunchScreenView()
                     }
                 }
                 
@@ -55,6 +59,11 @@ struct AuthenticationJourneyView: View {
             .sheet(isPresented: self.$isImagePickerDisplayed) {
                 ImagePickerView(selectedImage: self.$profileImage, sourceType: self.sourceType)
             }
+            .onChange(of: viewModel.authenticationJourney, perform: { authenticationJourney in
+                if authenticationJourney == .profilePhoto {
+                    self.didSkipProfileImage = false
+                }
+            })
         }
     }
 }

@@ -12,28 +12,45 @@ struct AuthenticationJourneyAccountCreationView: View {
     @Binding var birthDate: Date
     @Binding var gender: FeetishGender
     @Binding var profileImage: UIImage?
+    @Binding var didSkipProfileImage: Bool
     
-    @StateObject var viewModel = AuthenticationViewModel(feetishAuthentication: FeetishAuthentication.shared)
-    @EnvironmentObject var journeyViewModel: AuthenticationJourneyViewModel
+    @StateObject var authenticationViewModel = AuthenticationViewModel(feetishAuthentication: FeetishAuthentication.shared)
+    @EnvironmentObject var viewModel: AuthenticationJourneyViewModel
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                if let image = profileImage {
+                if didSkipProfileImage {
+                    AuthenticationJourneyPulsatingCircularView()
+                } else if let image = profileImage {
                     AuthenticationJourneyPulsatingImageView(image: .constant(image))
                 }
             }
             .onAppear {
                 // Create Account
-                viewModel.uploadAuthData(["displayName": displayName, "birthData": 0, "gender": 1])
-                
                 if let profileImage = profileImage {
-                    viewModel.uploadProfilePhoto(profileImage)
+                    authenticationViewModel.uploadProfilePhoto(profileImage)
+                }
+                
+                authenticationViewModel.uploadAuthData(["displayName": displayName, "dateOfBirth": birthDate.returnDateOfBirthAsString(), "gender": gender.rawValue])
+            }
+            .onChange(of: authenticationViewModel.isAuthDataUploadComplete) { isComplete in
+                if isComplete {
+                    viewModel.nextJourney()
                 }
             }
-            .onChange(of: viewModel.isAuthDataUploadComplete) { isComplete in
-                if isComplete {
-                    journeyViewModel.nextJourney()
+            .onChange(of: authenticationViewModel.feetishPhotoUploadError) { feetishPhotoUploadError in
+                if let _ = feetishPhotoUploadError {
+                    if viewModel.authenticationJourney == .accountCreation {
+                        viewModel.previousJourney()
+                    }
+                }
+            }
+            .onChange(of: authenticationViewModel.didErrorOccur) { didErrorOccur in
+                if didErrorOccur {
+                    if viewModel.authenticationJourney == .accountCreation {
+                        viewModel.previousJourney()
+                    }
                 }
             }
         }
@@ -77,8 +94,37 @@ struct AuthenticationJourneyPulsatingImageView: View {
     }
 }
 
-struct AuthenticationJourneyAccountCreationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthenticationJourneyAccountCreationView(displayName: .constant("Fuad Adetoro"), birthDate: .constant(Date()), gender: .constant(.male), profileImage: .constant(nil))
+struct AuthenticationJourneyPulsatingCircularView: View {
+    @State private var animationAmount: CGFloat = 1
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            HStack {
+                Spacer()
+                
+                Circle()
+                    .fill(Color("LoginColor2"))
+                    .frame(width: 140, height: 140)
+                    .overlay(
+                        Circle()
+                            .stroke(Color.black, lineWidth: 4)
+                    )
+                    .shadow(radius: 20)
+                    .scaleEffect(animationAmount)
+                    .animation(
+                        .linear(duration: 0.5)
+                        .delay(0.25)
+                        .repeatForever(autoreverses: true),
+                        value: animationAmount)
+                    .onAppear {
+                        animationAmount = 1.2
+                    }
+                
+                Spacer()
+            }
+            Spacer()
+        }
     }
 }

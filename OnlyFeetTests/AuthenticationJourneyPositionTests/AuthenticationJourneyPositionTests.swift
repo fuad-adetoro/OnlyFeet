@@ -26,25 +26,27 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         XCTAssertEqual(namePosition, AuthenticationJourneyPosition.name)
         XCTAssertEqual(namePosition.rawValue, 2)
         
-        let birthdayPosition = namePosition.nextPosition()
+        let usernamePosition = namePosition.nextPosition()
+        
+        let birthdayPosition = usernamePosition.nextPosition()
         
         XCTAssertEqual(birthdayPosition, AuthenticationJourneyPosition.birthday)
-        XCTAssertEqual(birthdayPosition.rawValue, 3)
+        XCTAssertEqual(birthdayPosition.rawValue, 4)
         
         let genderPosition = birthdayPosition.nextPosition()
         
         XCTAssertEqual(genderPosition, AuthenticationJourneyPosition.gender)
-        XCTAssertEqual(genderPosition.rawValue, 4)
+        XCTAssertEqual(genderPosition.rawValue, 5)
         
         let profilePhotoPosition = genderPosition.nextPosition()
         
         XCTAssertEqual(profilePhotoPosition, AuthenticationJourneyPosition.profilePhoto)
-        XCTAssertEqual(profilePhotoPosition.rawValue, 5)
+        XCTAssertEqual(profilePhotoPosition.rawValue, 6)
         
         let accountCreationPosition = profilePhotoPosition.nextPosition()
         
         XCTAssertEqual(accountCreationPosition, AuthenticationJourneyPosition.accountCreation)
-        XCTAssertEqual(accountCreationPosition.rawValue, 6) 
+        XCTAssertEqual(accountCreationPosition.rawValue, 7)
     }
     
     func testPreviousPosition() {
@@ -54,13 +56,15 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         
         let _ /*rulePosition*/ = authenticationJourneyPosition
         let namePosition = authenticationJourneyPosition.nextPosition()
-        let birthdayPosition = namePosition.nextPosition()
+        let usernamePosition = namePosition.nextPosition()
+        let birthdayPosition = usernamePosition.nextPosition()
         let genderPosition = birthdayPosition.nextPosition()
         let profilePhotoPosition = genderPosition.nextPosition()
         let accountCreationPosition = profilePhotoPosition.nextPosition()
         
         let rulesPositionPrevious = namePosition.previousPosition()
-        let namePositionPrevious = birthdayPosition.previousPosition()
+        let namePositionPrevious = usernamePosition.previousPosition()
+        let usernamePreviousPosition = birthdayPosition.previousPosition()
         let birthdayPositionPrevious = genderPosition.previousPosition()
         let genderPositionPrevious = profilePhotoPosition.previousPosition()
         let profilePhotoPreviousPrevious = accountCreationPosition.previousPosition()
@@ -72,6 +76,8 @@ class AuthenticationJourneyPositionTestCase: XCTestCase {
         XCTAssertEqual(rulesPositionPrevious?.rawValue, 1)
         
         XCTAssertEqual(namePositionPrevious, AuthenticationJourneyPosition.name)
+        
+        XCTAssertEqual(usernamePreviousPosition, AuthenticationJourneyPosition.username)
         
         XCTAssertEqual(birthdayPositionPrevious, AuthenticationJourneyPosition.birthday)
         

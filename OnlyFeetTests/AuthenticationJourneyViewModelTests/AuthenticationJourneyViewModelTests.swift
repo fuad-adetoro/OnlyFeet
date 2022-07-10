@@ -33,13 +33,13 @@ class AuthenticationJourneyViewModelTests: XCTestCase {
         
         XCTAssertEqual(previousEdge, Edge.leading)
     }
-    
+       
     func testNextJourney() {
         viewModel.authenticationJourney = .name
         
         viewModel.nextJourney()
         
-        XCTAssertEqual(viewModel.authenticationJourney, AuthenticationJourneyPosition.birthday)
+        XCTAssertEqual(viewModel.authenticationJourney, AuthenticationJourneyPosition.username)
         XCTAssertEqual(viewModel.previousAuthenticationJourney, AuthenticationJourneyPosition.name)
     }
     

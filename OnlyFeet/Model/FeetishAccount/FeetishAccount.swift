@@ -9,13 +9,14 @@ import Foundation
 
 public struct FeetishAccount {
     var profilePictureURL: String?
-    var name: String?
+    var displayName: String?
     var biograph: String?
     var username: String?
     var userID: String?
     var email: String?
     var dateOfBirth: String?
     var dateCreated: Double?
+    var gender: FeetishGender?
     
     public init(dataDict: [String: Any?]) {
         if let profilePictureURL = dataDict["profilePictureURL"] as? String {
@@ -26,8 +27,8 @@ public struct FeetishAccount {
             self.email = email
         }
         
-        if let name = dataDict["name"] as? String {
-            self.name = name
+        if let displayName = dataDict["displayName"] as? String {
+            self.displayName = displayName
         }
         
         if let biograph = dataDict["biograph"] as? String {
@@ -48,6 +49,10 @@ public struct FeetishAccount {
         
         if let dateCreated = dataDict["dateCreated"] as? Double {
             self.dateCreated = dateCreated
+        }
+        
+        if let gender = dataDict["gender"] as? Int {
+            self.gender = FeetishGender(rawValue: gender)
         }
     }
 }

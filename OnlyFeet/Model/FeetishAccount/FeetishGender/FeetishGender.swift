@@ -7,6 +7,9 @@
 
 import Foundation
 
-public enum FeetishGender {
-    case none, male, female, unspecified
+public enum FeetishGender: Int {
+    case none = 0
+    case male = 1
+    case female = 2
+    case unspecified = 3
 }

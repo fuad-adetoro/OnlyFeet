@@ -12,7 +12,7 @@ import SwiftUI
 protocol AuthenticationJourneyBased {
     func nextJourney()
     func previousJourney()
-    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>) -> AnyView?
+    func makeView(displayName: Binding<String>, username: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>, didSkipProfileImage: Binding<Bool>) -> AnyView?
     func getCurrentDateClosedRange() -> ClosedRange<Date>
 }
 
@@ -44,21 +44,22 @@ extension AuthenticationJourneyViewModel: AuthenticationJourneyBased {
 }
 
 extension AuthenticationJourneyViewModel {
-    func makeView(displayName: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>) -> AnyView? {
-        switch authenticationJourney {
-        case .rules:
+    func makeView(displayName: Binding<String>, username: Binding<String>, birthDate: Binding<Date>, gender: Binding<FeetishGender>, isImagePickerDisplayed: Binding<Bool>, profileImage: Binding<UIImage?>, croppedImage: Binding<UIImage?>, didSkipProfileImage: Binding<Bool>) -> AnyView? {
+        if case .rules = authenticationJourney {
             return AnyView(AuthenticationJourneyRulesView.init())
-        case .name:
+        } else if case .name = authenticationJourney {
             return AnyView(AuthenticationJourneyNameView.init(displayName: displayName))
-        case .birthday:
+        } else if case .username = authenticationJourney {
+            return AnyView(AuthenticationJourneyUsernameView.init(username: username))
+        } else if case .birthday = authenticationJourney {
             return AnyView(AuthenticationJourneyDateOfBirthSelectionView.init(birthDate: birthDate))
-        case .gender:
+        } else if case .gender = authenticationJourney {
             return AnyView(AuthenticationJourneyGenderSelectionView.init(gender: gender))
-        case .profilePhoto:
+        } else if case .profilePhoto = authenticationJourney {
             return AnyView(AuthenticationJourneyProfilePhotoUploaderView.init(isImagePickerDisplayed: isImagePickerDisplayed, profileImage: profileImage, croppedImage: croppedImage))
-        case .accountCreation:
-            return AnyView(AuthenticationJourneyAccountCreationView.init(displayName: displayName, birthDate: birthDate, gender: gender, profileImage: croppedImage))  
-        default:
+        } else if case .accountCreation = authenticationJourney {
+            return AnyView(AuthenticationJourneyAccountCreationView.init(displayName: displayName, birthDate: birthDate, gender: gender, profileImage: croppedImage, didSkipProfileImage: didSkipProfileImage))
+        } else {
             return nil
         }
     }

@@ -9,6 +9,7 @@ import Combine
 
 protocol ProfileServiceBased {
     func signOut() -> AnyPublisher<Bool, ProfileServiceError>
+    func createUsername(_ username: String) -> AnyPublisher<Bool, ProfileServiceError>
 }
 
 public final class ProfileService {
@@ -32,6 +33,57 @@ extension ProfileService: ProfileServiceBased {
         } catch {
             publisher.send(completion: .failure(.errorSigningOut))
         }
+        
+        return feetishSubject.eraseToAnyPublisher()
+    }
+    
+    func createUsername(_ username: String) -> AnyPublisher<Bool, ProfileServiceError> {
+        let feetishSubject = FeetishSubject<Bool, ProfileServiceError>()
+        let publisher = feetishSubject.publisher
+        
+        if !username.isValidUsername() {
+            publisher.send(completion: .failure(.invalidUsername))
+            
+            return feetishSubject.eraseToAnyPublisher()
+        }
+        
+        let dataDict = ["username": username]
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            publisher.send(completion: .failure(.notSignedIn))
+            
+            return feetishSubject.eraseToAnyPublisher()
+        }
+        
+        let userRef = databaseRef.collection("users")
+        let profileRef = userRef.document(uid)
+        
+        userRef.whereField("username", isEqualTo: username).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                publisher.send(completion: .failure(.unknownError))
+                return
+            }
+            
+            if snapshot.isEmpty {
+                // username doesn't exist
+                
+                profileRef.updateData(dataDict) { error in
+                    guard error == nil else {
+                        publisher.send(completion: .failure(.couldNotUpdate))
+                        
+                        return
+                    }
+                    
+                    FeetishUserJourney.shared.accountUsernameCreated()
+                    
+                    publisher.send(true)
+                    publisher.send(completion: .finished)
+                }
+            } else {
+                publisher.send(completion: .failure(.usernameExists))
+            }
+        }
+        
         
         return feetishSubject.eraseToAnyPublisher()
     }

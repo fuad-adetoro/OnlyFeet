@@ -121,7 +121,11 @@ extension FeetishAuthentication: FeetishAuthProvider {
                     return
                 }
                 
-                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil)
+                if let _ = data["username"] as? String {
+                    FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil, doesAccountHaveUsername: true)
+                } else {
+                    FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil, doesAccountHaveUsername: false)
+                }
                 
                 publisher.send(data)
                 publisher.send(completion: .finished)
@@ -158,7 +162,7 @@ extension FeetishAuthentication: FeetishAuthProvider {
                     return
                 }
                 
-                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: true)
+                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: true, doesAccountHaveUsername: false)
                 
                 publisher.send(dataDict)
                 publisher.send(completion: .finished)
@@ -227,7 +231,7 @@ extension FeetishAuthentication: FeetishAuthProvider {
                 
                 let urlString = url.absoluteString
                  
-                let dataDict: [String: Any] = ["profilePhotoLocation": urlString]
+                let dataDict: [String: Any] = ["profilePictureURL": urlString]
                 
                 docRef.updateData(dataDict) { error in
                     guard error == nil else {

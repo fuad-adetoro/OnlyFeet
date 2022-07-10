@@ -24,6 +24,7 @@
 		062BAE87287A565B00B55282 /* FeetishSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE86287A565B00B55282 /* FeetishSubject.swift */; };
 		062BAE8A287A575E00B55282 /* FeetishUserJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE89287A575E00B55282 /* FeetishUserJourney.swift */; };
 		062BAE8D287A61ED00B55282 /* FeetishLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */; };
+		062BAE90287B0A2A00B55282 /* AuthenticationJourneyUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BAE8F287B0A2A00B55282 /* AuthenticationJourneyUsernameView.swift */; };
 		064B2ED228646362009706D1 /* FeetishBasicLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2ED128646362009706D1 /* FeetishBasicLoaderView.swift */; };
 		064B2ED72864B3B9009706D1 /* ForgottenPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */; };
 		064B2EDB2864B403009706D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2EDA2864B403009706D1 /* LoginView.swift */; };
@@ -118,6 +119,7 @@
 		062BAE86287A565B00B55282 /* FeetishSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishSubject.swift; sourceTree = "<group>"; };
 		062BAE89287A575E00B55282 /* FeetishUserJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishUserJourney.swift; sourceTree = "<group>"; };
 		062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishLaunchScreenView.swift; sourceTree = "<group>"; };
+		062BAE8F287B0A2A00B55282 /* AuthenticationJourneyUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationJourneyUsernameView.swift; sourceTree = "<group>"; };
 		064B2ED128646362009706D1 /* FeetishBasicLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeetishBasicLoaderView.swift; sourceTree = "<group>"; };
 		064B2ED62864B3B9009706D1 /* ForgottenPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgottenPasswordView.swift; sourceTree = "<group>"; };
 		064B2EDA2864B403009706D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -358,6 +360,14 @@
 				062BAE8C287A61ED00B55282 /* FeetishLaunchScreenView.swift */,
 			);
 			path = FeetishLaunchScreenView;
+			sourceTree = "<group>";
+		};
+		062BAE8E287B0A1400B55282 /* AuthenticationJourneyUsernameView */ = {
+			isa = PBXGroup;
+			children = (
+				062BAE8F287B0A2A00B55282 /* AuthenticationJourneyUsernameView.swift */,
+			);
+			path = AuthenticationJourneyUsernameView;
 			sourceTree = "<group>";
 		};
 		064B2ED028646347009706D1 /* FeetishBasicLoaderView */ = {
@@ -974,6 +984,7 @@
 				0662446128693B80003B50F3 /* AuthenticationJourneyProfilePhotoView */,
 				0662445B286934C8003B50F3 /* AuthenticationJourneyGenderSelectionView */,
 				0662445528692D0A003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView */,
+				062BAE8E287B0A1400B55282 /* AuthenticationJourneyUsernameView */,
 				0662445228692A13003B50F3 /* AuthenticationJourneyNameView */,
 				06C7C46728691C7700625ED6 /* AuthenticationJourneyRulesView */,
 				06C7C45F2868548200625ED6 /* AuthenticationJourneyView.swift */,
@@ -1228,6 +1239,7 @@
 				0666F2F728783B5B0034D537 /* OFCameraFocusPointView.swift in Sources */,
 				0661967028638FF3008DEC29 /* FeetishBannerView.swift in Sources */,
 				0662445728692D26003B50F3 /* AuthenticationJourneyDateOfBirthSelectionView.swift in Sources */,
+				062BAE90287B0A2A00B55282 /* AuthenticationJourneyUsernameView.swift in Sources */,
 				062BAE75287A4B8400B55282 /* OFActivityTabView.swift in Sources */,
 				0666F2FA28783BDB0034D537 /* OFCameraTouchableView.swift in Sources */,
 				0661965728633835008DEC29 /* FeetishAuthError.swift in Sources */,

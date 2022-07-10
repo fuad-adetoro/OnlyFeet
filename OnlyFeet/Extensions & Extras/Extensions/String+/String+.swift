@@ -53,3 +53,9 @@ extension String {
         return image
     }
 }
+
+extension String {
+    func isValidUsername() -> Bool {
+        return self.range(of: "\\A\\w{3,18}\\z", options: .regularExpression) != nil
+    }
+}

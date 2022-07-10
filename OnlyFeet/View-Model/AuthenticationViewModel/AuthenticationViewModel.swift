@@ -34,7 +34,7 @@ public class AuthenticationViewModel<FA>: ObservableObject, AuthenticationBased 
     @Published var didPhotoUploadErrorOccur = false
     @Published var didFetchAccount = false
     @Published var didResetPassword = false
-    @Published var isUploadAuthData = false
+    @Published var isUploadingAuthData = false
     @Published var didCompleteUploadingAuthData = false
     @Published var isUploadingProfilePhoto = false
     @Published var didUploadProfilePhoto = false
@@ -81,11 +81,7 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
         feetishAuthentication.signUserIn(email: email, password: password)
-            .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
-                FeetishAuthError.maxWaitTimeReachedError
-            })
             .map { FeetishAccount(dataDict: $0) }
             .sink { [weak self] completion in
                 guard let strongSelf = self else {
@@ -126,11 +122,7 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
         feetishAuthentication.createNewAccount(email: email, password: password)
-            .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .timeout(.seconds(maxWaitTimeForRequest + 2.5), scheduler: DispatchQueue.main, options: nil, customError: {
-                FeetishAuthError.maxWaitTimeReachedError
-            })
             .map { FeetishAccount(dataDict: $0) }
             .sink { [weak self] completion in
                 self?.isChanging = false
@@ -164,11 +156,7 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
         isChanging = true; self.feetishAuthError = nil; self.feetishAccount = nil; self.didErrorOccur = false; self.didFetchAccount = false;
         
         feetishAuthentication.resetUserPassword(email: email)
-            .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
-                FeetishAuthError.maxWaitTimeReachedError
-            })
             .sink { [weak self] completion in
                 self?.isChanging = false
                 
@@ -189,21 +177,28 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
     }
     
     public func uploadAuthData(_ dataDict: [String: Any]) {
+        if !self.checkIfConnectedToNetwork() {
+            self.feetishAuthError = .networkError
+            self.didErrorOccur = true
+            
+            return
+        }
+        
         if self.isChanging { return }
         
-        isChanging = true; self.feetishAuthError = nil; self.didErrorOccur = false; self.didCompleteUploadingAuthData = false; self.isUploadAuthData = true; self.isAuthDataUploadComplete = false
+        isChanging = true; self.feetishAuthError = nil; self.didErrorOccur = false; self.didCompleteUploadingAuthData = false; self.isUploadingAuthData = true; self.isAuthDataUploadComplete = false
         
         feetishAuthentication.uploadAuthData(data: dataDict)
-            .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .timeout(.seconds(maxWaitTimeForRequest), scheduler: DispatchQueue.main, options: nil, customError: {
-                FeetishAuthError.maxWaitTimeReachedError
-            })
-            .sink { [weak self] completion in 
-                self?.isChanging = false
-                self?.isUploadAuthData = false
+            .sink { [weak self] completion in
                 
-                if let strongSelf = self, strongSelf.isUploadingProfilePhoto {
+                print("COMPLETION!!")
+                self?.isChanging = false
+                self?.isUploadingAuthData = false
+                
+                if let strongSelf = self, !strongSelf.isUploadingProfilePhoto {
+                    print("IS ACCOUNT JOURNEY COMPLETE?")
+                    
                     strongSelf.isAuthDataUploadComplete = true
                     
                     FeetishUserJourney.shared.accountJourneyComplete()
@@ -224,20 +219,24 @@ extension AuthenticationViewModel where FA: FeetishAuthentication {
     }
     
     public func uploadProfilePhoto(_ profileImage: UIImage) {
+        if !self.checkIfConnectedToNetwork() {
+            self.feetishPhotoUploadError = .networkError
+            self.didPhotoUploadErrorOccur = true
+            
+            return
+        }
+        
         if self.isUploadingProfilePhoto { return }
         
         isUploadingProfilePhoto = true; self.feetishPhotoUploadError = nil; self.didPhotoUploadErrorOccur = false; self.didUploadProfilePhoto = false; self.isAuthDataUploadComplete = false
         
         feetishAuthentication.uploadProfilePhoto(image: profileImage)
-            .subscribe(on: DispatchQueue.global(qos: .background))
-            .receive(on: DispatchQueue.main)
-            .timeout(.seconds(maxWaitTimeForRequest * 2.4), scheduler: DispatchQueue.main, options: nil, customError: {
-                FeetishAuthError.maxWaitTimeReachedError
-            })
+            .receive(on: DispatchQueue.main) 
             .sink { [weak self] completion in
                 self?.isUploadingProfilePhoto = false
                 
-                if let strongSelf = self, strongSelf.isChanging {
+                if let strongSelf = self, !strongSelf.isChanging {
+                    print("IS COMPLETE FULLY!")
                     strongSelf.isAuthDataUploadComplete = true
                     
                     FeetishUserJourney.shared.accountJourneyComplete()
@@ -284,10 +283,19 @@ extension AuthenticationViewModel {
             }
         }
         
-        if !SystemReachability.isConnectedToNetwork() {
-            self.throwError(error: .networkError); return true
+        if !self.checkIfConnectedToNetwork() {
+            return false
         }
         
         return false
+    }
+    
+    func checkIfConnectedToNetwork() -> Bool  {
+        if !SystemReachability.isConnectedToNetwork() {
+            self.throwError(error: .networkError);
+            return false
+        } else {
+            return true
+        }
     }
 }

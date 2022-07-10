@@ -10,11 +10,12 @@ import Foundation
 public enum AuthenticationJourneyPosition: Int, CaseIterable {
     case rules = 1
     case name = 2
-    case birthday = 3
-    case gender = 4
-    case profilePhoto = 5
-    case accountCreation = 6
-    case complete = 7
+    case username = 3
+    case birthday = 4
+    case gender = 5
+    case profilePhoto = 6
+    case accountCreation = 7
+    case complete = 8
 }
 
 extension AuthenticationJourneyPosition {
@@ -27,6 +28,14 @@ extension AuthenticationJourneyPosition {
         if case .rules = self {
             return .name
         } else if case .name = self {
+            let isUsernameCreated = FeetishUserJourney.shared.checkIfAccountHasUsername()
+            
+            if isUsernameCreated {
+                return .birthday
+            } else {
+                return .username
+            }
+        } else if case .username = self {
             return .birthday
         } else if case .birthday = self {
             return .gender
@@ -44,8 +53,16 @@ extension AuthenticationJourneyPosition {
             return nil
         } else if case .name = self {
             return .rules
-        } else if case .birthday = self {
+        } else if case .username = self {
             return .name
+        } else if case .birthday = self {
+            let isUsernameCreated = FeetishUserJourney.shared.checkIfAccountHasUsername()
+            
+            if isUsernameCreated {
+                return .name
+            } else {
+                return .username
+            } 
         } else if case .gender = self {
             return .birthday
         } else if case .profilePhoto = self {

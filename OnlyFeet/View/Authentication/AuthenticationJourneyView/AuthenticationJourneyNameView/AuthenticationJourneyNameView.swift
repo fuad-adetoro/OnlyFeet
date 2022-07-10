@@ -47,7 +47,7 @@ struct AuthenticationJourneyNameView: View {
                     HStack {
                         Spacer().frame(width: 20)
                         
-                        AuthenticationJourneyContinueButtonView.init(isInactive: .constant($displayName.wrappedValue.isEmpty))
+                        AuthenticationJourneyContinueButtonView.init(isInactive: .constant($displayName.wrappedValue.isEmpty), username: .constant(""))
                             .environmentObject(viewModel)
                         
                         Spacer().frame(width: 20)

@@ -25,7 +25,7 @@ struct AuthenticationContinueButtonWithBackground: View {
                     HStack {
                         Spacer().frame(width: 20)
                         
-                        AuthenticationJourneyContinueButtonView.init(isInactive: $isInActive)
+                        AuthenticationJourneyContinueButtonView.init(isInactive: $isInActive, username: .constant(""))
                         .environmentObject(viewModel)
                         
                         Spacer().frame(width: 20)
@@ -46,6 +46,9 @@ struct AuthenticationJourneyContinueButtonView: View {
     @Binding var isInactive: Bool
     
     @EnvironmentObject var viewModel: AuthenticationJourneyViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    @Binding var username: String
     
     var body: some View {
         GeometryReader { geometry in
@@ -54,6 +57,8 @@ struct AuthenticationJourneyContinueButtonView: View {
                     //
                     if case .birthday = viewModel.authenticationJourney {
                         viewModel.isDisplayingAlert = true
+                    } else if case .username = viewModel.authenticationJourney, username != "" {
+                        profileViewModel.createUsername(username)
                     } else {
                         viewModel.nextJourney()
                     }
@@ -130,6 +135,8 @@ struct AuthenticationJourneyDecisionButtonView: View {
     
     @State private var authJourney: AuthenticationJourneyPosition = .init()
     
+    @Binding var didSkipProfilePhoto: Bool
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -152,6 +159,8 @@ struct AuthenticationJourneyDecisionButtonView: View {
                         
                         if case .profilePhoto = viewModel.authenticationJourney {
                             Button {
+                                self.didSkipProfilePhoto = true 
+                                
                                 viewModel.nextJourney()
                             } label: {
                                 Text("Skip")
