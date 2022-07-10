@@ -278,8 +278,10 @@ extension AuthenticationViewModel {
         }
         
         if let email = email {
-            if !email.isValidEmail() {
+            if email.contains("@") && !email.isValidEmail() {
                 self.throwError(error: .emailInvalidError); return true
+            } else if !email.isValidUsername() {
+                self.throwError(error: .invalidUsername); return true
             }
         }
         

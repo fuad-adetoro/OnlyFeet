@@ -94,11 +94,19 @@ extension FeetishAuthentication: FeetishAuthProvider {
     }
     
     func signUserIn(email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
+        if email.contains("@") {
+            return self.signUserInWithEmail(email, password: password)
+        } else { 
+            return self.signUserInWithUsername(email, password: password)
+        }
+    }
+    
+    private func signUserInWithEmail(_ email: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
         let feetishAuthSubject = FeetishAuthSubject<FeetishAuthDataDict>()
         let publisher = feetishAuthSubject.publisher
         
         Auth.auth().signIn(withEmail: email, password: password) { dataResult, error in
-            guard error == nil else { 
+            guard error == nil else {
                 publisher.send(completion: .failure(.signInError(errorMessage: error!.localizedDescription)))
                 return
             }
@@ -129,6 +137,70 @@ extension FeetishAuthentication: FeetishAuthProvider {
                 
                 publisher.send(data)
                 publisher.send(completion: .finished)
+            }
+        }
+        
+        return feetishAuthSubject.eraseToAnyPublisher()
+    }
+    
+    private func signUserInWithUsername(_ username: String, password: String) -> AnyPublisher<FeetishAuthDataDict, FeetishAuthError> {
+        let feetishAuthSubject = FeetishAuthSubject<FeetishAuthDataDict>()
+        let publisher = feetishAuthSubject.publisher
+        
+        let userRef = databaseRef.collection("users").whereField("username", isEqualTo: username.lowercased())
+        
+        userRef.getDocuments { querySnapshot, error in
+            guard let querySnapshot = querySnapshot, error == nil else {
+                publisher.send(completion: .failure(.unknownError))
+                
+                return
+            }
+            
+            if querySnapshot.isEmpty {
+                publisher.send(completion: .failure(.usernameDoesNotExist))
+            } else {
+                let firstDocument = querySnapshot.documents[0]
+                
+                let data = firstDocument.data()
+                
+                if let email = data["email"] as? String {
+                    Auth.auth().signIn(withEmail: email, password: password) { dataResult, error in
+                        guard error == nil else {
+                            publisher.send(completion: .failure(.signInError(errorMessage: error!.localizedDescription)))
+                            return
+                        }
+                        
+                        guard let uid = dataResult?.user.uid else {
+                            publisher.send(completion: .failure(.accountDoesNotExistError))
+                            return
+                        }
+                        
+                        self.databaseRef.collection("users").document(uid).getDocument { docSnapshot, docError in
+                            guard docError == nil else {
+                                publisher.send(completion: .failure(.signInError(errorMessage: docError!.localizedDescription)))
+                                let _ = self.signUserOut()
+                                
+                                return
+                            }
+                            
+                            guard let data = docSnapshot?.data() else {
+                                publisher.send(completion: .failure(.accountDataDoesNotExistError))
+                                return
+                            }
+                            
+                            if let _ = data["username"] as? String {
+                                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil, doesAccountHaveUsername: true)
+                            } else {
+                                FeetishUserJourney.shared.initialSignInOccured(doesNeedJourney: data["gender"] == nil, doesAccountHaveUsername: false)
+                            }
+                            
+                            publisher.send(data)
+                            publisher.send(completion: .finished)
+                        }
+                    }
+                } else {
+                    publisher.send(completion: .failure(.accountDoesNotExistError))
+                }
             }
         }
         

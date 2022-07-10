@@ -27,11 +27,18 @@ public enum FeetishAuthError: Error, Equatable {
     case networkError
     
     case dataUploadError
+    
+    case usernameDoesNotExist
+    case invalidUsername
 }
 
 extension FeetishAuthError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .invalidUsername:
+            return "Please enter a valid username."
+        case .usernameDoesNotExist:
+            return "That username does not exist."
         case .signOutError(let errorMsg):
             return "\(errorMsg)"
         case .resetPasswordError(let errorMsg):

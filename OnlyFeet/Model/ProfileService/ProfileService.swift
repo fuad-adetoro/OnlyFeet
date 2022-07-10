@@ -9,7 +9,7 @@ import Combine
 
 protocol ProfileServiceBased {
     func signOut() -> AnyPublisher<Bool, ProfileServiceError>
-    func createUsername(_ username: String) -> AnyPublisher<Bool, ProfileServiceError>
+    func createUsername(_ username: String) -> AnyPublisher<Bool, ProfileServiceError> 
 }
 
 public final class ProfileService {
@@ -47,7 +47,7 @@ extension ProfileService: ProfileServiceBased {
             return feetishSubject.eraseToAnyPublisher()
         }
         
-        let dataDict = ["username": username]
+        let dataDict = ["username": username.lowercased()]
         
         guard let uid = Auth.auth().currentUser?.uid else {
             publisher.send(completion: .failure(.notSignedIn))
