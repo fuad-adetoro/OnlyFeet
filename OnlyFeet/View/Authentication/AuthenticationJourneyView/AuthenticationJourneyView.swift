@@ -40,8 +40,6 @@ struct AuthenticationJourneyView: View {
                     if let view = viewModel.makeView(displayName: $displayName, username: $username, birthDate: $birthDate, gender: $gender, isImagePickerDisplayed: $isImagePickerDisplayed, profileImage: $profileImage, croppedImage: $croppedImage, didSkipProfileImage: $didSkipProfileImage) {
                         view
                             .environmentObject(viewModel)
-                    } else {
-                        FeetishLaunchScreenView()
                     }
                 }
                 
@@ -62,6 +60,11 @@ struct AuthenticationJourneyView: View {
             .onChange(of: viewModel.authenticationJourney, perform: { authenticationJourney in
                 if authenticationJourney == .profilePhoto {
                     self.didSkipProfileImage = false
+                } else if authenticationJourney == .complete {
+                    self.viewControllerHolder?.present(style: .fullScreen) {
+                        OFTabView(doesHaveTopNotch: .constant(hasTopNotch))
+                            .ignoresSafeArea()
+                    }
                 }
             })
         }
